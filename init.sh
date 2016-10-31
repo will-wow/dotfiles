@@ -41,5 +41,30 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
+## OS-Specific ##
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Chrome
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+  sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+  sudo apt-get update
+  sudo apt-get install google-chrome-stable
+  # xmonad
+  sudo apt-get install xmonad suckless-tools
+  # ctags
+  sudo apt-get install exuberant-ctags
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # Mac OSX
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+  # POSIX compatibility layer and Linux environment emulation for Windows
+elif [[ "$OSTYPE" == "msys" ]]; then
+  # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+elif [[ "$OSTYPE" == "win32" ]]; then
+  # I'm not sure this can happen.
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+  # ...
+else
+  # Unknown.
+fi
+
 # Finally, source zshrc
 source ~/.zshrc
