@@ -94,3 +94,7 @@ nnoremap <leader><tab> :bp<cr>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
+
+" Line numbers: absolute # on active line, relative everywhere else
+set number
+set relativenumber

@@ -1,9 +1,45 @@
+## Install libs ##
+# Note it's probably a bad idea to just run this right now.
+
+# Set up oh-my-zsh
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+chsh -s `which zsh`
+rm ~/.zshrc
+
+# Set up vundle
+if [ ! -e "~/.vim" ]
+then
+  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  vim +PluginInstall +qall
+fi
+
 # Link dotfiles
 ln -s ~/dotfiles/.zshrc ~
 ln -s ~/dotfiles/.vimrc ~
 ln -s ~/dotfiles/.spacemacs ~
-source ~/.zshrc
 
 # Link neovim config
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
+
+# Set up nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+# Install latest node
+nvm install node
+# Install avn for auto switching
+npm install -g avn avn-nvm
+avn setup
+# Install useful node globals
+npm install -g typescript
+npm install -g tslint
+npm install -g typescript-formatter
+npm install -g jshint
+
+## Set up Ruby ##
+# Install rbenv
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+cd ~/.rbenv && src/configure && make -C src
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+# Finally, source zshrc
+source ~/.zshrc

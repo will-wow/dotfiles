@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/willlee-wagner/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -80,7 +80,7 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Alias private stuff
-if [ -b "~/.zshrc_private" ]
+if [ ! -e "~/.zshrc_private" ]
 then
   source ~/.zshrc_private
 fi
