@@ -17,6 +17,7 @@ fi
 ln -s ~/dotfiles/.zshrc ~
 ln -s ~/dotfiles/.vimrc ~
 ln -s ~/dotfiles/.spacemacs ~
+ln -s ~/dotfiles/.ctags ~
 
 # Link neovim config
 ln -s ~/.vim ~/.config/nvim
