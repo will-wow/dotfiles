@@ -70,9 +70,11 @@ endif
 set splitbelow
 set splitright
 " Pipe for vertical split 
-nnoremap <leader>w\/ <c-w>v
+nnoremap <leader>w/ <c-w>v
 nnoremap <leader>w- <c-w>S
 nnoremap <leader>wd <c-w>c
+nnoremap <leader>wj <c-w>j
+nnoremap <leader>wk <c-w>k
 
 " ctrlp
 let g:ctrlp_map = '<leader>pf'
