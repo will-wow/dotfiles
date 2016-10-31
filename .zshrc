@@ -95,17 +95,20 @@ eval "$(rbenv init -)"
 
 # OS-specific stuff
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Linux
 	setxkbmap -option caps:escape
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-        # Mac OSX
+  # Mac OSX
+  alias vi='nvim'
+  alias vim='nvim'
 elif [[ "$OSTYPE" == "cygwin" ]]; then
-        # POSIX compatibility layer and Linux environment emulation for Windows
+  # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
-        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+  # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
 elif [[ "$OSTYPE" == "win32" ]]; then
-        # I'm not sure this can happen.
+  # I'm not sure this can happen.
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-        # ...
+  # ...
 else
-        # Unknown.
+  # Unknown.
 fi
