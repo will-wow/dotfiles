@@ -30,6 +30,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 " JS/TS
 Plugin 'quramy/tsuquyomi'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
 " HTML
@@ -70,11 +72,13 @@ endif
 set splitbelow
 set splitright
 " Pipe for vertical split 
-nnoremap <leader>w/ <c-w>v
-nnoremap <leader>w- <c-w>S
-nnoremap <leader>wd <c-w>c
+nnoremap <leader>wv <c-w>v
+nnoremap <leader>ws <c-w>s
+nnoremap <leader>wc <c-w>c
 nnoremap <leader>wj <c-w>j
 nnoremap <leader>wk <c-w>k
+nnoremap <leader>wh <c-w>h
+nnoremap <leader>wl <c-w>l
 
 " ctrlp
 let g:ctrlp_map = '<leader>pf'
@@ -93,6 +97,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Buffer switching
 nnoremap <leader><tab> :bp<cr>
+nnoremap <leader>bb :buffers<cr>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
@@ -106,3 +111,8 @@ set tabstop     =2
 set softtabstop =2
 set shiftwidth  =2
 set expandtab
+
+" vimrc
+nnoremap <leader>fed :e $MYVIMRC<cr>
+nnoremap <leader>feR :so $MYVIMRC<cr>
+
