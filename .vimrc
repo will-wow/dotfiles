@@ -116,3 +116,8 @@ set expandtab
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>feR :so $MYVIMRC<cr>
 
+" Use system clipboard
+set clipboard=unnamedplus
+
+" Let <esc> turn off search highlighting
+nnoremap <silent> <esc> :noh<return><esc>
