@@ -67,6 +67,8 @@ colorscheme solarized
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+nnoremap <leader>/ :Ack 
+nnoremap <leader>* :silent execute "Ack " . shellescape(expand("<cword>"))<cr>
 
 " Open splits to the side as expected
 set splitbelow
