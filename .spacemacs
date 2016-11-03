@@ -34,7 +34,8 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     version-control
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl)
      javascript
      html
      (ruby :variables ruby-version-manager 'rbenv)
@@ -258,8 +259,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq magit-repository-directories '("~/repos/"))
-  '(version-control :variables
-                    version-control-diff-tool 'diff-hl)
 
   (global-linum-mode t)
 

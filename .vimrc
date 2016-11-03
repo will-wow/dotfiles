@@ -17,19 +17,22 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'ervandew/supertab'
-
+Plugin 'tpope/vim-commentary'
+" GIT
+Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
 " ELIXIR
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'slashmili/alchemist.vim'
 " JS/TS
 Plugin 'quramy/tsuquyomi'
+Plugin 'pangloss/vim-javascript'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'Quramy/vim-js-pretty-template'
@@ -84,6 +87,8 @@ nnoremap <leader>wl <c-w>l
 
 " ctrlp
 let g:ctrlp_map = '<leader>pf'
+nnoremap <LEADER>ff :CtrlPCurFile<CR>
+nnoremap <LEADER>fr :CtrlPMRU<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -95,11 +100,15 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Airline bufferline
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " Buffer switching
-nnoremap <leader><tab> :bp<cr>
-nnoremap <leader>bb :buffers<cr>
+nnoremap <leader><tab> <c-^>
+nnoremap <LEADER>bb :buffers<CR>
+nnoremap <LEADER>bd :bdelete<CR>
+nnoremap <LEADER>bn :bn<CR>
+nnoremap <LEADER>bp :bp<CR>
+nnoremap <LEADER>bR :e<CR>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
@@ -108,7 +117,7 @@ nnoremap <leader>pt :NERDTreeToggle<CR>
 set number
 set relativenumber
 
-" Tabs: 2 spaces
+" tabs: 2 spaces
 set tabstop     =2
 set softtabstop =2
 set shiftwidth  =2
@@ -123,3 +132,18 @@ set clipboard=unnamedplus
 
 " Let <esc> turn off search highlighting
 nnoremap <silent> <esc> :noh<return><esc>
+
+" Commentary
+nmap <Leader>;  <Plug>Commentary
+nmap <Leader>;; <Plug>CommentaryLine
+omap <Leader>;  <Plug>Commentary
+vmap <Leader>;  <Plug>Commentary
+
+" easymotion
+nnoremap <Leader>jj <Plug>(easymotion-bd-jk)
+
+" git
+nnoremap <LEADER>gb :Gblame<CR>
+nnoremap <LEADER>gd :Gdiff<CR>
+nnoremap <LEADER>gs :Gstatus<CR>
+nnoremap <Leader>Td :GitGutterToggle<CR>
