@@ -1,0 +1,22 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // Workbench
+
+    // Controls if opened editors should show in tabs or not.
+    "workbench.editor.showTabs": false,
+    
+    "htmlhint.options": {
+        "doctype-first": false
+    },
+    "ruby.rubocop.executePath": "~/.rbenv/versions/2.2.3/bin/",
+    "editor.wrappingIndent": "indent",
+    "files.autoSave": "onFocusChange",
+    
+    "search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true
+	},
+    "typescript.check.workspaceVersion": false,
+    "vim.useSystemClipboard": true,
+    "vim.easymotion": true
+}
