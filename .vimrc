@@ -115,7 +115,6 @@ nnoremap <leader>pt :NERDTreeToggle<CR>
 
 " Line numbers: absolute # on active line, relative everywhere else
 set number
-set relativenumber
 
 " tabs: 2 spaces
 set tabstop     =2
