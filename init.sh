@@ -55,6 +55,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt-get install exuberant-ctags
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
+  brew install cmake
+  brew install python3
+  pip3 install --user neovim
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
@@ -66,6 +69,12 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
 else
   # Unknown.
 fi
+
+# Vim plugin installs
+~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
+~/.vim/bundle/elixir.nvim/install.sh --tern-completer --clang-completer
+# Elixir.nvim install
+vim +UpdateRemotePlugins +qall
 
 # Finally, source zshrc
 source ~/.zshrc

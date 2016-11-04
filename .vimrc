@@ -21,25 +21,27 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-commentary'
+Plugin 'Raimondi/delimitMate'
+Plugin 'PeterRincker/vim-argumentative'
 " GIT
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 " ELIXIR
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
+Plugin 'thinca/vim-ref'
+Plugin 'awetzel/elixir.nvim'
 " JS/TS
-Plugin 'quramy/tsuquyomi'
 Plugin 'pangloss/vim-javascript'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
+Plugin 'helino/vim-json'
 " HTML
 Plugin 'othree/html5.vim'
+Plugin 'Quramy/vim-js-pretty-template'
 " OTHER LANG
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'plasticboy/vim-markdown'
 
