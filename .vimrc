@@ -17,26 +17,31 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'ervandew/supertab'
-
+Plugin 'tpope/vim-commentary'
+Plugin 'Raimondi/delimitMate'
+Plugin 'PeterRincker/vim-argumentative'
+" GIT
+Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
 " ELIXIR
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
+Plugin 'thinca/vim-ref'
+Plugin 'awetzel/elixir.nvim'
 " JS/TS
-Plugin 'quramy/tsuquyomi'
-Plugin 'Shougo/vimproc.vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
+Plugin 'helino/vim-json'
 " HTML
 Plugin 'othree/html5.vim'
+Plugin 'Quramy/vim-js-pretty-template'
 " OTHER LANG
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'plasticboy/vim-markdown'
 
@@ -84,6 +89,8 @@ nnoremap <leader>wl <c-w>l
 
 " ctrlp
 let g:ctrlp_map = '<leader>pf'
+nnoremap <LEADER>ff :CtrlPCurFile<CR>
+nnoremap <LEADER>fr :CtrlPMRU<CR>
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -95,20 +102,23 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Airline bufferline
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " Buffer switching
-nnoremap <leader><tab> :bp<cr>
-nnoremap <leader>bb :buffers<cr>
+nnoremap <leader><tab> <c-^>
+nnoremap <LEADER>bb :buffers<CR>
+nnoremap <LEADER>bd :bdelete<CR>
+nnoremap <LEADER>bn :bn<CR>
+nnoremap <LEADER>bp :bp<CR>
+nnoremap <LEADER>bR :e<CR>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
 
 " Line numbers: absolute # on active line, relative everywhere else
 set number
-set relativenumber
 
-" Tabs: 2 spaces
+" tabs: 2 spaces
 set tabstop     =2
 set softtabstop =2
 set shiftwidth  =2
@@ -123,3 +133,29 @@ set clipboard=unnamedplus
 
 " Let <esc> turn off search highlighting
 nnoremap <silent> <esc> :noh<return><esc>
+
+" Commentary
+nmap <Leader>;  <Plug>Commentary
+nmap <Leader>;; <Plug>CommentaryLine
+omap <Leader>;  <Plug>Commentary
+vmap <Leader>;  <Plug>Commentary
+
+" easymotion
+map <leader>j <Plug>(easymotion-prefix)
+" <Leader>f{char} to move to {char}
+map  <Leader>jj <Plug>(easymotion-bd-f)
+nmap <Leader>jj <Plug>(easymotion-overwin-f)
+" s{char}{char} to move to {char}{char}
+nmap <Leader>jJ <Plug>(easymotion-overwin-f2)
+" Move to line
+map <Leader>jl <Plug>(easymotion-bd-jk)
+nmap <Leader>jl <Plug>(easymotion-overwin-line)
+" Move to word
+map  <Leader>jw <Plug>(easymotion-bd-w)
+nmap <Leader>jw <Plug>(easymotion-overwin-w)
+
+" git
+nnoremap <LEADER>gb :Gblame<CR>
+nnoremap <LEADER>gd :Gdiff<CR>
+nnoremap <LEADER>gs :Gstatus<CR>
+nnoremap <Leader>Td :GitGutterToggle<CR>
