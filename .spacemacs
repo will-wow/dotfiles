@@ -34,12 +34,14 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
-     version-control
+     (version-control :variables
+      version-control-diff-tool 'diff-hl)
+     typescript
      javascript
      html
      (ruby :variables ruby-version-manager 'rbenv)
+     yaml
      elixir
-     typescript
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -258,8 +260,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq magit-repository-directories '("~/repos/"))
-  '(version-control :variables
-                    version-control-diff-tool 'diff-hl)
 
   (global-linum-mode t)
 
@@ -274,7 +274,9 @@ you should place your code here."
    js-indent-level 2
    js2-basic-offset 2
    json-reformat:indent-width 2
-   web-mode-code-indent-offset 2)
+   web-mode-code-indent-offset 2
+   css-indent-offset 2
+   elixir-basic-offset 2)
 
   ; Stop complaining about trailing whitespace.
   (setq spacemacs-show-trailing-whitespace nil))
