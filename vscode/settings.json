@@ -1,22 +1,28 @@
 // Place your settings in this file to overwrite the default settings
 {
-    // Workbench
+  // nix only
+  "ruby.rubocop.executePath": "~/.rbenv/versions/2.2.3/bin/",
 
-    // Controls if opened editors should show in tabs or not.
-    "workbench.editor.showTabs": false,
-    
-    "htmlhint.options": {
-        "doctype-first": false
-    },
-    "ruby.rubocop.executePath": "~/.rbenv/versions/2.2.3/bin/",
-    "editor.wrappingIndent": "indent",
-    "files.autoSave": "onFocusChange",
-    
-    "search.exclude": {
-		"**/node_modules": true,
-		"**/bower_components": true
-	},
-    "typescript.check.workspaceVersion": false,
-    "vim.useSystemClipboard": true,
-    "vim.easymotion": true
+  // General Settings
+  "workbench.editor.showTabs": false,
+  "editor.tabSize": 2,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "htmlhint.options": {
+    "doctype-first": false
+  },
+  "files.associations": {"*.m": "matlab"},
+  "editor.wrappingIndent": "indent",
+  "files.autoSave": "onFocusChange",
+  // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
+  "explorer.openEditors.visible": 0,
+  "editor.wordWrap": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.formatOnType": true,
+  "files.eol": "\n",
+  "typescript.check.workspaceVersion": false,
+  "vim.useSystemClipboard": true,
+  "vim.easymotion": true
 }
