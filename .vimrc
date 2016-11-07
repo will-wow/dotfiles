@@ -24,6 +24,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
 Plugin 'PeterRincker/vim-argumentative'
+Plugin 'ervandew/supertab'
 " GIT
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -33,6 +34,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'thinca/vim-ref'
 Plugin 'awetzel/elixir.nvim'
 " JS/TS
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jason0x43/vim-js-indent'
@@ -40,9 +43,11 @@ Plugin 'helino/vim-json'
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
+" C
+Plugin 'Rip-Rip/clang_complete'
 " OTHER LANG
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
@@ -159,3 +164,19 @@ nnoremap <LEADER>gb :Gblame<CR>
 nnoremap <LEADER>gd :Gdiff<CR>
 nnoremap <LEADER>gs :Gstatus<CR>
 nnoremap <Leader>Td :GitGutterToggle<CR>
+
+" supertab
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+
+" OS-specific
+if has('unix')
+  if has('mac')
+    " osx
+    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+  else
+    " linux, bsd, etc
+  endif
+elseif has('win32') || has('win64')
+  " Windows
+endif
