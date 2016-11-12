@@ -32,7 +32,6 @@ Plugin 'airblade/vim-gitgutter'
 " ELIXIR
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'thinca/vim-ref'
-Plugin 'awetzel/elixir.nvim'
 " JS/TS
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
