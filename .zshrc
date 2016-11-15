@@ -85,7 +85,7 @@ then
   source ~/.zshrc_private
 fi
 
-export NVM_DIR="/Users/willlee-wagner/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$HOME/.rbenv/bin:$PATH"
