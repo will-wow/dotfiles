@@ -93,6 +93,9 @@ eval "$(rbenv init -)"
 	
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
+export GOPATH="$HOME/repos/go"
+export PATH="$PATH:$GOPATH/bin"
+
 # OS-specific stuff
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Linux

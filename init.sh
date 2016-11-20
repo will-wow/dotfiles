@@ -70,11 +70,8 @@ else
   # Unknown.
 fi
 
-# Vim plugin installs
-~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
-~/.vim/bundle/elixir.nvim/install.sh --tern-completer --clang-completer
-# Elixir.nvim install
-vim +UpdateRemotePlugins +qall
+# Install gocode for go autocomplete
+go get -u github.com/nsf/gocode
 
 # Finally, source zshrc
 source ~/.zshrc

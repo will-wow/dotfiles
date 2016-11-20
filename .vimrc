@@ -25,11 +25,20 @@ Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'ervandew/supertab'
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'zchee/deoplete-go'
+  let g:deoplete#enable_at_startup = 1
+else
+  Plugin 'Shougo/neocomplete'
+endif
+
 " GIT
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 " ELIXIR
+Plugin 'slashmili/alchemist.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'thinca/vim-ref'
 " JS/TS
@@ -44,6 +53,8 @@ Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
 " C
 Plugin 'Rip-Rip/clang_complete'
+" Go
+Plugin 'fatih/vim-go'
 " OTHER LANG
 Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
