@@ -177,7 +177,9 @@ nnoremap <Leader>Td :GitGutterToggle<CR>
 
 " supertab
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-
+let g:SuperTabCrMapping=1
+let g:SuperTabMappingForward = "<c-j>"
+let g:SuperTabMappingBackward = "<c-k>"
 
 " OS-specific
 if has('unix')
