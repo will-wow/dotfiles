@@ -41,7 +41,12 @@ values."
      typescript
      javascript
      html
-     (ruby :variables ruby-version-manager 'rbenv)
+     (ruby :variables
+           ruby-version-manager 'rbenv
+           ruby-enable-enh-ruby-mode t
+           ruby-test-runner 'rspec
+           )
+     ruby-on-rails
      yaml
      elixir
      )
