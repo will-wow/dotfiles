@@ -47,10 +47,13 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jason0x43/vim-js-indent'
-Plugin 'helino/vim-json'
+" Plugin 'helino/vim-json'
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
+" CoffeeScript
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'AndrewRadev/vim-eco'
 " C
 Plugin 'Rip-Rip/clang_complete'
 " Go
