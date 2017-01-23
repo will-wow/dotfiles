@@ -6,6 +6,10 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 chsh -s `which zsh`
 rm ~/.zshrc
 
+# install neovim
+brew tap neovim/neovim
+brew install neovim
+
 # Set up vundle
 if [ ! -e "~/.vim" ]
 then
@@ -14,10 +18,10 @@ then
 fi
 
 # Link dotfiles
-ln -s ~/dotfiles/.zshrc ~
-ln -s ~/dotfiles/.vimrc ~
-ln -s ~/dotfiles/.spacemacs ~
-ln -s ~/dotfiles/.ctags ~
+ln -s ~/repos/dotfiles/.zshrc ~
+ln -s ~/repos/dotfiles/.vimrc ~
+ln -s ~/repos/dotfiles/.spacemacs ~
+ln -s ~/repos/dotfiles/.ctags ~
 
 # Link neovim config
 ln -s ~/.vim ~/.config/nvim
