@@ -1,6 +1,23 @@
 ## Install libs ##
 # Note it's probably a bad idea to just run this right now.
 
+# download urls:
+# https://www.iterm2.com/
+# http://magicprefs.com
+
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Update system stuff
+brew install git
+brew install wget
+brew install bash
+brew install zsh
+sudo -s 
+echo /usr/local/bin/bash >> /etc/shells
+echo /usr/local/bin/zsh >> /etc/shells
+
+
 # Set up oh-my-zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 chsh -s `which zsh`
