@@ -4,6 +4,7 @@
 # download urls:
 # https://www.iterm2.com/
 # http://magicprefs.com
+# http://www.psequel.com/
 
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -17,6 +18,9 @@ sudo -s
 echo /usr/local/bin/bash >> /etc/shells
 echo /usr/local/bin/zsh >> /etc/shells
 
+# Install postgres
+brew install postgres
+brew services start postgresql
 
 # Set up oh-my-zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
@@ -26,6 +30,10 @@ rm ~/.zshrc
 # install neovim
 brew tap neovim/neovim
 brew install neovim
+
+# tmux
+brew install tmux
+gem install tmuxinator
 
 # Set up vundle
 if [ ! -e "~/.vim" ]
