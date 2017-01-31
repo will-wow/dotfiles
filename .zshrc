@@ -68,6 +68,9 @@ else
   export EDITOR='vim'
 fi
 
+# Aliases
+alias be='bundle exec'
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

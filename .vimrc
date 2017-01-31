@@ -24,6 +24,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
 Plugin 'PeterRincker/vim-argumentative'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'janko-m/vim-test'
 Plugin 'ervandew/supertab'
 if has('nvim')
   Plugin 'Shougo/deoplete.nvim'
@@ -48,6 +50,10 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jason0x43/vim-js-indent'
 " Plugin 'helino/vim-json'
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-endwise' " add `end` to ruby and other code
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
@@ -59,6 +65,7 @@ Plugin 'Rip-Rip/clang_complete'
 " Go
 Plugin 'fatih/vim-go'
 " OTHER LANG
+Plugin 'sheerun/vim-polyglot' " all the languages
 Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
@@ -92,6 +99,8 @@ if executable('ag')
 endif
 nnoremap <leader>/ :Ack 
 nnoremap <leader>* :silent execute "Ack " . shellescape(expand("<cword>"))<cr>
+
+nnoremap <leader>fs :w<CR>
 
 " Open splits to the side as expected
 set splitbelow
