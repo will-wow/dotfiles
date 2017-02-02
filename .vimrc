@@ -27,6 +27,8 @@ Plugin 'PeterRincker/vim-argumentative'
 Plugin 'haya14busa/incsearch.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'ervandew/supertab'
+Plugin 'benmills/vimux'
+Plugin 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 if has('nvim')
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'zchee/deoplete-go'
@@ -106,13 +108,15 @@ nnoremap <leader>fs :w<CR>
 set splitbelow
 set splitright
 " Pipe for vertical split 
-nnoremap <leader>wv <c-w>v
-nnoremap <leader>ws <c-w>s
-nnoremap <leader>wc <c-w>c
+nnoremap <leader>w/ <c-w>v
+nnoremap <leader>w- <c-w>s
+nnoremap <leader>wd <c-w>c
 nnoremap <leader>wj <c-w>j
 nnoremap <leader>wk <c-w>k
 nnoremap <leader>wh <c-w>h
 nnoremap <leader>wl <c-w>l
+
+" vimux
 
 " ctrlp
 let g:ctrlp_map = '<leader>pf'
@@ -137,7 +141,7 @@ nnoremap <LEADER>bb :buffers<CR>
 nnoremap <LEADER>bd :bdelete<CR>
 nnoremap <LEADER>bn :bn<CR>
 nnoremap <LEADER>bp :bp<CR>
-nnoremap <LEADER>bR :e<CR>
+nnoremap <LEADERourcbR :e<CR>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
