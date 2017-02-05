@@ -72,6 +72,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt-get install xmonad suckless-tools
   # ctags
   sudo apt-get install exuberant-ctags
+
+  # For phoenix watch.
+  sudo apt-get install inotify-tools
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   brew install cmake
