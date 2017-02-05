@@ -35,13 +35,6 @@ brew install neovim
 brew install tmux
 gem install tmuxinator
 
-# Set up vundle
-if [ ! -e "~/.vim" ]
-then
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-  vim +PluginInstall +qall
-fi
-
 # Link dotfiles
 ln -s ~/repos/dotfiles/.zshrc ~
 ln -s ~/repos/dotfiles/.vimrc ~
@@ -55,15 +48,12 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 # Set up nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
 # Install latest node
-nvm install node
+nvm install --lts
 # Install avn for auto switching
 npm install -g avn avn-nvm
 avn setup
 # Install useful node globals
-npm install -g typescript
-npm install -g tslint
-npm install -g typescript-formatter
-npm install -g jshint
+npm install -g tern typescript tslint typescript-formatter jshint
 
 ## Set up Ruby ##
 # Install rbenv

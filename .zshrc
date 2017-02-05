@@ -71,6 +71,8 @@ fi
 # Aliases
 alias be='bundle exec'
 
+source ~/.bin/tmuxinator.zsh
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -102,7 +104,10 @@ export PATH="$PATH:$GOPATH/bin"
 # OS-specific stuff
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Linux
-	setxkbmap -option caps:escape
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  else
+    setxkbmap -option caps:escape
+  fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   alias vi='nvim'
