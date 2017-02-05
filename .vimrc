@@ -52,6 +52,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'jason0x43/vim-js-indent'
 " Plugin 'helino/vim-json'
+Plugin 'mxw/vim-jsx' 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
@@ -196,6 +197,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabCrMapping=1
 let g:SuperTabMappingForward = "<c-j>"
 let g:SuperTabMappingBackward = "<c-k>"
+let g:SuperTabLongestHighlight = 1
 
 " OS-specific
 if has('unix')

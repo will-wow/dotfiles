@@ -71,8 +71,6 @@ fi
 # Aliases
 alias be='bundle exec'
 
-source ~/.bin/tmuxinator.zsh
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -97,6 +95,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 	
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# tmux
+source ~/.bin/tmuxinator.zsh
 
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
