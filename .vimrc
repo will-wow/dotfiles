@@ -19,7 +19,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
@@ -96,6 +97,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" Airline
+let g:airline_theme='base16_solarized'
+
 " Use AG for serach if possible
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -123,29 +127,34 @@ nnoremap <leader>wl <c-w>l
 let g:ctrlp_map = '<leader>pf'
 nnoremap <LEADER>ff :CtrlPCurFile<CR>
 nnoremap <LEADER>fr :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_show_hidden = 1
 
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 1 " Show by default.
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" Airline bufferline
-" let g:airline#extensions#tabline#enabled = 1
+let g:syntastic_javascript_checkers = ['eslint'] " Could also be 'jshint'
+let g:syntastic_ruby_checkers = ['rubocop', 'msi'] " ruby checkers
 
 " Buffer switching
 nnoremap <leader><tab> <c-^>
-nnoremap <LEADER>bb :buffers<CR>
+nnoremap <LEADER>bb :CtrlPBuffer<CR>
 nnoremap <LEADER>bd :bdelete<CR>
 nnoremap <LEADER>bn :bn<CR>
 nnoremap <LEADER>bp :bp<CR>
-nnoremap <LEADERourcbR :e<CR>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.swp$', 'npm-debug.log.*$'] " Hide files.
+let NERDTreeShowHidden=1 " Show hidden files.
+
+" TS
+let g:tsuquyomi_completion_detail = 1
 
 " Line numbers: absolute # on active line, relative everywhere else
 set number
