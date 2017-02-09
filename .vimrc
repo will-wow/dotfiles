@@ -36,6 +36,7 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
 else
   Plugin 'Shougo/neocomplete'
+  let g:neocomplete#enable_at_startup = 1
 endif
 
 " GIT
@@ -92,13 +93,18 @@ filetype plugin indent on    " required
 " Leader
 let mapleader="\<Space>"
 
+" Don't wait for esc.
+set timeoutlen=1000 ttimeoutlen=10
+
 " Color
 syntax enable
 set background=dark
 colorscheme solarized
 
 " Airline
-let g:airline_theme='base16_solarized'
+let g:airline_powerline_fonts = 1
+" Always show
+set laststatus=2
 
 " Use AG for serach if possible
 if executable('ag')
@@ -123,6 +129,30 @@ nnoremap <leader>wl <c-w>l
 
 " vimux
 
+" jk by visual line
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" Put backups somewhere outside of git
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
+
+" bash-y edit tab complete.
+" set wildmode=longest,list
+
+" Smartcase for search
+set ignorecase
+set smartcase
+
+" delimitMate
+" Make backspace work
+set backspace=indent,eol,start
+" Keep intent after completion
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
+
 " ctrlp
 let g:ctrlp_map = '<leader>pf'
 nnoremap <LEADER>ff :CtrlPCurFile<CR>
@@ -131,9 +161,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_show_hidden = 1
 
 " Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1 " Show by default.
 let g:syntastic_check_on_open = 1
@@ -207,6 +234,9 @@ let g:SuperTabCrMapping=1
 let g:SuperTabMappingForward = "<c-j>"
 let g:SuperTabMappingBackward = "<c-k>"
 let g:SuperTabLongestHighlight = 1
+
+" Markdown
+let g:vim_markdown_folding_disabled = 1
 
 " OS-specific
 if has('unix')
