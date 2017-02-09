@@ -1,0 +1,19 @@
+name: swell
+root: ~/repos/swell
+socket_path: /tmp/swell
+pre:
+  - export RBENV_DIR=
+  - export RBENV_VERSION=
+  - bundle install
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - 
+  - git: git status
+  - server: be foreman start -f Procfile.dev
+  - db: be rails dbconsole
+  - console: be rails c
+  - logs: tail -f log/development.log
+
