@@ -135,10 +135,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" Put backups somewhere outside of git
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
-
 " bash-y edit tab complete.
 " set wildmode=longest,list
 
@@ -238,8 +234,21 @@ let g:SuperTabLongestHighlight = 1
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 
+" GUI options
+set guioptions -=m " Hide menubar
+set guioptions -=T " Hide toolbar
+" Download from https://github.com/chrissimpkins/Hack
+set guifont=Hack:h10 " Nice font
+
 " OS-specific
 if has('unix')
+  " Put backups somewhere outside of git
+  if filewritable(expand('%:p:h')."\.") && !filewritable(expand('%:p:h').'\_backup')
+    silent execute '!mkdir "'.expand('%:p:h').'\_backup"'
+  endif
+  set backupdir=./.backup,.,/tmp
+  set directory=.,./.backup,/tmp
+
   if has('mac')
     " osx
     let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
@@ -248,4 +257,10 @@ if has('unix')
   endif
 elseif has('win32') || has('win64')
   " Windows
+  silent execute '!mkdir "'.$HOME.'/tmp"'
+  silent execute '!del "'.$HOME.'/tmp/*~"'
+  set directory-=$HOME/tmp
+  set directory^=$HOME/tmp//
+  set backupdir-=$HOME/tmp
+  set backupdir^=$HOME/tmp//
 endif
