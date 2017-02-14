@@ -30,6 +30,7 @@ Plugin 'janko-m/vim-test'
 Plugin 'ervandew/supertab'
 Plugin 'benmills/vimux'
 Plugin 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
+Plugin 'christoomey/vim-tmux-navigator' " Tmux pane integration
 if has('nvim')
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'zchee/deoplete-go'
@@ -146,7 +147,6 @@ set smartcase
 " Make backspace work
 set backspace=indent,eol,start
 " Keep intent after completion
-let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
 " ctrlp
@@ -234,12 +234,6 @@ let g:SuperTabLongestHighlight = 1
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 
-" GUI options
-set guioptions -=m " Hide menubar
-set guioptions -=T " Hide toolbar
-" Download from https://github.com/chrissimpkins/Hack
-set guifont=Hack:h10 " Nice font
-
 " OS-specific
 if has('unix')
   " Put backups somewhere outside of git
@@ -252,6 +246,11 @@ if has('unix')
   if has('mac')
     " osx
     let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+
+    " Fix issue with macOS backspace messing with tmux c-h
+    if has('nvim')
+      nmap <BS> <C-W>h
+    endif
   else
     " linux, bsd, etc
   endif
@@ -263,4 +262,10 @@ elseif has('win32') || has('win64')
   set directory^=$HOME/tmp//
   set backupdir-=$HOME/tmp
   set backupdir^=$HOME/tmp//
+
+  " GUI options
+  set guioptions -=m " Hide menubar
+  set guioptions -=T " Hide toolbar
+  " Download from https://github.com/chrissimpkins/Hack
+  set guifont=Hack:h10 " Nice font
 endif
