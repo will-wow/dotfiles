@@ -72,7 +72,7 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'fatih/vim-go'
 " OTHER LANG
 Plugin 'sheerun/vim-polyglot' " all the languages
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
@@ -150,9 +150,11 @@ set backspace=indent,eol,start
 let g:delimitMate_expand_space = 1
 
 " ctrlp
-let g:ctrlp_map = '<leader>pf'
+let g:ctrlp_map = '<leader>pd'
 nnoremap <LEADER>ff :CtrlPCurFile<CR>
 nnoremap <LEADER>fr :CtrlPMRU<CR>
+nnoremap <LEADER>pc :CtrlPClearCache<CR>
+
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_show_hidden = 1
 
@@ -173,6 +175,7 @@ nnoremap <LEADER>bp :bp<CR>
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>
+nnoremap <leader>nf :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.swp$', 'npm-debug.log.*$'] " Hide files.
 let NERDTreeShowHidden=1 " Show hidden files.
 
