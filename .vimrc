@@ -60,6 +60,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise' " add `end` to ruby and other code
+Plugin 'skalnik/vim-vroom' " run rspec tests
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
@@ -129,6 +130,11 @@ nnoremap <leader>wh <c-w>h
 nnoremap <leader>wl <c-w>l
 
 " vimux
+let g:vroom_use_vimux=1 " Send to vimux panel.
+let g:vroom_map_keys=0 " Don't use default keymaps.
+nnoremap <leader>mtb :VroomRunTestFile<cr>
+nnoremap <leader>mtt :VroomRunNearestTest<cr>
+
 
 " jk by visual line
 nnoremap j gj
@@ -150,7 +156,7 @@ set backspace=indent,eol,start
 let g:delimitMate_expand_space = 1
 
 " ctrlp
-let g:ctrlp_map = '<leader>pd'
+let g:ctrlp_map = '<leader>pf'
 nnoremap <LEADER>ff :CtrlPCurFile<CR>
 nnoremap <LEADER>fr :CtrlPMRU<CR>
 nnoremap <LEADER>pc :CtrlPClearCache<CR>
