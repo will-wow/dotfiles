@@ -158,6 +158,11 @@ nnoremap <LEADER>pc :CtrlPClearCache<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_show_hidden = 1
 
+
+" Goto File mapping
+nmap <leader>mgg gf
+nmap <leader>mgG <c-w>f
+
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1 " Show by default.
