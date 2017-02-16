@@ -15,7 +15,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Add plugins here
 " VIM
 Plugin 'tpope/vim-surround'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
@@ -101,7 +102,8 @@ set timeoutlen=1000 ttimeoutlen=10
 " Color
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme dracula
 
 " Airline
 let g:airline_powerline_fonts = 1

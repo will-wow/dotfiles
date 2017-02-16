@@ -18,6 +18,17 @@ sudo -s
 echo /usr/local/bin/bash >> /etc/shells
 echo /usr/local/bin/zsh >> /etc/shells
 
+# Install dracula zsh theme
+wget https://raw.githubusercontent.com/dracula/zsh/master/dracula.zsh-theme -O ~/.oh-my-zsh/themes/dracula.zsh-theme
+
+# Install dracula iterm theme
+wget https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors -O ~/.dracula/iterm.git
+# iTerm2 > Preferences > Profiles > Colors Tab
+# Click Load Presets...
+# Click Import...
+# Select the Dracula.itermcolors file
+# Select the Dracula from Load Presets...
+
 # Install postgres
 brew install postgres
 brew services start postgresql
