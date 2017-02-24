@@ -250,6 +250,9 @@ let g:SuperTabLongestHighlight = 1
 " Markdown
 let g:vim_markdown_folding_disabled = 1
 
+" 
+:au FocusLost * silent! wa
+
 " OS-specific
 if has('unix')
   " Put backups somewhere outside of git

@@ -9,11 +9,11 @@
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Update system stuff
-brew install git
-brew install wget
-brew install bash
-brew install zsh
+# Run Brew Bundle
+brew tap Homebrew/bundle
+brew bundle
+
+# Use brew shells
 sudo -s 
 echo /usr/local/bin/bash >> /etc/shells
 echo /usr/local/bin/zsh >> /etc/shells
@@ -29,21 +29,12 @@ wget https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors 
 # Select the Dracula.itermcolors file
 # Select the Dracula from Load Presets...
 
-# Install postgres
-brew install postgres
-brew services start postgresql
-
 # Set up oh-my-zsh
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 chsh -s `which zsh`
 rm ~/.zshrc
 
-# install neovim
-brew tap neovim/neovim
-brew install neovim
-
 # tmux
-brew install tmux
 gem install tmuxinator
 
 # Link dotfiles
@@ -88,8 +79,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt-get install inotify-tools
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
-  brew install cmake
-  brew install python3
   pip3 install --user neovim
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
