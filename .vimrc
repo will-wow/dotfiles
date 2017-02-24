@@ -61,10 +61,10 @@ Plugin 'mxw/vim-jsx'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise' " add `end` to ruby and other code
-Plugin 'skalnik/vim-vroom' " run rspec tests
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'alvan/vim-closetag'
 " CoffeeScript
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'AndrewRadev/vim-eco'
@@ -110,12 +110,13 @@ let g:airline_powerline_fonts = 1
 " Always show
 set laststatus=2
 
+" Ack
 " Use AG for serach if possible
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-nnoremap <leader>/ :Ack 
-nnoremap <leader>* :silent execute "Ack " . shellescape(expand("<cword>"))<cr>
+nnoremap <leader>/ :Ack!<Space>
+nnoremap <leader>* :silent execute "Ack! " . shellescape(expand("<cword>"))<cr>
 
 nnoremap <leader>fs :w<CR>
 
@@ -131,12 +132,16 @@ nnoremap <leader>wk <c-w>k
 nnoremap <leader>wh <c-w>h
 nnoremap <leader>wl <c-w>l
 
-" vimux
-let g:vroom_use_vimux=1 " Send to vimux panel.
-let g:vroom_map_keys=0 " Don't use default keymaps.
-nnoremap <leader>mtb :VroomRunTestFile<cr>
-nnoremap <leader>mtt :VroomRunNearestTest<cr>
-
+" vim-test
+let g:test#strategy = "vimux"
+" Make jest work like jasmine.
+let g:test#javascript#jasmine#file_pattern = '\v^spec/.*-test\.(js|jsx)$'
+let g:test#javascript#jasmine#executable = 'npm test --'
+" mode test commands
+nnoremap <leader>mtb :TestFile<cr>
+nnoremap <leader>mtt :TestNearest<cr>
+nnoremap <leader>mtl :TestLast<cr>
+nnoremap <leader>mtv :TestVisit<cr>
 
 " jk by visual line
 nnoremap j gj
