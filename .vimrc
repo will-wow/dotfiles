@@ -167,6 +167,8 @@ let g:ctrlp_map = '<leader>pf'
 nnoremap <LEADER>ff :CtrlPCurFile<CR>
 nnoremap <LEADER>fr :CtrlPMRU<CR>
 nnoremap <LEADER>pc :CtrlPClearCache<CR>
+let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_match_current_file = 1
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ctrlp_show_hidden = 1
