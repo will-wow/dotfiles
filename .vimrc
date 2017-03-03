@@ -282,6 +282,14 @@ nnoremap <leader>mts :w<cr>:call AltCommand(expand('%'), ':sp')<cr>
 nnoremap <leader>fR :Rename<space>
 nnoremap <leader>fD :Unlink<cr>
 
+" Find and Replace
+" nnoremap <leader>pr :Ack!<space> :cfdo s/thing/thang/gc<cr>
+
+" Turn off beeping
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " I think this is for vimux?
 :au FocusLost * silent! wa
