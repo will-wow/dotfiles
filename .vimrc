@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 " VIM
 Plugin 'tpope/vim-surround'
 " Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-eunuch'
 Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
@@ -72,6 +73,9 @@ Plugin 'AndrewRadev/vim-eco'
 Plugin 'Rip-Rip/clang_complete'
 " Go
 Plugin 'fatih/vim-go'
+" Haskell
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
 " OTHER LANG
 Plugin 'sheerun/vim-polyglot' " all the languages
 Plugin 'vim-syntastic/syntastic'
@@ -274,7 +278,12 @@ nnoremap <leader>mt<tab> :w<cr>:call AltCommand(expand('%'), ':e')<cr>
 nnoremap <leader>mtv :w<cr>:call AltCommand(expand('%'), ':vsp')<cr>
 nnoremap <leader>mts :w<cr>:call AltCommand(expand('%'), ':sp')<cr>
 
-" 
+" enunch
+nnoremap <leader>fR :Rename<space>
+nnoremap <leader>fD :Unlink<cr>
+
+
+" I think this is for vimux?
 :au FocusLost * silent! wa
 
 " OS-specific
