@@ -291,6 +291,10 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
+" Autoread file updates
+set autoread
+nnoremap <leader>br :checktime<cr>
+
 " I think this is for vimux?
 :au FocusLost * silent! wa
 
