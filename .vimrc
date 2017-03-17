@@ -76,6 +76,7 @@ Plugin 'fatih/vim-go'
 " Haskell
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
+Plugin 'neovimhaskell/haskell-vim'
 " OTHER LANG
 Plugin 'sheerun/vim-polyglot' " all the languages
 Plugin 'vim-syntastic/syntastic'
@@ -174,9 +175,8 @@ nnoremap <LEADER>pc :CtrlPClearCache<CR>
 let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_match_current_file = 1
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
 let g:ctrlp_show_hidden = 1
-
 
 " Goto File mapping
 nmap <leader>mgg gf
@@ -257,6 +257,12 @@ let g:SuperTabCrMapping=1
 let g:SuperTabMappingForward = "<c-j>"
 let g:SuperTabMappingBackward = "<c-k>"
 let g:SuperTabLongestHighlight = 1
+" haskell completion
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+" Include correct GHC binaries in path
+let $PATH=system('stack path --bin-path')
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1

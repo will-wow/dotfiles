@@ -63,6 +63,9 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 cd ~/.rbenv && src/configure && make -C src
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
+## Haskell ##
+stack install hlint ghc-mod
+
 ## OS-Specific ##
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Chrome
