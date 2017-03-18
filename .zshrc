@@ -62,9 +62,6 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# SSH keys
-ssh-add -A
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -100,6 +97,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   alias vi='nvim'
   alias vim='nvim'
+  ssh-add -A
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
