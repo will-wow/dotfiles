@@ -79,9 +79,10 @@ Plugin 'eagletmt/neco-ghc'
 Plugin 'neovimhaskell/haskell-vim'
 " OTHER LANG
 Plugin 'sheerun/vim-polyglot' " all the languages
-Plugin 'vim-syntastic/syntastic'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'neomake/neomake'
+Plugin 'dojoteef/neomake-autolint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -179,12 +180,8 @@ let g:ctrlp_show_hidden = 1
 nmap <leader>mgg gf
 nmap <leader>mgG <c-w>f
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1 " Show by default.
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop', 'msi'] " ruby checkers
+" Neomake (linter)
+autocmd! BufWritePost * Neomake
 
 " Buffer switching
 nnoremap <leader><tab> <c-^>
@@ -198,9 +195,6 @@ nnoremap <leader>pt :NERDTreeToggle<CR>
 nnoremap <leader>nf :NERDTreeFind<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.swp$', 'npm-debug.log.*$'] " Hide files.
 let NERDTreeShowHidden=1 " Show hidden files.
-
-" TS
-let g:tsuquyomi_completion_detail = 1
 
 " Line numbers: absolute # on active line, relative everywhere else
 set number
@@ -248,11 +242,15 @@ nnoremap <LEADER>gs :Gstatus<CR>
 nnoremap <Leader>Td :GitGutterToggle<CR>
 
 " supertab
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+set completeopt=menuone,longest,preview
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabCrMapping=1
-let g:SuperTabMappingForward = "<c-j>"
-let g:SuperTabMappingBackward = "<c-k>"
+" let g:SuperTabMappingForward = "<c-j>"
+" let g:SuperTabMappingBackward = "<c-k>"
 let g:SuperTabLongestHighlight = 1
+
+" TS
+let g:tsuquyomi_completion_detail = 1
 
 " Alt
 " Run a given vim command on the results of alt from a given path.
