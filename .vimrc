@@ -139,9 +139,6 @@ nnoremap <leader>wl <c-w>l
 
 " vim-test
 let g:test#strategy = "vimux"
-" Make jest work like jasmine.
-let g:test#javascript#jasmine#file_pattern = '\v^spec/.*-test\.(js|jsx)$'
-let g:test#javascript#jasmine#executable = 'npm test --'
 " mode test commands
 nnoremap <leader>mtb :TestFile<cr>
 nnoremap <leader>mtt :TestNearest<cr>
@@ -187,7 +184,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1 " Show by default.
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint'] " Could also be 'jshint'
 let g:syntastic_ruby_checkers = ['rubocop', 'msi'] " ruby checkers
 
 " Buffer switching
@@ -257,15 +253,6 @@ let g:SuperTabCrMapping=1
 let g:SuperTabMappingForward = "<c-j>"
 let g:SuperTabMappingBackward = "<c-k>"
 let g:SuperTabLongestHighlight = 1
-" haskell completion
-let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
-" Include correct GHC binaries in path
-let $PATH=system('stack path --bin-path')
-
-" Markdown
-let g:vim_markdown_folding_disabled = 1
 
 " Alt
 " Run a given vim command on the results of alt from a given path.
@@ -314,9 +301,6 @@ if has('unix')
   set directory=.,./.backup,/tmp
 
   if has('mac')
-    " osx
-    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-
     " Fix issue with macOS backspace messing with tmux c-h
     if has('nvim')
       nmap <BS> <C-W>h
