@@ -46,6 +46,7 @@ ln -s ~/repos/dotfiles/.zshrc ~
 ln -s ~/repos/dotfiles/.vimrc ~
 ln -s ~/repos/dotfiles/.spacemacs ~
 ln -s ~/repos/dotfiles/.ctags ~
+ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 
 # Link neovim config
 ln -s ~/.vim ~/.config/nvim
