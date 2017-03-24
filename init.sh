@@ -34,6 +34,10 @@ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - 
 chsh -s `which zsh`
 rm ~/.zshrc
 
+# Set up gitignore
+ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+
 # tmux
 gem install tmuxinator
 
