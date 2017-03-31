@@ -1,4 +1,4 @@
-// Place your settings in this file to overwrite the default settings
+ pf// Place your settings in this file to overwrite the default settings
 {
   // nix only
   "ruby.rubocop.executePath": "~/.rbenv/versions/2.2.3/bin/",
@@ -23,6 +23,28 @@
   "editor.formatOnType": true,
   "files.eol": "\n",
   "typescript.check.workspaceVersion": false,
+
   "vim.useSystemClipboard": true,
-  "vim.easymotion": true
+  "vim.easymotion": true,
+  "vim.leader": "<space>",
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "f", "s"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.files.save"
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "p", "f"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.view.explorer"
+        }
+      ]
+    }
+  ]
 }
