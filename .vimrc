@@ -123,8 +123,9 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 nnoremap <leader>/ :Ack!<Space>
-nnoremap <leader>* :silent execute "Ack! " . shellescape(expand("<cword>"))<cr>
-vnoremap * y/<C-R>"<CR>
+nnoremap <leader>* :Ack! <c-r><c-w><cr>
+vnoremap * y/<c-r>"<cr>
+vnoremap <leader>* y:Ack! <c-r>"<cr>
 
 nnoremap <leader>fs :w<CR>
 
@@ -210,6 +211,7 @@ set expandtab
 " vimrc
 nnoremap <leader>fed :e $MYVIMRC<cr>
 nnoremap <leader>feR :so $MYVIMRC<cr>
+nnoremap <leader>fer :w<cr>:so %:p<cr>
 
 " Use system clipboard
 set clipboard=unnamedplus
