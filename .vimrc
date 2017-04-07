@@ -78,6 +78,7 @@ Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'alx741/vim-hindent'
+Plugin 'Twinside/vim-hoogle'
 " OTHER LANG
 Plugin 'sheerun/vim-polyglot' " all the languages
 Plugin 'godlygeek/tabular'
@@ -124,6 +125,7 @@ if executable('ag')
 endif
 nnoremap <leader>/ :Ack!<Space>
 nnoremap <leader>* :silent execute "Ack! " . shellescape(expand("<cword>"))<cr>
+vnoremap * y/<C-R>"<CR>
 
 nnoremap <leader>fs :w<CR>
 
