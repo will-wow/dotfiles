@@ -84,7 +84,6 @@ Plugin 'sheerun/vim-polyglot' " all the languages
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'neomake/neomake'
-Plugin 'dojoteef/neomake-autolint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
