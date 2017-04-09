@@ -77,7 +77,7 @@ Plugin 'fatih/vim-go'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'neovimhaskell/haskell-vim'
-Plugin 'alx741/vim-hindent'
+" Plugin 'alx741/vim-hindent'
 Plugin 'Twinside/vim-hoogle'
 " OTHER LANG
 Plugin 'sheerun/vim-polyglot' " all the languages
