@@ -15,8 +15,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Add plugins here
 " VIM
 Plugin 'tpope/vim-surround'
-" Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-projectionist'
 Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
@@ -259,6 +259,11 @@ let g:tsuquyomi_completion_detail = 1
 " Alt
 " Run a given vim command on the results of alt from a given path.
 " See usage below.
+" This can be used as an alternative to projectionist
+" with :
+"   nnoremap <leader>mt<tab> :w<cr>:call AltCommand(expand('%'), ':e')<cr>
+"   nnoremap <leader>mtv :w<cr>:call AltCommand(expand('%'), ':vsp')<cr>
+"   nnoremap <leader>mts :w<cr>:call AltCommand(expand('%'), ':sp')<cr>
 function! AltCommand(path, vim_command)
   let l:alternate = system("alt " . a:path)
   if empty(l:alternate)
@@ -268,10 +273,11 @@ function! AltCommand(path, vim_command)
   endif
 endfunction
 
-" Find the alternate file for the current path and open it
-nnoremap <leader>mt<tab> :w<cr>:call AltCommand(expand('%'), ':e')<cr>
-nnoremap <leader>mtv :w<cr>:call AltCommand(expand('%'), ':vsp')<cr>
-nnoremap <leader>mts :w<cr>:call AltCommand(expand('%'), ':sp')<cr>
+" Projectionist commands
+nnoremap <leader>mt<tab> :w<cr>:A<cr>
+nnoremap <leader>mtv :w<cr>:AV<cr>
+nnoremap <leader>mts :w<cr>:AS<cr>
+nnoremap <leader>mtT :w<cr>:AT<cr>
 
 " enunch
 nnoremap <leader>fR :Rename<space>

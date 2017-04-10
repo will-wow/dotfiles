@@ -10,3 +10,16 @@ let g:neomake_elixir_elixir_maker = {
           \ '%E** %s %f:%l: %m,' .
           \ '%W%f:%l'
       \ }
+
+let g:projectionist_heuristics = {
+  \   "mix.exs": {
+  \     "web/*.ex": {
+  \       "type": "src",
+  \       "alternate": "test/{}_test.exs"
+  \     },
+  \     "test/*_test.exs": {
+  \       "type": "test",
+  \       "alternate": "web/{}.ex"
+  \     }
+  \   }
+  \ }
