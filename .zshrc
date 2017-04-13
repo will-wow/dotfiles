@@ -71,6 +71,7 @@ fi
 
 # Aliases
 alias be='bundle exec'
+alias gitdog='git log --decorate --oneline --graph'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

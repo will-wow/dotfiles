@@ -62,6 +62,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise' " add `end` to ruby and other code
+Plugin 'danchoi/ri.vim' " Ruby docs
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
