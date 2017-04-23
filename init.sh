@@ -46,6 +46,7 @@ ln -s ~/repos/dotfiles/.bashrc ~
 ln -s ~/repos/dotfiles/.vimrc ~
 ln -s ~/repos/dotfiles/.spacemacs ~
 ln -s ~/repos/dotfiles/.ctags ~
+ln -s ~/repos/dotfiles/.tmuxinator ~
 ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 
 # Link neovim config
@@ -57,11 +58,14 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 # Install latest node
 nvm install --lts
+nvm alias default node
+# Install yarn
+npm install --global yarn
 # Install avn for auto switching
-npm install -g avn avn-nvm
+yarn global add avn avn-nvm
 avn setup
 # Install useful node globals
-npm install -g tern typescript tslint typescript-formatter jshint
+yarn global add tern typescript tslint typescript-formatter jshint eslint
 
 ## Set up Ruby ##
 # Install rbenv
@@ -71,7 +75,7 @@ cd ~/.rbenv && src/configure && make -C src
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 rbenv install 2.3.1
 rbenv global 2.3.1
-gem install bundler
+gem install bundler rubocop
 
 # tmux
 gem install tmuxinator
