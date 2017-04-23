@@ -38,13 +38,15 @@ ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
 # Link dotfiles
+mkdir ~/.vim
+touch ~/.zshrc_private
+ln -s ~/repos/dotfiles/ftplugin ~/.vim/
 ln -s ~/repos/dotfiles/.zshrc ~
 ln -s ~/repos/dotfiles/.bashrc ~
 ln -s ~/repos/dotfiles/.vimrc ~
 ln -s ~/repos/dotfiles/.spacemacs ~
 ln -s ~/repos/dotfiles/.ctags ~
 ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
-touch ~/.zshrc_private
 
 # Link neovim config
 mkdir -p ~/.config/nvim
@@ -52,7 +54,7 @@ ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # Set up nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 # Install latest node
 nvm install --lts
 # Install avn for auto switching
@@ -69,9 +71,11 @@ cd ~/.rbenv && src/configure && make -C src
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 rbenv install 2.3.1
 rbenv global 2.3.1
+gem install bundler
 
 # tmux
 gem install tmuxinator
+wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
 
 ## Haskell ##
 stack install hlint ghc-mod hindent
@@ -86,15 +90,30 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # ctags
   sudo apt-get install exuberant-ctags
   
+  # Neovim
+  sudo add-apt-repository ppa:neovim-ppa/stable
+  sudo apt update
+  sudo apt install neovim
+  sudo apt install python-dev python-pip python3-dev python3-pip
+  pip2 install --user neovim
+  pip3 install --user neovim
+  
+  sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+  sudo update-alternatives --config vi
+  sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+  sudo update-alternatives --config vim
+  sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+  sudo update-alternatives --config editor
+
   # Ruby deps
   sudo apt install build-essential
   apt-get install -y libssl-dev libreadline-dev zlib1g-dev
 
- # Elixir
- wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
- sudo apt update
- sudo apt install esl-erlang
- sudo apt install elixir
+  # Elixir
+  wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+  sudo apt update
+  sudo apt install esl-erlang
+  sudo apt install elixir
 
   # For phoenix watch.
   sudo apt-get install inotify-tools
