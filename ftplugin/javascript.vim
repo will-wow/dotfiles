@@ -5,17 +5,48 @@ let g:test#javascript#jasmine#executable = 'yarn test --'
 let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:rails_projections = {
-  \     "client/assets/javascripts/*.jsx": {
-  \       "type": "src",
-  \       "alternate": "spec/javascripts/{}-test.js"
+  \     "client/assets/javascripts/components/*.jsx": {
+  \       "type": "component",
+  \       "alternate": "spec/javascripts/components/{}-test.js",
+  \       "template": [
+  \         "import React from 'react';",
+  \         "import PropTypes from 'prop-types';",
+  \         "",
+  \         "export default function Component({}) {",
+  \         "  return (",
+  \         "    <div className=\"\">",
+  \         "    </div>",
+  \         "  );",
+  \         "}",
+  \         "",
+  \         "component.propTypes = {",
+  \         "  foo: PropTypes.string,",
+  \         "};"
+  \       ]
   \     },
   \     "client/assets/javascripts/*.js": {
   \       "type": "src",
   \       "alternate": "spec/javascripts/{}-test.js"
   \     },
   \     "spec/javascripts/components/*-test.js": {
-  \       "type": "test",
-  \       "alternate": "client/assets/javascripts/components/{}.jsx"
+  \       "type": "component-test",
+  \       "alternate": "client/assets/javascripts/components/{}.jsx",
+  \       "template": [
+  \         "import React from 'react';",
+  \         "import { shallow } from 'enzyme';",
+  \         "",
+  \         "import Component, { SubComponent } from 'components/Component';",
+  \         "",
+  \         "describe('Component', function() {",
+  \         "  function subject(percentRemaining, validationState) {",
+  \         "    return shallow(<Component />);",
+  \         "  }",
+  \         "",
+  \         "  it('is true', function() {",
+  \         "    expect(true).toBe(true);",
+  \         "  });",
+  \         "});"
+  \       ]
   \     },
   \     "spec/javascripts/*-test.js": {
   \       "type": "test",
