@@ -33,6 +33,8 @@ Plugin 'ervandew/supertab'
 Plugin 'benmills/vimux'
 Plugin 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 Plugin 'christoomey/vim-tmux-navigator' " Tmux pane integration
+Plugin 'vim-scripts/argtextobj.vim' " Argument text objects
+Plugin 'bkad/CamelCaseMotion' " Word motions for camel/snake case
 if has('nvim')
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'zchee/deoplete-go'
@@ -63,6 +65,8 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise' " add `end` to ruby and other code
 Plugin 'danchoi/ri.vim' " Ruby docs
+Plugin 'kana/vim-textobj-user' " Dep for ruby text objects
+Plugin 'nelstrom/vim-textobj-rubyblock' " Ruby block text objects
 " HTML
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
@@ -299,6 +303,9 @@ nnoremap <leader>br :checktime<cr>:CtrlPClearCache<cr>
 
 " I think this is for vimux?
 :au FocusLost * silent! wa
+
+" Use <leader><TextObject> for CamelCaseMotion words
+call camelcasemotion#CreateMotionMappings('<leader>')
 
 " OS-specific
 if has('unix')
