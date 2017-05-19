@@ -1,8 +1,5 @@
- pf// Place your settings in this file to overwrite the default settings
+// Place your settings in this file to overwrite the default settings
 {
-  // nix only
-  "ruby.rubocop.executePath": "~/.rbenv/versions/2.2.3/bin/",
-
   // General Settings
   "workbench.editor.showTabs": false,
   "editor.tabSize": 2,
@@ -14,37 +11,47 @@
     "doctype-first": false
   },
   "files.associations": {"*.m": "matlab"},
+  "editor.wordWrap": "on",
   "editor.wrappingIndent": "indent",
   "files.autoSave": "onFocusChange",
   // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
   "explorer.openEditors.visible": 0,
-  "editor.wordWrap": true,
   "diffEditor.ignoreTrimWhitespace": true,
   "editor.formatOnType": true,
   "files.eol": "\n",
-  "typescript.check.workspaceVersion": false,
+  // Configure glob patterns for excluding files and folders.
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/webpack-bundle.js": true
+  },
 
   "vim.useSystemClipboard": true,
-  "vim.easymotion": true,
   "vim.leader": "<space>",
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "f", "s"],
       "after": [],
       "commands": [
-        {
-          "command": "workbench.action.files.save"
-        }
+        { "command": "workbench.action.files.save" }
       ]
     },
     {
       "before": ["<leader>", "p", "f"],
       "after": [],
       "commands": [
-        {
-          "command": "workbench.view.explorer"
-        }
+        { "command": "workbench.action.quickOpen" }
       ]
-    }
+    },
+    {
+      "before": ["<leader>", "p", "t"],
+      "after": [],
+      "commands": [
+        { "command": "workbench.view.explorer" }
+      ]
+    },
   ]
 }
