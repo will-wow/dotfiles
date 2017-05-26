@@ -31,6 +31,8 @@
 
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
+  "vim.enableNeovim": true,
+  "vim.disableAnnoyingNeovimMessage": true,
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "f", "s"],
