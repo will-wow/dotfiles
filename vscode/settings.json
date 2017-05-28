@@ -3,6 +3,7 @@
   // General Settings
   "workbench.editor.showTabs": false,
   "editor.tabSize": 2,
+  "editor.detectIndentation": false,
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true
@@ -29,10 +30,15 @@
     "**/webpack-bundle.js": true
   },
 
+  // Windows
+  "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
+
+  // Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.disableAnnoyingNeovimMessage": true,
+  "vim.easymotion": false,
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "f", "s"],

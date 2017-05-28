@@ -91,7 +91,11 @@ export PATH="$PATH:$GOPATH/bin"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Linux
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    # SSH to linux
+  elif grep -Fq "Microsoft" /proc/version; then
+    # Windows Bash
   else
+    # Normal lunux desktop
     setxkbmap -option caps:escape
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
