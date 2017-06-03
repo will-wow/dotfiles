@@ -31,14 +31,17 @@
   },
 
   // Windows
-  "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
+  // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
 
   // Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.disableAnnoyingNeovimMessage": true,
+  "vim.disableAnnoyingGcMessage": true,
   "vim.easymotion": false,
+  "vim.visualstar": true,
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "f", "s"],
@@ -61,5 +64,19 @@
         { "command": "workbench.view.explorer" }
       ]
     },
+    {
+      "before": ["<leader>", "/"],
+      "after": [],
+      "commands": [
+        { "command": "workbench.view.search" }
+      ]
+    },
+    {
+      "before": ["<leader>", "b", "d"],
+      "after": [],
+      "commands": [
+        { "command": "workbench.action.closeActiveEditor" }
+      ]
+    }
   ]
 }
