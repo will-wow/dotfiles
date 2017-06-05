@@ -81,6 +81,9 @@ eval "$(rbenv init -)"
 	
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
+# square brackets
+unsetopt nomatch
+
 # tmux
 source ~/.bin/tmuxinator.zsh
 
