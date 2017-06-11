@@ -88,7 +88,7 @@ Plugin 'Twinside/vim-hoogle'
 Plugin 'sheerun/vim-polyglot' " all the languages
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'neomake/neomake'
+Plugin 'w0rp/ale' " Linters
 Plugin 'sbdchd/neoformat'
 
 " All of your Plugins must be added before the following line
@@ -188,9 +188,6 @@ let g:ctrlp_show_hidden = 1
 " Goto File mapping
 nmap <leader>mgg gf
 nmap <leader>mgG <c-w>f
-
-" Neomake (linter)
-autocmd! BufWritePost * Neomake
 
 " Buffer switching
 nnoremap <leader><tab> <c-^>
