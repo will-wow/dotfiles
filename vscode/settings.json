@@ -77,6 +77,20 @@
       "commands": [
         { "command": "workbench.action.closeActiveEditor" }
       ]
+    },
+    {
+      "before": ["<leader>", "w", "/"],
+      "after": [],
+      "commands": [
+        { "command": "workbench.action.splitEditor" }
+      ]
+    },
+    {
+      "before": ["<leader>", "tab"],
+      "after": ["enter"],
+      "commands": [
+        { "command": "workbench.action.openNextRecentlyUsedEditorInGroup" }
+      ]
     }
   ]
 }
