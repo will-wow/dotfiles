@@ -82,7 +82,7 @@
       "before": ["<leader>", "b", "d"],
       "after": [],
       "commands": [
-        { "command": "workbench.action.closeActiveEditor" }
+        { "command": "workbench.action.closeEditorsInGroup" }
       ]
     },
     {
