@@ -1,21 +1,58 @@
 // Place your key bindings in this file to overwrite the defaults
 [
-  { "key": "ctrl+h", "command": "workbench.action.focusPreviousGroup",
-                    "when": "editorTextFocus" },
-  { "key": "ctrl+l", "command": "workbench.action.focusNextGroup",
-                    "when": "editorTextFocus" },
-  { "key": "ctrl+j", "command": "workbench.action.terminal.focus",
-                    "when": "editorTextFocus" },
-  { "key": "ctrl+k", "command": "workbench.action.focusActiveEditorGroup",
-                    "when": "terminalFocus" },
-  { "key": "ctrl+l", "command": "workbench.action.focusActiveEditorGroup",
-                                "when": "explorerViewletVisible && filesExplorerFocus" },
-  { "key": "ctrl+j",                "command": "list.focusDown",
-                                      "when": "listFocus" },
-  { "key": "ctrl+k",                "command": "list.focusUp",
-                                      "when": "listFocus" },
-  { "key": "ctrl+j",                "command": "workbench.action.quickOpenSelectNext",
-                                      "when": "inQuickOpen" },
-  { "key": "ctrl+k",                "command": "workbench.action.quickOpenSelectPrevious",
-                                      "when": "inQuickOpen" }
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusNextGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "explorerViewletVisible && filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "list.focusDown",
+    "when": "listFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "list.focusUp",
+    "when": "listFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  }
 ]

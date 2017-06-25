@@ -58,6 +58,13 @@
       ]
     },
     {
+      "before": ["<leader>", "f", "r"],
+      "after": [],
+      "commands": [
+        { "command": "workbench.action.quickOpen" }
+      ]
+    },
+    {
       "before": ["<leader>", "p", "t"],
       "after": [],
       "commands": [
@@ -90,6 +97,13 @@
       "after": ["enter"],
       "commands": [
         { "command": "workbench.action.openNextRecentlyUsedEditorInGroup" }
+      ]
+    },
+    {
+      "before": ["<leader>", "f", "e", "d"],
+      "after": ["enter"],
+      "commands": [
+        { "command": "workbench.action.openGlobalSettings" }
       ]
     }
   ]
