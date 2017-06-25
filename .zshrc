@@ -89,6 +89,7 @@ source ~/.bin/tmuxinator.zsh
 
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
+export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
 
 # OS-specific stuff
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
