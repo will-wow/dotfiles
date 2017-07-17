@@ -11,14 +11,17 @@
   "htmlhint.options": {
     "doctype-first": false
   },
-  "files.associations": {"*.m": "matlab"},
+  "files.associations": {
+    "*.m": "matlab"
+  },
   "editor.wordWrap": "on",
-  "editor.wrappingIndent": "indent",
+  "editor.wrappingIndent": "same",
   "files.autoSave": "onFocusChange",
   // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
   "explorer.openEditors.visible": 0,
   "diffEditor.ignoreTrimWhitespace": true,
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": false,
   "files.eol": "\n",
   // Configure glob patterns for excluding files and folders.
   "files.exclude": {
@@ -29,6 +32,7 @@
     "**/.DS_Store": true,
     "**/webpack-bundle.js": true
   },
+  "terminal.integrated.fontFamily": "hack",
 
   // Windows
   // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
@@ -39,72 +43,73 @@
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.disableAnnoyingNeovimMessage": true,
-  "vim.disableAnnoyingGcMessage": true,
   "vim.easymotion": false,
   "vim.visualstar": true,
-  "vim.otherModesKeyBindingsNonRecursive": [
-    {
+  "vim.otherModesKeyBindingsNonRecursive": [{
       "before": ["<leader>", "f", "s"],
       "after": [],
-      "commands": [
-        { "command": "workbench.action.files.save" }
-      ]
+      "commands": [{
+        "command": "workbench.action.files.save"
+      }]
     },
     {
       "before": ["<leader>", "p", "f"],
       "after": [],
-      "commands": [
-        { "command": "workbench.action.quickOpen" }
-      ]
+      "commands": [{
+        "command": "workbench.action.quickOpen"
+      }]
     },
     {
       "before": ["<leader>", "f", "r"],
       "after": [],
-      "commands": [
-        { "command": "workbench.action.quickOpen" }
-      ]
+      "commands": [{
+        "command": "workbench.action.quickOpen"
+      }]
     },
     {
       "before": ["<leader>", "p", "t"],
       "after": [],
-      "commands": [
-        { "command": "workbench.view.explorer" }
-      ]
+      "commands": [{
+        "command": "workbench.view.explorer"
+      }]
     },
     {
       "before": ["<leader>", "/"],
       "after": [],
-      "commands": [
-        { "command": "workbench.view.search" }
-      ]
+      "commands": [{
+        "command": "workbench.view.search"
+      }]
     },
     {
       "before": ["<leader>", "b", "d"],
       "after": [],
-      "commands": [
-        { "command": "workbench.action.closeEditorsInGroup" }
-      ]
+      "commands": [{
+        "command": "workbench.action.closeEditorsInGroup"
+      }]
     },
     {
       "before": ["<leader>", "w", "/"],
       "after": [],
-      "commands": [
-        { "command": "workbench.action.splitEditor" }
-      ]
+      "commands": [{
+        "command": "workbench.action.splitEditor"
+      }]
     },
     {
       "before": ["<leader>", "tab"],
       "after": ["enter"],
-      "commands": [
-        { "command": "workbench.action.openNextRecentlyUsedEditorInGroup" }
-      ]
+      "commands": [{
+        "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
+      }]
     },
     {
       "before": ["<leader>", "f", "e", "d"],
       "after": ["enter"],
-      "commands": [
-        { "command": "workbench.action.openGlobalSettings" }
-      ]
+      "commands": [{
+        "command": "workbench.action.openGlobalSettings"
+      }]
     }
-  ]
+  ],
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Dracula",
+  "editor.minimap.enabled": false
 }

@@ -79,8 +79,6 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 	
-[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
-
 # square brackets
 unsetopt nomatch
 
