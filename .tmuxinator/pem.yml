@@ -1,0 +1,10 @@
+name: pem
+root: ~/repos/pem-ui
+socket_path: /tmp/pem
+windows:
+  - ng:
+      layout: even-horizontal
+      panes:
+        - ng server
+        - git status
+
