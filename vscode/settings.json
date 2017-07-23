@@ -109,7 +109,7 @@
       }]
     }
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false
 }
