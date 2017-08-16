@@ -5,6 +5,7 @@ windows:
   - ng:
       layout: even-horizontal
       panes:
-        - ng server
+        - yarn run serve
         - git status
+  - proxy: yarn run proxy
 
