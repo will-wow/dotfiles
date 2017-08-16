@@ -111,5 +111,6 @@
   ],
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "autoimport.autoComplete": false
 }
