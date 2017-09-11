@@ -1,11 +1,15 @@
 name: pem
 root: ~/repos/pem-ui
-socket_path: /tmp/pem
 windows:
   - ng:
       layout: even-horizontal
       panes:
         - yarn run serve
         - git status
-  - proxy: yarn run proxy
+  - java: 
+      layout: even-horizontal
+      panes:
+        - ./gradlew bootRun
+        - cd ../pem-transformer && $TOMCAT_HOME/bin/startup.sh
+  - logs: cd ../pem-transformer && tail -f /opt/apps/loki/logs/Loki.log
 

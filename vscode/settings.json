@@ -1,5 +1,5 @@
-// Place your settings in this file to overwrite the default settings
 {
+  // Place your settings in this file to overwrite the default settings
   // General Settings
   "workbench.editor.showTabs": false,
   "editor.tabSize": 2,
@@ -36,7 +36,8 @@
 
   // Windows
   // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
-  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "terminal.integrated.shell.windows":
+    "C:\\Windows\\System32\\cmd.exe",
 
   // Vim
   "vim.useSystemClipboard": true,
@@ -45,68 +46,96 @@
   "vim.disableAnnoyingNeovimMessage": true,
   "vim.easymotion": false,
   "vim.visualstar": true,
-  "vim.otherModesKeyBindingsNonRecursive": [{
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
       "before": ["<leader>", "f", "s"],
       "after": [],
-      "commands": [{
-        "command": "workbench.action.files.save"
-      }]
+      "commands": [
+        {
+          "command": "workbench.action.files.save"
+        }
+      ]
     },
     {
       "before": ["<leader>", "p", "f"],
       "after": [],
-      "commands": [{
-        "command": "workbench.action.quickOpen"
-      }]
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen"
+        }
+      ]
     },
     {
       "before": ["<leader>", "f", "r"],
       "after": [],
-      "commands": [{
-        "command": "workbench.action.quickOpen"
-      }]
+      "commands": [
+        {
+          "command": "workbench.action.quickOpen"
+        }
+      ]
     },
     {
       "before": ["<leader>", "p", "t"],
       "after": [],
-      "commands": [{
-        "command": "workbench.view.explorer"
-      }]
+      "commands": [
+        {
+          "command": "workbench.view.explorer"
+        }
+      ]
     },
     {
       "before": ["<leader>", "/"],
       "after": [],
-      "commands": [{
-        "command": "workbench.view.search"
-      }]
+      "commands": [
+        {
+          "command": "workbench.view.search"
+        }
+      ]
     },
     {
       "before": ["<leader>", "b", "d"],
       "after": [],
-      "commands": [{
-        "command": "workbench.action.closeEditorsInGroup"
-      }]
+      "commands": [
+        {
+          "command": "workbench.action.closeEditorsInGroup"
+        }
+      ]
     },
     {
       "before": ["<leader>", "w", "/"],
       "after": [],
-      "commands": [{
-        "command": "workbench.action.splitEditor"
-      }]
+      "commands": [
+        {
+          "command": "workbench.action.splitEditor"
+        }
+      ]
     },
     {
       "before": ["<leader>", "tab"],
       "after": ["enter"],
-      "commands": [{
-        "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
-      }]
+      "commands": [
+        {
+          "command":
+            "workbench.action.openNextRecentlyUsedEditorInGroup"
+        }
+      ]
     },
     {
       "before": ["<leader>", "f", "e", "d"],
       "after": ["enter"],
-      "commands": [{
-        "command": "workbench.action.openGlobalSettings"
-      }]
+      "commands": [
+        {
+          "command": "workbench.action.openGlobalSettings"
+        }
+      ]
+    },
+    {
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      "before": ["k"],
+      "after": ["g", "k"]
     }
   ],
   "window.zoomLevel": 1,
