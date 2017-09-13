@@ -9,7 +9,7 @@ windows:
   - java: 
       layout: even-horizontal
       panes:
-        - ./gradlew bootRun
+        - SERVER_PORT=8090 ./gradlew bootRun
         - cd ../pem-transformer && $TOMCAT_HOME/bin/startup.sh
   - logs: cd ../pem-transformer && tail -f /opt/apps/loki/logs/Loki.log
 
