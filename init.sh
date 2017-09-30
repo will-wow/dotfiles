@@ -66,7 +66,7 @@ npm install --global yarn
 yarn global add avn avn-nvm
 avn setup
 # Install useful node globals
-yarn global add tern typescript tslint typescript-formatter jshint eslint
+yarn global add tern typescript tslint jshint eslint prettier
 
 ## Set up Ruby ##
 # Install rbenv
@@ -122,6 +122,13 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
   # For phoenix watch.
   sudo apt-get install inotify-tools
+
+  # Link VS Code Settings
+  ln -s ~/repos/dotfiles/vscode/settings.json /home/wow/.config/Code/User/settings.json
+
+  # Install Hack
+  sudo apt install fonts-hack-ttf
+
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   pip3 install --user neovim
