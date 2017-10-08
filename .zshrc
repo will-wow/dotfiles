@@ -69,6 +69,9 @@ else
   export EDITOR='vim'
 fi
 
+# OPAM configuration
+. ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
 # Aliases
 alias be='bundle exec'
 alias gitdog='git log --decorate --oneline --graph'
@@ -122,4 +125,3 @@ if [ ! -e "~/.zshrc_private" ]
 then
   source ~/.zshrc_private
 fi
-

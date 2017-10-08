@@ -141,5 +141,10 @@
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
-  "autoimport.autoComplete": false
+  "autoimport.autoComplete": false,
+  "[ocaml]": {
+    "editor.formatOnSave": true
+  },
+  "ocaml.lintOnSave": true,
+  "ocaml.merlinPath": "ocamlmerlin"
 }
