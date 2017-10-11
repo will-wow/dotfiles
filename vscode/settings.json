@@ -36,8 +36,7 @@
 
   // Windows
   // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
-  "terminal.integrated.shell.windows":
-    "C:\\Windows\\System32\\cmd.exe",
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
 
   // Vim
   "vim.useSystemClipboard": true,
@@ -115,8 +114,7 @@
       "after": ["enter"],
       "commands": [
         {
-          "command":
-            "workbench.action.openNextRecentlyUsedEditorInGroup"
+          "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
         }
       ]
     },
@@ -138,7 +136,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
   "autoimport.autoComplete": false,
@@ -146,5 +144,16 @@
     "editor.formatOnSave": true
   },
   "ocaml.lintOnSave": true,
-  "ocaml.merlinPath": "ocamlmerlin"
+  "ocaml.merlinPath": "ocamlmerlin",
+  // Lets remapped esc key work on ubuntu.
+  "keyboard.dispatch": "keyCode",
+
+  "markdownlint.config": {
+    "default": true,
+    "MD003": { "style": "consistent"},
+    "MD025": false,
+    "MD033": false,
+    "MD007": { "indent": 2 },
+    "no-hard-tabs": true
+  }
 }
