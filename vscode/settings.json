@@ -136,7 +136,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
   "autoimport.autoComplete": false,
@@ -150,10 +150,11 @@
 
   "markdownlint.config": {
     "default": true,
-    "MD003": { "style": "consistent"},
+    "MD003": { "style": "consistent" },
     "MD025": false,
     "MD033": false,
     "MD007": { "indent": 2 },
-    "no-hard-tabs": true
+    "no-hard-tabs": true,
+    "auto-run-command.rules": []
   }
 }
