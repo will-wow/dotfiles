@@ -78,7 +78,7 @@
       "after": [],
       "commands": [
         {
-          "command": "workbench.view.explorer"
+          "command": "workbench.files.action.showActiveFileInExplorer"
         }
       ]
     },
@@ -114,7 +114,10 @@
       "after": ["enter"],
       "commands": [
         {
-          "command": "workbench.action.openNextRecentlyUsedEditorInGroup"
+          "command": "workbench.action.openPreviousEditorFromHistory"
+        },
+        {
+          "command": "workbench.action.acceptSelectedQuickOpenItem"
         }
       ]
     },
@@ -139,7 +142,6 @@
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
-  "autoimport.autoComplete": false,
   "[ocaml]": {
     "editor.formatOnSave": true
   },
@@ -156,5 +158,7 @@
     "MD007": { "indent": 2 },
     "no-hard-tabs": true
   },
-  "auto-run-command.rules": []
+  "auto-run-command.rules": [],
+  "prettier.singleQuote": true,
+  "explorer.autoReveal": false
 }
