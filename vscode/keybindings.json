@@ -1,5 +1,5 @@
-// Place your key bindings in this file to overwrite the defaults
 [
+  // Place your key bindings in this file to overwrite the defaults
   {
     "key": "ctrl+h",
     "command": "workbench.action.focusPreviousGroup",
@@ -48,11 +48,17 @@
   {
     "key": "ctrl+j",
     "command": "selectNextSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    "when":
+      "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
   {
     "key": "ctrl+k",
     "command": "selectPrevSuggestion",
-    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    "when":
+      "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+e",
+    "command": ""
   }
 ]
