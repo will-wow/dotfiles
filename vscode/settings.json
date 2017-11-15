@@ -139,6 +139,10 @@
       "after": ["g", "k"]
     }
   ],
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-b>": false
+  },
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
@@ -160,5 +164,6 @@
   },
   "auto-run-command.rules": [],
   "prettier.singleQuote": true,
-  "explorer.autoReveal": false
+  "explorer.autoReveal": false,
+  "workbench.panel.location": "bottom"
 }
