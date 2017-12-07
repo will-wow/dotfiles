@@ -165,5 +165,17 @@
   "auto-run-command.rules": [],
   "prettier.singleQuote": true,
   "explorer.autoReveal": false,
-  "workbench.panel.location": "bottom"
+  "workbench.panel.location": "bottom",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressUpdateNotice": false,
+    "suppressWelcomeNotice": true
+  },
+  "gitlens.annotations.line.trailing.format": "${message} ${ago}",
+  "gitlens.codeLens.enabled": false
 }
