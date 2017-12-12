@@ -177,5 +177,10 @@
     "suppressWelcomeNotice": true
   },
   "gitlens.annotations.line.trailing.format": "${message} ${ago}",
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "ruby.specCommand": "spring rspec",
+  "workbench.editor.labelFormat": "medium"
 }

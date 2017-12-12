@@ -72,6 +72,12 @@ fi
 # OPAM configuration
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
+# Setup QT brew link
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+# Add local bin to path
+export PATH="./bin:$PATH"
+
 # Aliases
 alias be='bundle exec'
 alias gitdog='git log --decorate --oneline --graph'
