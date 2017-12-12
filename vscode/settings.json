@@ -131,6 +131,30 @@
       ]
     },
     {
+      "before": ["<leader>", "m", "t", "b"],
+      "commands": [
+        {
+          "command": "extension.runFileSpecs"
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "m", "t", "t"],
+      "commands": [
+        {
+          "command": "extension.runSpecLine"
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "m", "t", "l"],
+      "commands": [
+        {
+          "command": "extension.runLastSpec"
+        }
+      ]
+    },
+    {
       "before": ["j"],
       "after": ["g", "j"]
     },
