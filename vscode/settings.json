@@ -218,7 +218,8 @@
     "typescriptreact",
     "yml",
     "ruby",
-    "elixir"
+    "elixir",
+    "erb"
   ],
   "cSpell.userWords": [
     "signup",
