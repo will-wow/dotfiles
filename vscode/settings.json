@@ -206,5 +206,24 @@
     "rubocop": true
   },
   "ruby.specCommand": "spring rspec",
-  "workbench.editor.labelFormat": "medium"
+  "workbench.editor.labelFormat": "medium",
+  "cSpell.enabledLanguageIds": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "plaintext",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yml",
+    "ruby",
+    "elixir"
+  ],
+  "cSpell.userWords": [
+    "SIGNUP",
+    "downcase",
+    "params",
+    "truthy"
+  ]
 }
