@@ -221,9 +221,15 @@
     "elixir"
   ],
   "cSpell.userWords": [
-    "SIGNUP",
+    "signup",
     "downcase",
     "params",
-    "truthy"
+    "truthy",
+    "caml",
+    "dissoc",
+    "erlang",
+    "injectable",
+    "repo",
+    "struct"
   ]
 }

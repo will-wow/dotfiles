@@ -108,6 +108,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   else
     # Normal lunux desktop
     setxkbmap -option caps:escape
+
+    # Elixir source install
+    export PATH="$PATH:$HOME/repos/elixir/bin"
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
