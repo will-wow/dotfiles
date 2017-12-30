@@ -72,9 +72,6 @@ fi
 # OPAM configuration
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-# Setup QT brew link
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
-
 # Add local bin to path
 export PATH="./bin:$PATH"
 
@@ -117,6 +114,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias vi='nvim'
   alias vim='nvim'
   ssh-add -A
+
+  # Setup QT brew link
+  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
