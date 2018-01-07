@@ -1,0 +1,17 @@
+# ~/.tmuxinator/pitch-in.yml
+
+name: ants
+root: ~/repos/ants
+
+windows:
+  - server:
+      layout: main-vertical
+      panes:
+        - mix phx.server
+        - git status
+  - reason:
+      pre: cd assets
+      layout: main-vertical
+      panes:
+        - yarn start
+        - yarn webpack
