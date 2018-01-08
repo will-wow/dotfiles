@@ -51,6 +51,7 @@ ln -s ~/repos/dotfiles/.tmux.conf ~
 ln -s ~/repos/dotfiles/.tmux-osx.conf ~
 ln -s ~/repos/dotfiles/.tmux-linux.conf ~
 ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
+ln -s ~/repos/dotfiles/.pryrc ~/
 
 # Link neovim config
 mkdir -p ~/.config/nvim
