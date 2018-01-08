@@ -223,13 +223,26 @@
         "g",
         "k"
       ]
+    },
+    // Try turing off visual mode to force me to use more motions.
+    {
+      "before": [
+        "v"
+      ],
+      "after": []
+    },
+    {
+      "before": [
+        "V"
+      ],
+      "after": []
     }
   ],
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-b>": false
   },
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
   "[ocaml]": {
