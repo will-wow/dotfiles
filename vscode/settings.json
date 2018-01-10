@@ -266,6 +266,7 @@
   },
   "auto-run-command.rules": [],
   "prettier.singleQuote": true,
+  "prettier.requireConfig": true,
   "explorer.autoReveal": false,
   "workbench.panel.location": "bottom",
   "gitlens.advanced.messages": {
@@ -322,5 +323,8 @@
     "struct",
     "structs",
     "truthy"
-  ]
+  ],
+  "[reason]": {
+    "editor.codeLens": false
+  }
 }
