@@ -15,16 +15,16 @@ Plugin 'VundleVim/Vundle.vim'
 " Add plugins here
 " VIM
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-projectionist'
+Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
-Plugin 'tpope/vim-commentary'
 Plugin 'Raimondi/delimitMate'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'haya14busa/incsearch.vim'
@@ -71,13 +71,8 @@ Plugin 'nelstrom/vim-textobj-rubyblock' " Ruby block text objects
 Plugin 'othree/html5.vim'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'alvan/vim-closetag'
-" CoffeeScript
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'AndrewRadev/vim-eco'
 " C
 Plugin 'Rip-Rip/clang_complete'
-" Go
-Plugin 'fatih/vim-go'
 " Haskell
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'eagletmt/neco-ghc'
@@ -115,7 +110,6 @@ set timeoutlen=1000 ttimeoutlen=10
 " Color
 syntax enable
 set background=dark
-" colorscheme solarized
 colorscheme dracula
 
 " Airline
