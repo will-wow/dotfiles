@@ -1,0 +1,13 @@
+name: shares
+root: ~/repos/sharex
+
+windows:
+  - server:
+      layout: main-vertical
+      panes:
+        - be rails s
+        - git status
+  - console: be rails c
+  - workers: be rake jobs:work
+  - ngrok: ngrok http 3000
+  - log: tail ./log/development.log

@@ -37,10 +37,9 @@
   // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
   // Vim
-  "vim.useSystemClipboard": true,
+  "vim.useSystemClipboard": false,
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
-  "vim.disableAnnoyingNeovimMessage": true,
   "vim.easymotion": false,
   "vim.visualstar": true,
   "vim.otherModesKeyBindingsNonRecursive": [
