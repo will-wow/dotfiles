@@ -4,7 +4,7 @@ name: ants
 root: ~/repos/ants
 
 windows:
-  - server:
+  - phoenix:
       layout: main-vertical
       panes:
         - mix phx.server
@@ -14,4 +14,4 @@ windows:
       layout: main-vertical
       panes:
         - yarn start
-        - yarn webpack
+        - git status
