@@ -1,5 +1,5 @@
 [
-  // Place your key bindings in this file to overwrite the defaults
+  // ctrl-hjkl to move between panes and terminal
   {
     "key": "ctrl+h",
     "command": "workbench.action.focusPreviousGroup",
@@ -25,6 +25,7 @@
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "explorerViewletVisible && filesExplorerFocus"
   },
+  // ctrl-hjkl to move through menus
   {
     "key": "ctrl+j",
     "command": "list.focusDown",

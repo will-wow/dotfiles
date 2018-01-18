@@ -91,6 +91,9 @@ unsetopt nomatch
 # tmux
 source ~/.bin/tmuxinator.zsh
 
+# Elixir source install
+export PATH="$PATH:$HOME/repos/elixir/bin"
+
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
 export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
@@ -105,9 +108,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   else
     # Normal lunux desktop
     setxkbmap -option caps:escape
-
-    # Elixir source install
-    export PATH="$PATH:$HOME/repos/elixir/bin"
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX

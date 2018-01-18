@@ -37,11 +37,18 @@
   // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
   // Vim
-  "vim.useSystemClipboard": false,
+  "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
   "vim.enableNeovim": true,
   "vim.easymotion": false,
   "vim.visualstar": true,
+  "vim.cmdLineInitialColon": true,
+  "vim.useCtrlKeys": true,
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-b>": false,
+    "<C-d>": true
+  },
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": [
@@ -237,10 +244,6 @@
       "after": []
     }
   ],
-  "vim.handleKeys": {
-    "<C-f>": false,
-    "<C-b>": false
-  },
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
@@ -265,7 +268,6 @@
   },
   "auto-run-command.rules": [],
   "prettier.singleQuote": true,
-  "prettier.requireConfig": true,
   "explorer.autoReveal": false,
   "workbench.panel.location": "bottom",
   "gitlens.advanced.messages": {
