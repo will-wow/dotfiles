@@ -134,3 +134,5 @@ if [ ! -e "~/.zshrc_private" ]
 then
   source ~/.zshrc_private
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

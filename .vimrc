@@ -1,104 +1,79 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
-  !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-endif
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Add plugins here
 " VIM
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-projectionist'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'dracula/vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'PeterRincker/vim-argumentative'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'janko-m/vim-test'
-Plugin 'ervandew/supertab'
-Plugin 'benmills/vimux'
-Plugin 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
-Plugin 'christoomey/vim-tmux-navigator' " Tmux pane integration
-Plugin 'vim-scripts/argtextobj.vim' " Argument text objects
-Plugin 'bkad/CamelCaseMotion' " Word motions for camel/snake case
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-projectionist'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'dracula/vim'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mileszs/ack.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'PeterRincker/vim-argumentative'
+Plug 'haya14busa/incsearch.vim'
+Plug 'janko-m/vim-test'
+Plug 'ervandew/supertab'
+Plug 'benmills/vimux'
+Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
+Plug 'christoomey/vim-tmux-navigator' " Tmux pane integration
+Plug 'vim-scripts/argtextobj.vim' " Argument text objects
+Plug 'bkad/CamelCaseMotion' " Word motions for camel/snake case
+Plug 'w0rp/ale' " Linters
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+Plug 'junegunn/fzf.vim'
 if has('nvim')
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'zchee/deoplete-go'
-  let g:deoplete#enable_at_startup = 1
-else
-  Plugin 'Shougo/neocomplete'
-  let g:neocomplete#enable_at_startup = 1
+  " Language Server
+  Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+  Plug 'roxma/nvim-completion-manager' " Autocomplete
 endif
-
 " GIT
-Plugin 'tpope/vim-fugitive'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 " ELIXIR
-Plugin 'slashmili/alchemist.vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'thinca/vim-ref'
+Plug 'elixir-editors/vim-elixir'
 " JS/TS
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'jason0x43/vim-js-indent'
-" Plugin 'helino/vim-json'
-Plugin 'mxw/vim-jsx' 
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'jason0x43/vim-js-indent'
+Plug 'mxw/vim-jsx' 
 " Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-endwise' " add `end` to ruby and other code
-Plugin 'danchoi/ri.vim' " Ruby docs
-Plugin 'kana/vim-textobj-user' " Dep for ruby text objects
-Plugin 'nelstrom/vim-textobj-rubyblock' " Ruby block text objects
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise' " add `end` to ruby and other code
+Plug 'danchoi/ri.vim' " Ruby docs
+Plug 'kana/vim-textobj-user' " Dep for ruby text objects
+Plug 'nelstrom/vim-textobj-rubyblock' " Ruby block text objects
 " HTML
-Plugin 'othree/html5.vim'
-Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'alvan/vim-closetag'
+Plug 'othree/html5.vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'alvan/vim-closetag'
 " C
-Plugin 'Rip-Rip/clang_complete'
+Plug 'Rip-Rip/clang_complete'
 " Haskell
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'neovimhaskell/haskell-vim'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
+Plug 'neovimhaskell/haskell-vim'
 " Plugin 'alx741/vim-hindent'
-Plugin 'Twinside/vim-hoogle'
+Plug 'Twinside/vim-hoogle'
 " OTHER LANG
-Plugin 'sheerun/vim-polyglot' " all the languages
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'w0rp/ale' " Linters
-Plugin 'sbdchd/neoformat'
+Plug 'sheerun/vim-polyglot' " all the languages
+Plug 'plasticboy/vim-markdown'
+Plug 'sbdchd/neoformat'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+call plug#end()
+
 " Put your non-Plugin stuff after this line
 
 " Leader
@@ -168,16 +143,12 @@ set backspace=indent,eol,start
 " Keep intent after completion
 let g:delimitMate_expand_space = 1
 
-" ctrlp
-let g:ctrlp_map = '<leader>pf'
-nnoremap <LEADER>ff :CtrlPCurFile<CR>
-nnoremap <LEADER>fr :CtrlPMRU<CR>
-nnoremap <LEADER>pc :CtrlPClearCache<CR>
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_match_current_file = 1
+" fzf
+nnoremap <LEADER>pf :GFiles<CR>
+nnoremap <LEADER>ff :History<CR>
+nnoremap <LEADER>bb :Buffers<CR>
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
-let g:ctrlp_show_hidden = 1
+" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
 
 " Goto File mapping
 nmap <leader>mgg gf
@@ -185,7 +156,6 @@ nmap <leader>mgG <c-w>f
 
 " Buffer switching
 nnoremap <leader><tab> <c-^>
-nnoremap <LEADER>bb :CtrlPBuffer<CR>
 nnoremap <LEADER>bd :bdelete<CR>
 nnoremap <LEADER>bn :bn<CR>
 nnoremap <LEADER>bp :bp<CR>
@@ -298,6 +268,19 @@ nnoremap <leader>br :checktime<cr>:CtrlPClearCache<cr>
 
 " Use <leader><TextObject> for CamelCaseMotion words
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+" Language Server
+let g:LanguageClient_windowLogMessageLevel = "Log"
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'elixir': ['ex-ls'],
+    \ }
+
+let g:LanguageClient_autoStart = 1
+nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " OS-specific
 if has('unix')
