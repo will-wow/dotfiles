@@ -37,6 +37,14 @@ wget https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors 
 ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
+# Set up Elixir-LS
+cd ~/repos
+git clone git@github.com:JakeBecker/elixir-ls.git
+cd elixir-ls
+mix deps.get
+mix release -o lsp
+echo "env ERL_LIBS=$ERL_LIBS:$HOME/repos/elixir-ls/lsp mix elixir_ls.language_server" >  /opt/ex-ls
+
 # Link dotfiles
 mkdir ~/.vim
 touch ~/.zshrc_private

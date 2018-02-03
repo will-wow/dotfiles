@@ -270,12 +270,17 @@ nnoremap <leader>br :checktime<cr>:CtrlPClearCache<cr>
 call camelcasemotion#CreateMotionMappings('<leader>')
 
 " Language Server
-let g:LanguageClient_windowLogMessageLevel = "Log"
+let g:LanguageClient_loggingLevel = "Info"
+let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
     \ 'elixir': ['ex-ls'],
     \ }
+let g:LanguageClient_rootMarkers = {
+    \ 'elixir': ['mix.exs'],
+    \ }
+
 
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
