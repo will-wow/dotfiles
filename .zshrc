@@ -79,6 +79,10 @@ export PATH="./bin:$PATH"
 alias be='bundle exec'
 alias gitdog='git log --decorate --oneline --graph'
 
+# Alias git = hub
+eval "$(hub alias -s)"
+alias gpr='git pull-request -F ./.github/PULL_REQUEST_TEMPLATE.md | pbcopy'
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 

@@ -8,6 +8,9 @@ windows:
         - be rails s
         - git status
   - console: be rails c
-  - workers: be rake jobs:work
+  - servers:
+      layout: even-vertical
+        - be rake jobs:work
+        - webpack-dev-server
   - ngrok: ngrok http 3000
   - log: tail ./log/development.log

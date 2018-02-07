@@ -12,3 +12,5 @@ let g:projectionist_heuristics = {
   \     }
   \   }
   \ }
+
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
