@@ -105,6 +105,18 @@
     {
       "before": [
         "<leader>",
+        "="
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.formatDocument"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
         "/"
       ],
       "after": [],
@@ -244,7 +256,7 @@
       "after": []
     }
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
   "[ocaml]": {

@@ -130,6 +130,11 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" Run autoformatter
+nnoremap <leader>mfb :Neoformat<cr>
+nnoremap <leader>= :Neoformat<cr>
+
+
 " bash-y edit tab complete.
 " set wildmode=longest,list
 
