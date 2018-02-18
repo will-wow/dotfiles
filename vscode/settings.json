@@ -98,6 +98,19 @@
       "after": [],
       "commands": [
         {
+          "command": "workbench.view.explorer"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "n",
+        "f"
+      ],
+      "after": [],
+      "commands": [
+        {
           "command": "workbench.files.action.showActiveFileInExplorer"
         }
       ]
@@ -259,9 +272,6 @@
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
-  "[ocaml]": {
-    "editor.formatOnSave": true
-  },
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",
   // Lets remapped esc key work on ubuntu.
@@ -278,22 +288,8 @@
     },
     "no-hard-tabs": true
   },
-  "auto-run-command.rules": [],
   "prettier.singleQuote": true,
   "explorer.autoReveal": false,
-  "workbench.panel.location": "bottom",
-  "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false,
-    "suppressCommitNotFoundWarning": false,
-    "suppressFileNotUnderSourceControlWarning": false,
-    "suppressGitVersionWarning": false,
-    "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressUpdateNotice": false,
-    "suppressWelcomeNotice": true
-  },
-  "gitlens.annotations.line.trailing.format": "${message} ${ago}",
-  "gitlens.codeLens.enabled": false,
   "ruby.lint": {
     "rubocop": true
   },
