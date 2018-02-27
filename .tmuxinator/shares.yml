@@ -12,6 +12,6 @@ windows:
       layout: even-vertical
       panes:
         - be rake jobs:work
-        - webpack-dev-server
+        - yarn start
   - ngrok: ngrok http 3000
   - log: tail ./log/development.log

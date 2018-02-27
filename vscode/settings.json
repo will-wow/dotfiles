@@ -329,6 +329,7 @@
     "moduledoc",
     "params",
     "repo",
+    "serializer",
     "signup",
     "struct",
     "structs",
