@@ -134,6 +134,14 @@ nnoremap gk k
 nnoremap <leader>mfb :Neoformat<cr>
 nnoremap <leader>= :Neoformat<cr>
 
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_elixir = ['mix format']
+let g:neoformat_enabled_ruby = ['rubocop']
+let g:neoformat_enabled_reason = ['refmt']
 
 " bash-y edit tab complete.
 " set wildmode=longest,list
@@ -266,6 +274,7 @@ endif
 
 " Autoread file updates
 set autoread
+au FocusGained * :checktime
 nnoremap <leader>br :checktime<cr>:CtrlPClearCache<cr>
 
 " I think this is for vimux?
