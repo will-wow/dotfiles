@@ -37,6 +37,9 @@ wget https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors 
 ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
+# make `git push` always work
+git config --global push.default current
+
 # Set up Elixir-LS
 cd ~/repos
 git clone git@github.com:JakeBecker/elixir-ls.git
