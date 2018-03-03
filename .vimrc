@@ -23,6 +23,7 @@ Plug 'ervandew/supertab'
 Plug 'benmills/vimux'
 Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 Plug 'christoomey/vim-tmux-navigator' " Tmux pane integration
+Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
 Plug 'vim-scripts/argtextobj.vim' " Argument text objects
 Plug 'bkad/CamelCaseMotion' " Word motions for camel/snake case
 Plug 'w0rp/ale' " Linters
@@ -275,7 +276,7 @@ endif
 " Autoread file updates
 set autoread
 au FocusGained * :checktime
-nnoremap <leader>br :checktime<cr>:CtrlPClearCache<cr>
+nnoremap <leader>br :checktime
 
 " I think this is for vimux?
 :au FocusLost * silent! wa
