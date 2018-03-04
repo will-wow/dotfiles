@@ -269,7 +269,7 @@
       "after": []
     }
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "workbench.colorTheme": "Dracula",
   "editor.minimap.enabled": false,
   "ocaml.lintOnSave": true,
@@ -311,12 +311,14 @@
   ],
   "cSpell.userWords": [
     "Ockelmann",
+    "bookmarkers",
     "caml",
     "changeset",
     "concat",
     "cond",
     "consts",
     "coord",
+    "datetime",
     "defdelegate",
     "defmodule",
     "defp",
@@ -333,6 +335,7 @@
     "signup",
     "struct",
     "structs",
+    "timestamps",
     "truthy"
   ],
   "[reason]": {
