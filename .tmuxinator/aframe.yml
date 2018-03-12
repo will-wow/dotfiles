@@ -1,0 +1,15 @@
+name: aframe
+root: ~/repos/aframe
+
+windows:
+  - vim:
+      layout: main-vertical
+      panes:
+        - vim
+        - git status
+  - server:
+      layout: even-vertical
+      panes:
+        - live-server
+        - git status
+
