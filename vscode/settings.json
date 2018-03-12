@@ -197,7 +197,7 @@
       "before": [
         "<leader>",
         "f",
-        "e",
+        "z",
         "d"
       ],
       "after": [
@@ -289,7 +289,7 @@
   "prettier.singleQuote": true,
   "explorer.autoReveal": false,
   "ruby.lint": {
-    "rubocop": true
+    "rubocop": false
   },
   "ruby.specCommand": "spring rspec",
   "workbench.editor.labelFormat": "medium",
