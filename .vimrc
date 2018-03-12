@@ -5,30 +5,27 @@ call plug#begin('~/.vim/plugged')
 
 " Add plugins here
 " VIM
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-projectionist'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'dracula/vim'
-Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mileszs/ack.vim'
-Plug 'Raimondi/delimitMate'
-Plug 'PeterRincker/vim-argumentative'
-Plug 'haya14busa/incsearch.vim'
-Plug 'janko-m/vim-test'
-Plug 'ervandew/supertab'
-Plug 'benmills/vimux'
+Plug 'tpope/vim-surround' " Surround thigns with braces and quotes
+Plug 'tpope/vim-commentary' " Comment out stuff
+Plug 'tpope/vim-eunuch' " UNIX shell commands
+Plug 'tpope/vim-projectionist' " Jumping around and running tests in projects
+Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented blocks
+Plug 'PeterRincker/vim-argumentative' " Add , as text object for arguments
+Plug 'bkad/CamelCaseMotion' " Add <space>w/b as text object for camel/snake words
+Plug 'tommcdo/vim-exchange' " cx{motion} to swap text
+Plug 'dracula/vim' " Theme
+Plug 'scrooloose/nerdtree' " File tree
+Plug 'itchyny/lightline.vim' " Status line
+Plug 'Raimondi/delimitMate' " Auto-close quotes
+Plug 'haya14busa/incsearch.vim' " Highlight search results
+Plug 'janko-m/vim-test' " Run tests with shortcuts
+Plug 'benmills/vimux' " Pass tests from vim-test into a tmux pane
+Plug 'ervandew/supertab' " Use tab for completion
 Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 Plug 'christoomey/vim-tmux-navigator' " Tmux pane integration
 Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
-Plug 'vim-scripts/argtextobj.vim' " Argument text objects
-Plug 'bkad/CamelCaseMotion' " Word motions for camel/snake case
-Plug 'w0rp/ale' " Linters
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
 if has('nvim')
   " Language Server
   Plug 'autozimu/LanguageClient-neovim', {
@@ -37,24 +34,23 @@ if has('nvim')
     \ }
   Plug 'roxma/nvim-completion-manager' " Autocomplete
 endif
+" Runners
+Plug 'w0rp/ale' " Runs linters & fixers
+" Elixir
+Plug 'elixir-editors/vim-elixir'
 " GIT
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-" ELIXIR
-Plug 'elixir-editors/vim-elixir'
 " JS/TS
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
-Plug 'jason0x43/vim-js-indent'
 Plug 'mxw/vim-jsx' 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rails' " Projections and syntax highlighting for rails
 Plug 'tpope/vim-endwise' " add `end` to ruby and other code
 Plug 'danchoi/ri.vim' " Ruby docs
-Plug 'kana/vim-textobj-user' " Dep for ruby text objects
-Plug 'nelstrom/vim-textobj-rubyblock' " Ruby block text objects
 " HTML
 Plug 'othree/html5.vim'
 Plug 'Quramy/vim-js-pretty-template'
@@ -65,12 +61,9 @@ Plug 'Rip-Rip/clang_complete'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'neovimhaskell/haskell-vim'
-" Plugin 'alx741/vim-hindent'
 Plug 'Twinside/vim-hoogle'
 " OTHER LANG
-Plug 'sheerun/vim-polyglot' " all the languages
-Plug 'plasticboy/vim-markdown'
-Plug 'sbdchd/neoformat'
+Plug 'sheerun/vim-polyglot' " Basic support for many languages
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -88,21 +81,27 @@ syntax enable
 set background=dark
 colorscheme dracula
 
-" Airline
-let g:airline_powerline_fonts = 1
-" Always show
-set laststatus=2
+" Liteline
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'filename', 'readonly', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+set noshowmode " Don't show insert, since liteline already does
 
-" Ack
-" Use AG for serach if possible
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-nnoremap <leader>/ :Ack!<Space>
-nnoremap <leader>* :Ack! <c-r><c-w><cr>
+nnoremap <leader>/ :Ag<Space>
+nnoremap <leader>* :Ag <c-r><c-w><cr>
 vnoremap * y/<c-r>"<cr>
-vnoremap <leader>* y:Ack! <c-r>"<cr>
+vnoremap <leader>* y:Ag <c-r>"<cr>
 
+" Save
 nnoremap <leader>fs :w<CR>
 
 " Open splits to the side as expected
@@ -132,8 +131,7 @@ nnoremap gj j
 nnoremap gk k
 
 " Run autoformatter
-nnoremap <leader>mfb :Neoformat<cr>
-nnoremap <leader>= :Neoformat<cr>
+nnoremap <leader>= :ALEFix<cr>
 
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_json = ['prettier']
@@ -161,6 +159,7 @@ let g:delimitMate_expand_space = 1
 nnoremap <LEADER>pf :GFiles<CR>
 nnoremap <LEADER>ff :History<CR>
 nnoremap <LEADER>bb :Buffers<CR>
+nnoremap <LEADER>bc :BCommits<CR>
 
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
 
@@ -223,7 +222,8 @@ nmap <Leader>jw <Plug>(easymotion-overwin-w)
 " git
 nnoremap <LEADER>gb :Gblame<CR>
 nnoremap <LEADER>gd :Gdiff<CR>
-nnoremap <LEADER>gs :Gstatus<CR>
+nnoremap <LEADER>gs :GFiles?<CR>
+nnoremap <LEADER>gc :Commits?<CR>
 nnoremap <Leader>Td :GitGutterToggle<CR>
 
 " supertab
@@ -263,9 +263,6 @@ nnoremap <leader>mtT :w<cr>:AT<cr>
 " enunch
 nnoremap <leader>fR :Rename<space>
 nnoremap <leader>fD :Unlink<cr>
-
-" Find and Replace
-" nnoremap <leader>pr :Ack!<space> :cfdo s/thing/thang/gc<cr>
 
 " Turn off beeping
 set noerrorbells visualbell t_vb=

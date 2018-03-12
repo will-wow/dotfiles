@@ -1,4 +1,4 @@
-let g:neomake_elixir_enabled_makers = ['credo']
+let b:ale_linters = ['credo']
 
 let g:projectionist_heuristics = {
   \   "mix.exs": {

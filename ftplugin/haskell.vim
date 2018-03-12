@@ -1,7 +1,6 @@
 " haskell completion
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 let g:haskellmode_completion_ghc = 1
-let g:neomake_haskell_ghc_mod_args = '-g-Wall'
 let g:hindent_line_length = 80
 
 nnoremap <leader>mhh :HoogleInfo <c-r><c-w><cr>
