@@ -33,6 +33,12 @@ wget https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors 
 # Select the Dracula.itermcolors file
 # Select the Dracula from Load Presets...
 
+# Install dracula for Ubuntu
+cd ~/repos
+git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
+cd gnome-terminal-colors-dracula
+ ./install.sh 
+
 # Set up gitignore
 ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global

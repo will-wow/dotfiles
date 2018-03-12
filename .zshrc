@@ -112,6 +112,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   else
     # Normal lunux desktop
     setxkbmap -option caps:escape
+    eval `dircolors $HOME/.dir_colors/dircolors`
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
