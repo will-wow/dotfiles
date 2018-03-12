@@ -160,6 +160,7 @@ nnoremap <LEADER>pf :GFiles<CR>
 nnoremap <LEADER>ff :History<CR>
 nnoremap <LEADER>bb :Buffers<CR>
 nnoremap <LEADER>bc :BCommits<CR>
+nnoremap <C-P> :Commands<CR>
 
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
 

@@ -49,6 +49,17 @@
     "<C-b>": false,
     "<C-d>": true
   },
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+  ],
   "vim.otherModesKeyBindingsNonRecursive": [
     {
       "before": [
@@ -80,7 +91,7 @@
       "before": [
         "<leader>",
         "f",
-        "r"
+        "f"
       ],
       "after": [],
       "commands": [
@@ -254,19 +265,6 @@
         "g",
         "k"
       ]
-    },
-    // Try turing off visual mode to force me to use more motions.
-    {
-      "before": [
-        "v"
-      ],
-      "after": []
-    },
-    {
-      "before": [
-        "V"
-      ],
-      "after": []
     }
   ],
   "window.zoomLevel": 0,
