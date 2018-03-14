@@ -153,6 +153,18 @@
     {
       "before": [
         "<leader>",
+        "*"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.view.search"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
         "b",
         "d"
       ],
@@ -190,6 +202,18 @@
         },
         {
           "command": "workbench.action.acceptSelectedQuickOpenItem"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        ":"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.showCommands"
         }
       ]
     },

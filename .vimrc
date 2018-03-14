@@ -156,11 +156,12 @@ set backspace=indent,eol,start
 let g:delimitMate_expand_space = 1
 
 " fzf
-nnoremap <LEADER>pf :GFiles<CR>
-nnoremap <LEADER>ff :History<CR>
-nnoremap <LEADER>bb :Buffers<CR>
-nnoremap <LEADER>bc :BCommits<CR>
+nnoremap <leader>pf :GFiles<CR>
+nnoremap <leader>ff :History<CR>
+nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>bc :BCommits<CR>
 nnoremap <C-P> :Commands<CR>
+nnoremap <leader>: :Commands<CR>
 
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
 
