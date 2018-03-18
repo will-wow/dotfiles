@@ -13,6 +13,11 @@
 brew tap Homebrew/bundle
 brew bundle
 
+# Ubuntu Installs
+sudo apt update
+sudo apt install zsh
+sudo apt install tmux
+
 # Use brew shells
 sudo -s 
 echo /usr/local/bin/bash >> /etc/shells
@@ -67,7 +72,6 @@ ln -s ~/repos/dotfiles/.tmuxinator ~
 ln -s ~/repos/dotfiles/.tmux.conf ~
 ln -s ~/repos/dotfiles/.tmux-osx.conf ~
 ln -s ~/repos/dotfiles/.tmux-linux.conf ~
-ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 ln -s ~/repos/dotfiles/.pryrc ~/
 
 # Link neovim config
@@ -86,7 +90,7 @@ npm install --global yarn
 yarn global add avn avn-nvm
 avn setup
 # Install useful node globals
-yarn global add tern typescript tslint jshint eslint prettier
+yarn global add tern typescript tslint jshint eslint prettier create-react-app
 
 ## Set up Ruby ##
 # Install rbenv
@@ -94,8 +98,8 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 # For ubuntu install build-essential first
 cd ~/.rbenv && src/configure && make -C src
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.3.1
-rbenv global 2.3.1
+rbenv install 2.4.1
+rbenv global 2.4.1
 gem install bundler rubocop
 
 # tmux
@@ -112,8 +116,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   sudo apt-get update
   sudo apt-get install google-chrome-stable
-  # ctags
-  sudo apt-get install exuberant-ctags
   
   # Neovim
   sudo add-apt-repository ppa:neovim-ppa/stable
@@ -124,11 +126,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   pip3 install --user neovim
   
   sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-  sudo update-alternatives --config vi
   sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-  sudo update-alternatives --config vim
   sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-  sudo update-alternatives --config editor
 
   # Ruby deps
   sudo apt install build-essential
@@ -138,7 +137,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
   sudo apt update
   sudo apt install esl-erlang
-  sudo apt install elixir
+  # See elixir-ls
 
   # For phoenix watch.
   sudo apt-get install inotify-tools
@@ -153,6 +152,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   pip3 install --user neovim
   defaults write com.apple.screencapture location ~/Downloads
+
+  ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then

@@ -54,7 +54,7 @@ plugins=(git git-flow npm)
 
 # User configuration
 
-export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -78,10 +78,6 @@ export PATH="./bin:$PATH"
 # Aliases
 alias be='bundle exec'
 alias gitdog='git log --decorate --oneline --graph'
-
-# Alias git = hub
-eval "$(hub alias -s)"
-alias gpr='git pull-request'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -122,6 +118,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
   # Setup QT brew link
   export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+
+  # Alias git = hub
+  eval "$(hub alias -s)"
+  alias gpr='git pull-request'
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
@@ -141,3 +141,4 @@ then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
