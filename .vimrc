@@ -162,6 +162,7 @@ nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>bc :BCommits<CR>
 nnoremap <C-P> :Commands<CR>
 nnoremap <leader>: :Commands<CR>
+nnoremap <leader>f/ :Lines<CR>
 
 " let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|priv/static\|build\|deps\|dist'
 
