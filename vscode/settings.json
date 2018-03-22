@@ -310,7 +310,6 @@
     },
     "no-hard-tabs": true
   },
-  "prettier.singleQuote": true,
   "explorer.autoReveal": false,
   "ruby.lint": {
     "rubocop": false

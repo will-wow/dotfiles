@@ -50,9 +50,12 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow npm)
+plugins=(vi-mode git git-flow npm)
 
 # User configuration
+
+# Vi-mode indicator
+export MODE_INDICATOR="%{$fg_bold[green]%}[NORMAL]%{$reset_color%}"
 
 export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -90,6 +93,21 @@ unsetopt nomatch
 
 # tmux
 source ~/.bin/tmuxinator.zsh
+
+# Vi-mode
+# Faster swtich to normal mode
+export KEYTIMEOUT=1
+# Better searching in command mode
+bindkey -M vicmd '?' history-incremental-search-backward
+bindkey -M vicmd '/' history-incremental-search-forward
+
+# Beginning search with arrow keys
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+# Beginning of line
+bindkey -M vicmd "_" vim-mode-beginning-of-line
 
 # Elixir source install
 export PATH="$PATH:$HOME/repos/elixir/bin"
