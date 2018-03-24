@@ -133,17 +133,9 @@ nnoremap gk k
 " Run autoformatter
 nnoremap <leader>= :ALEFix<cr>
 
-let g:neoformat_enabled_javascript = ['prettier']
-let g:neoformat_enabled_json = ['prettier']
-let g:neoformat_enabled_css = ['prettier']
-let g:neoformat_enabled_scss = ['prettier']
-let g:neoformat_enabled_typescript = ['prettier']
-let g:neoformat_enabled_elixir = ['mixformat']
-let g:neoformat_enabled_ruby = ['rubocop']
-let g:neoformat_enabled_reason = ['refmt']
-
-" bash-y edit tab complete.
-" set wildmode=longest,list
+let g:ale_linters = {
+\ 'html': []
+\}
 
 " Smartcase for search
 set ignorecase

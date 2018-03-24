@@ -361,5 +361,6 @@
   ],
   "[reason]": {
     "editor.codeLens": false
-  }
+  },
+  "explorer.confirmDragAndDrop": false
 }

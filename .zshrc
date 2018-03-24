@@ -106,8 +106,9 @@ bindkey "^[OA" up-line-or-beginning-search
 bindkey "^[OB" down-line-or-beginning-search
 bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
-# Beginning of line
-bindkey -M vicmd "_" vim-mode-beginning-of-line
+
+# Beginning of line with _
+bindkey -M vicmd "_" vi-beginning-of-line
 
 # Elixir source install
 export PATH="$PATH:$HOME/repos/elixir/bin"
