@@ -48,6 +48,9 @@ cd gnome-terminal-colors-dracula
 ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
+# make `git branch` not use the pager
+git config --global pager.branch false 
+
 # make `git push` always work
 git config --global push.default current
 
