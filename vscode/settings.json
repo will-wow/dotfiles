@@ -34,7 +34,7 @@
   },
   "terminal.integrated.fontFamily": "hack",
   // Windows
-  // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
+  // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
   // Vim
   "vim.useSystemClipboard": true,
@@ -362,5 +362,6 @@
   "[reason]": {
     "editor.codeLens": false
   },
+  "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false
 }
