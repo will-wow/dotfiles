@@ -1,9 +1,3 @@
-" Make jest work like jasmine.
-" let g:test#javascript#jasmine#file_pattern = '\v^spec/.*-test\.(js|jsx)$'
-" let g:test#javascript#jasmine#executable = 'yarn test --'
-let b:ale_linters = ['eslint']
-let b:ale_fixers = ['prettier']
-
 let g:rails_projections = {
   \     "client/assets/javascripts/components/*.jsx": {
   \       "type": "component",

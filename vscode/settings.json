@@ -39,7 +39,7 @@
   // Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
-  "vim.enableNeovim": true,
+  "vim.enableNeovim": false,
   "vim.easymotion": false,
   "vim.visualstar": true,
   "vim.cmdLineInitialColon": true,

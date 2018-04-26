@@ -79,7 +79,10 @@ set timeoutlen=1000 ttimeoutlen=10
 " Color
 syntax enable
 set background=dark
+
+let g:dracula_italic = 0
 colorscheme dracula
+highlight Normal ctermbg=None
 
 " Liteline
 let g:lightline = {
@@ -134,7 +137,14 @@ nnoremap gk k
 nnoremap <leader>= :ALEFix<cr>
 
 let g:ale_linters = {
-\ 'html': []
+\ 'html': [],
+\ 'jsx': ['eslint'],
+\ 'javascript': ['eslint']
+\}
+
+let g:ale_fixers = {
+\ 'jsx': ['prettier'],
+\ 'javascript': ['prettier']
 \}
 
 " Smartcase for search
