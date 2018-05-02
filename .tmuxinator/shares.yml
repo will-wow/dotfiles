@@ -5,13 +5,12 @@ windows:
   - server:
       layout: main-vertical
       panes:
-        - be rails s
+        - RAILS_ENV=development be rails s
         - git status
   - console: be rails c
   - servers:
-      layout: even-vertical
+      layout: even-horizontal
       panes:
-        - be rake jobs:work
-        - yarn start
+        - RAILS_ENV=development be rake jobs:work
+        - NODE_ENV=development yarn start
   - ngrok: ngrok http 3000
-  - log: tail ./log/development.log

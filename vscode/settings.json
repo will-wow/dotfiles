@@ -314,6 +314,7 @@
   "ruby.lint": {
     "rubocop": false
   },
+  "ruby.format": false,
   "ruby.specCommand": "spring rspec",
   "workbench.editor.labelFormat": "medium",
   "cSpell.enabledLanguageIds": [
