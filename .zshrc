@@ -57,7 +57,8 @@ plugins=(git git-flow web-search vi-mode)
 # Vi-mode indicator
 export MODE_INDICATOR="%{$fg_bold[green]%}[NORMAL]%{$reset_color%}"
 
-export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/yarn/global/node_modules/.bin:/home/wow/anaconda3/bin:/usr/local/cuda-9.1/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
