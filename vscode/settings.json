@@ -60,7 +60,7 @@
       ]
     },
   ],
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
         "<leader>",
