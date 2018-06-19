@@ -82,6 +82,7 @@ export PATH="./bin:$PATH"
 # Aliases
 alias be='bundle exec'
 alias gitdog='git log --decorate --oneline --graph'
+alias gpf='git push --force-with-lease'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -117,6 +118,9 @@ export PATH="$PATH:$HOME/repos/elixir/bin"
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
 export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
+
+# For a project
+# export ACTUAL_CHROME=true
 
 # OS-specific stuff
 if [[ "$OSTYPE" == "linux-gnu" ]]; then

@@ -19,7 +19,7 @@
   "files.autoSave": "onFocusChange",
   // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
   "explorer.openEditors.visible": 0,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.formatOnType": false,
   "editor.formatOnSave": false,
   "files.eol": "\n",
@@ -96,7 +96,7 @@
       "after": [],
       "commands": [
         {
-          "command": "workbench.action.quickOpen"
+          "command": "open-buffers.openBuffer"
         }
       ]
     },
@@ -274,6 +274,30 @@
     },
     {
       "before": [
+        "<leader>",
+        "p",
+        "a",
+      ],
+      "commands": [
+        {
+          "command": "alternate.alternateFile"
+        }
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "p",
+        "s",
+      ],
+      "commands": [
+        {
+          "command": "alternate.alternateFileInSplit"
+        }
+      ]
+    },
+    {
+      "before": [
         "j"
       ],
       "after": [
@@ -349,16 +373,21 @@
     "downcase",
     "ecto",
     "erlang",
+    "financings",
     "injectable",
     "moduledoc",
     "params",
     "repo",
+    "repos",
     "serializer",
+    "sharespost",
     "signup",
     "struct",
     "structs",
+    "termsheet",
     "timestamps",
-    "truthy"
+    "truthy",
+    "unnest"
   ],
   "[reason]": {
     "editor.codeLens": false
