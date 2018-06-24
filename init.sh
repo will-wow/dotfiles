@@ -10,14 +10,15 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
   # Add apt repos
-  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-  sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list/etc/apt/sources.list.d/google.list/etc/apt/sources.list.d/google.list'
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
   sudo add-apt-repository ppa:neovim-ppa/stable
   wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 
   # Install deps
   sudo apt update
   sudo apt install -y git zsh tmux curl google-chrome-stable neovim python-dev python-pip python3-dev python3-pip fonts-hack-ttf
+  sudo apt install postgresql postgresql-contrib # Postgres
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y esl-erlang inotify-tools # Elixir
   rm erlang-solutions_1.0_all.deb
@@ -105,6 +106,19 @@ git config --global pager.branch false
 # make `git push` always work
 git config --global push.default current
 
+## Set up Ruby ##
+# Install rbenv
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+cd ~/.rbenv && src/configure && make -C src && cd ~
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+rbenv install 2.5.1
+rbenv global 2.5.1
+gem install bundler rubocop
+
+# tmux
+gem install tmuxinator
+wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
+
 # Install Elixir from source
 cd ~/repos
 git clone https://github.com/elixir-lang/elixir.git
@@ -119,7 +133,8 @@ mix elixir_ls.release -o lsp
 echo "env ERL_LIBS=$ERL_LIBS:$HOME/repos/elixir-ls/lsp mix elixir_ls.language_server" | sudo tee /opt/ex-ls
 
 # Set up nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+mkdir ~/.nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 # Load nvm for the first time
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -133,19 +148,6 @@ npm install --global yarn
 # avn setup
 # Install useful node globals
 npm install --global tern typescript tslint eslint prettier create-react-app
-
-## Set up Ruby ##
-# Install rbenv
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src && cd ~
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.4.1
-rbenv global 2.4.1
-gem install bundler rubocop
-
-# tmux
-gem install tmuxinator
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
 
 ## Haskell ##
 # stack install hlint ghc-mod hindent
