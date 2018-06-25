@@ -83,6 +83,8 @@ export PATH="./bin:$PATH"
 alias be='bundle exec'
 alias gitdog='git log --decorate --oneline --graph'
 alias gpf='git push --force-with-lease'
+alias code.extensions.save='code --list-extensions | xargs -L 1 echo code --install-extension > $HOME/repos/dotfiles/vscode/extensions.sh && chmod 755 $HOME/repos/dotfiles/vscode/extensions.sh'
+alias code.extensions.load='$HOME/repos/dotfiles/vscode/extensions.sh'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
