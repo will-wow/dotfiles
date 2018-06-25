@@ -1,0 +1,15 @@
+name: spm
+root: ~/repos/cryptospike
+
+windows:
+  - main:
+      layout: even-horizontal
+      panes:
+        - cd orderbook && iex -S mix
+        - git status
+  - servers:
+      layout: even-horizontal
+      panes:
+        - cd orderbook && MIX_ENV=demo LIVE_ORDERS_PER_SECOND=1 mix phx.server
+        - cd front-react && yarn start
+        - cd trading-view && http-server -p 9090
