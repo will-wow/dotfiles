@@ -2,6 +2,7 @@
   // Place your settings in this file to overwrite the default settings
   // General Settings
   "workbench.editor.showTabs": false,
+  "workbench.editor.labelFormat": "medium",
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "search.exclude": {
@@ -51,22 +52,13 @@
   },
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "j",
-        "k"
-      ],
-      "after": [
-        "<Esc>"
-      ]
-    },
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "f",
-        "s"
-      ],
+      "before": ["<leader>", "f", "s"],
       "after": [],
       "commands": [
         {
@@ -75,11 +67,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "p",
-        "f"
-      ],
+      "before": ["<leader>", "p", "f"],
       "after": [],
       "commands": [
         {
@@ -88,11 +76,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "f",
-        "f"
-      ],
+      "before": ["<leader>", "f", "f"],
       "after": [],
       "commands": [
         {
@@ -101,11 +85,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "p",
-        "t"
-      ],
+      "before": ["<leader>", "p", "t"],
       "after": [],
       "commands": [
         {
@@ -114,11 +94,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "n",
-        "f"
-      ],
+      "before": ["<leader>", "n", "f"],
       "after": [],
       "commands": [
         {
@@ -127,10 +103,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "="
-      ],
+      "before": ["<leader>", "="],
       "after": [],
       "commands": [
         {
@@ -139,10 +112,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "/"
-      ],
+      "before": ["<leader>", "/"],
       "after": [],
       "commands": [
         {
@@ -151,10 +121,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "*"
-      ],
+      "before": ["<leader>", "*"],
       "after": [],
       "commands": [
         {
@@ -163,11 +130,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "b",
-        "d"
-      ],
+      "before": ["<leader>", "b", "d"],
       "after": [],
       "commands": [
         {
@@ -176,11 +139,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "w",
-        "/"
-      ],
+      "before": ["<leader>", "w", "/"],
       "after": [],
       "commands": [
         {
@@ -189,13 +148,8 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "tab"
-      ],
-      "after": [
-        "enter"
-      ],
+      "before": ["<leader>", "tab"],
+      "after": ["enter"],
       "commands": [
         {
           "command": "workbench.action.openPreviousEditorFromHistory"
@@ -206,10 +160,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        ":"
-      ],
+      "before": ["<leader>", ":"],
       "after": [],
       "commands": [
         {
@@ -218,15 +169,8 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "f",
-        "z",
-        "d"
-      ],
-      "after": [
-        "enter"
-      ],
+      "before": ["<leader>", "f", "z", "d"],
+      "after": ["enter"],
       "commands": [
         {
           "command": "workbench.action.openGlobalSettings"
@@ -234,12 +178,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "m",
-        "t",
-        "b"
-      ],
+      "before": ["<leader>", "m", "t", "b"],
       "commands": [
         {
           "command": "extension.runFileSpecs"
@@ -247,12 +186,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "m",
-        "t",
-        "t"
-      ],
+      "before": ["<leader>", "m", "t", "t"],
       "commands": [
         {
           "command": "extension.runSpecLine"
@@ -260,12 +194,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "m",
-        "t",
-        "l"
-      ],
+      "before": ["<leader>", "m", "t", "l"],
       "commands": [
         {
           "command": "extension.runLastSpec"
@@ -273,11 +202,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "p",
-        "a",
-      ],
+      "before": ["<leader>", "p", "a"],
       "commands": [
         {
           "command": "alternate.alternateFile"
@@ -285,11 +210,7 @@
       ]
     },
     {
-      "before": [
-        "<leader>",
-        "p",
-        "s",
-      ],
+      "before": ["<leader>", "p", "s"],
       "commands": [
         {
           "command": "alternate.alternateFileInSplit"
@@ -297,27 +218,16 @@
       ]
     },
     {
-      "before": [
-        "j"
-      ],
-      "after": [
-        "g",
-        "j"
-      ]
+      "before": ["j"],
+      "after": ["g", "j"]
     },
     {
-      "before": [
-        "k"
-      ],
-      "after": [
-        "g",
-        "k"
-      ]
+      "before": ["k"],
+      "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Dracula",
-  "editor.minimap.enabled": false,
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",
   // Lets remapped esc key work on ubuntu.
@@ -340,7 +250,6 @@
   },
   "ruby.format": false,
   "ruby.specCommand": "spring rspec",
-  "workbench.editor.labelFormat": "medium",
   "cSpell.enabledLanguageIds": [
     "elixir",
     "erb",
@@ -356,7 +265,10 @@
     "yml"
   ],
   "cSpell.userWords": [
+    "Cachex",
     "Ockelmann",
+    "Orderbook",
+    "Postgres",
     "bookmarkers",
     "caml",
     "changeset",
@@ -366,6 +278,7 @@
     "coord",
     "datetime",
     "defdelegate",
+    "defimpl",
     "defmodule",
     "defp",
     "defstruct",
@@ -377,6 +290,8 @@
     "injectable",
     "moduledoc",
     "params",
+    "performant",
+    "promisify",
     "repo",
     "repos",
     "serializer",
@@ -393,5 +308,6 @@
     "editor.codeLens": false
   },
   "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false
+  "explorer.confirmDragAndDrop": false,
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
