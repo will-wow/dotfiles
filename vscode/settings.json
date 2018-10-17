@@ -33,7 +33,8 @@
     "**/.DS_Store": true,
     "**/webpack-bundle.js": true
   },
-  "terminal.integrated.fontFamily": "hack",
+  "editor.fontFamily": "'Fira Code', hack",
+  "terminal.integrated.fontFamily": "'Fira Code', hack",
   // Windows
   // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
@@ -143,7 +144,16 @@
       "after": [],
       "commands": [
         {
-          "command": "workbench.action.splitEditor"
+          "command": "workbench.action.splitEditorRight"
+        }
+      ]
+    },
+    {
+      "before": ["<leader>", "w", "-"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.splitEditorDown"
         }
       ]
     },
@@ -226,7 +236,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
   "workbench.colorTheme": "Dracula",
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",
@@ -265,10 +275,18 @@
     "yml"
   ],
   "cSpell.userWords": [
+    "Alderaan",
+    "Behaviour",
     "Cachex",
+    "Cryptographically",
+    "Ethereum",
     "Ockelmann",
     "Orderbook",
     "Postgres",
+    "Ropsten",
+    "Slackbot",
+    "Slackbot's",
+    "architecting",
     "bookmarkers",
     "caml",
     "changeset",
@@ -297,6 +315,8 @@
     "serializer",
     "sharespost",
     "signup",
+    "snapshotting",
+    "stateful",
     "struct",
     "structs",
     "termsheet",
@@ -309,5 +329,7 @@
   },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontLigatures": true,
+  "breadcrumbs.enabled": true
 }
