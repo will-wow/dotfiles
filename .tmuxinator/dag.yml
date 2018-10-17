@@ -5,11 +5,16 @@ windows:
   - main:
       layout: even-horizontal
       panes:
-        - cd elixir && iex -S mix
-        - cd elixir && git status
-  - servers:
+        - cd elixir/apps/orderbook
+        - cd elixir/apps/orderbook && git status
+  - agora:
       layout: even-horizontal
       panes:
-        - cd elixir && MIX_ENV=demo mix phx.server
+        - cd elixir/apps/orderbook && MIX_ENV=demo mix phx.server
         - cd front-react && yarn start
         - cd trading-view && http-server -p 9090
+  - sharex:
+      layout: even-horizontal
+      panes:
+        - cd ../sharex && ngrok http 5000
+        - cd ../sharex && ASSET_HOST="$(curl -s http://127.0.0.1:4040/api/tunnels | jq '.tunnels[0].public_url' --raw-output)" heroku local -e .env.local
