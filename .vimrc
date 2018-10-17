@@ -32,7 +32,7 @@ if has('nvim')
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-  Plug 'roxma/nvim-completion-manager' " Autocomplete
+  " Plug 'roxma/nvim-completion-manager' " Autocomplete
 endif
 " Runners
 Plug 'w0rp/ale' " Runs linters & fixers
