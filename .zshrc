@@ -85,6 +85,7 @@ alias gitdog='git log --decorate --oneline --graph'
 alias gpf='git push --force-with-lease'
 alias code.extensions.save='code --list-extensions | xargs -L 1 echo code --install-extension > $HOME/repos/dotfiles/vscode/extensions.sh && chmod 755 $HOME/repos/dotfiles/vscode/extensions.sh'
 alias code.extensions.load='$HOME/repos/dotfiles/vscode/extensions.sh'
+alias docker-nuke='docker container rm --force --volumes $(docker container ls --quiet --all) && docker network rm $(docker network ls -q)'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
