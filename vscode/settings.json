@@ -33,8 +33,6 @@
     "**/.DS_Store": true,
     "**/webpack-bundle.js": true
   },
-  "editor.fontFamily": "'Fira Code', hack",
-  "terminal.integrated.fontFamily": "'Fira Code', hack",
   // Windows
   // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
@@ -287,6 +285,8 @@
     "Slackbot",
     "Slackbot's",
     "architecting",
+    "Redex",
+    "behaviour",
     "bookmarkers",
     "caml",
     "changeset",
@@ -330,6 +330,9 @@
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontLigatures": true,
-  "breadcrumbs.enabled": true
+  "breadcrumbs.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontFamily": "'Fira Code', hack",
+  "terminal.integrated.fontFamily": "'Fira Code', hack",
+  "editor.fontLigatures": true
 }
