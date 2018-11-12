@@ -39,7 +39,7 @@
   // Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
-  "vim.enableNeovim": false,
+  "vim.enableNeovim": true,
   "vim.easymotion": false,
   "vim.visualstar": true,
   "vim.cmdLineInitialColon": true,
@@ -234,7 +234,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 0,
   "workbench.colorTheme": "Dracula",
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",

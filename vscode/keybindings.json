@@ -1,13 +1,8 @@
 [
-  // ctrl-hjkl to move between panes and terminal
+  // ctrl-hjkl to move between panes
   {
     "key": "ctrl+h",
-    "command": "workbench.action.focusPreviousGroup",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "workbench.action.focusNextGroup",
+    "command": "workbench.view.explorer",
     "when": "editorTextFocus"
   },
   {
@@ -49,15 +44,21 @@
   {
     "key": "ctrl+j",
     "command": "selectNextSuggestion",
-    "when":
-      "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
   {
     "key": "ctrl+k",
     "command": "selectPrevSuggestion",
-    "when":
-      "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
+  // Other commands
+
+  {
+    "key": "shift+enter",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // Disable this
   {
     "key": "ctrl+e",
     "command": ""
