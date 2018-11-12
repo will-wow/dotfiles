@@ -49,46 +49,13 @@
     "<C-b>": false,
     "<C-d>": true
   },
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
   "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "f", "s"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.files.save"
-        }
-      ]
-    },
     {
       "before": ["<leader>", "p", "f"],
       "after": [],
       "commands": [
         {
           "command": "workbench.action.quickOpen"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "f", "f"],
-      "after": [],
-      "commands": [
-        {
-          "command": "open-buffers.openBuffer"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "p", "t"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.view.explorer"
         }
       ]
     },
