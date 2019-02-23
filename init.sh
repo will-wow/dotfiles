@@ -19,11 +19,12 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
   # Install deps
   sudo apt update
-  sudo apt install -y git zsh tmux curl google-chrome-stable neovim python-dev python-pip python3-dev python3-pip fonts-hack-ttf
-  sudo apt install postgresql postgresql-contrib # Postgres
+  sudo apt install -y google-chrome-stable fonts-hack-ttf # For gui intalls only
+  sudo apt install -y git zsh tmux curl neovim python-dev python-pip python3-dev python3-pip
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y esl-erlang inotify-tools # Elixir
-  rm erlang-solutions_1.0_all.deb
+  sudo apt install -y postgresql postgresql-contrib # Postgres
+  rm erlang-solutions_1.0_all.deb # Cleanup
 
   # Configure Neovim
   pip2 install --user neovim
@@ -143,13 +144,11 @@ export NVM_DIR="$HOME/.nvm"
 # Install latest node
 nvm install --lts
 nvm alias default node
-# Install yarn
-npm install --global yarn
 # Install avn for auto switching
 # npm install --global add avn avn-nvm
 # avn setup
 # Install useful node globals
-npm install --global tern typescript tslint eslint prettier create-react-app
+npm install --global yarn typescript tslint eslint prettier create-react-app
 
 ## Haskell ##
 # stack install hlint ghc-mod hindent
