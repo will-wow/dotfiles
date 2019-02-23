@@ -13,7 +13,7 @@ Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented block
 Plug 'PeterRincker/vim-argumentative' " Add , as text object for arguments
 Plug 'bkad/CamelCaseMotion' " Add <space>w/b as text object for camel/snake words
 Plug 'tommcdo/vim-exchange' " cx{motion} to swap text
-Plug 'dracula/vim' " Theme
+Plug 'dracula/vim', {'as': 'dracula'} " Theme
 Plug 'scrooloose/nerdtree' " File tree
 Plug 'itchyny/lightline.vim' " Status line
 Plug 'Raimondi/delimitMate' " Auto-close quotes
@@ -86,7 +86,7 @@ highlight Normal ctermbg=None
 
 " Liteline
 let g:lightline = {
-      \ 'colorscheme': 'Dracula',
+      \ 'colorscheme': 'dracula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'filename', 'readonly', 'modified' ] ],
