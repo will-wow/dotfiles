@@ -39,7 +39,6 @@
   // Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
-  "vim.enableNeovim": true,
   "vim.easymotion": false,
   "vim.visualstar": true,
   "vim.cmdLineInitialColon": true,
@@ -201,8 +200,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 0,
-  "workbench.colorTheme": "Dracula",
+  "window.zoomLevel": 2,
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",
   // Lets remapped esc key work on ubuntu.
@@ -245,17 +243,23 @@
     "Cachex",
     "Cryptographically",
     "Ethereum",
+    "Ethereumex",
     "Ockelmann",
     "Orderbook",
     "Postgres",
     "Redex",
+    "Roadmap",
     "Ropsten",
+    "Securitize",
     "Slackbot",
     "Slackbot's",
+    "Transcoder",
     "architecting",
     "behaviour",
     "bookmarkers",
+    "camelize",
     "caml",
+    "casp",
     "changeset",
     "comparator",
     "concat",
@@ -273,8 +277,10 @@
     "ecto",
     "erlang",
     "financings",
+    "futura",
     "injectable",
     "moduledoc",
+    "onboarding",
     "params",
     "performant",
     "promisify",
@@ -287,8 +293,11 @@
     "stateful",
     "struct",
     "structs",
+    "tablature",
     "termsheet",
+    "themself",
     "timestamps",
+    "transcoding",
     "truthy",
     "unnest"
   ],
@@ -302,5 +311,28 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.fontFamily": "'Fira Code', hack",
   "terminal.integrated.fontFamily": "'Fira Code', hack",
-  "editor.fontLigatures": true
+  "workbench.colorTheme": "Dracula",
+  "editor.fontLigatures": true,
+  "cmake.configureOnOpen": true,
+  "editor.minimap.enabled": false,
+  "vim.neovimPath": "",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "jest.enableSnapshotUpdateMessages": false,
+  "jest.enableCodeLens": false,
 }
