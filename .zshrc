@@ -116,14 +116,11 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 bindkey -M vicmd "_" vi-beginning-of-line
 
 # Elixir source install
-export PATH="$PATH:$HOME/repos/elixir/bin"
+# export PATH="$PATH:$HOME/repos/elixir/bin"
 
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
 export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
-
-# For a project
-# export ACTUAL_CHROME=true
 
 # OS-specific stuff
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -142,9 +139,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias vi='nvim'
   alias vim='nvim'
   ssh-add -A
-
-  # Setup QT brew link
-  export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 
   # Alias git = hub
   eval "$(hub alias -s)"
