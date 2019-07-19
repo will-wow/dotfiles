@@ -22,6 +22,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt install -y google-chrome-stable fonts-hack-ttf # For gui intalls only
   sudo apt install -y git zsh tmux curl neovim python-dev python-pip python3-dev python3-pip
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
+  sudo apt install -y rlwrap leiningen # Clojure
   sudo apt install -y inotify-tools # Elixir
   sudo apt install -y postgresql postgresql-contrib # Postgres
 
@@ -123,6 +124,8 @@ asdf plugin-add ruby
 asdf plugin-add erlang
 asdf plugin-add elixir
 asdf plugin-add nodejs
+asdf plugin-add java
+asdf plugin-add clojure
 
 # Set up Ruby before tmuxinator
 asdf install ruby 2.6.3
