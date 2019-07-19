@@ -134,6 +134,7 @@ gem install tmuxinator
 wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
 
 # Node
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
 asdf install nodejs 12.6.0
 asdf global nodejs 12.6.0
 npm install --global yarn typescript eslint prettier
