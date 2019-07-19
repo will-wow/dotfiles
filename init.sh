@@ -22,9 +22,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt install -y google-chrome-stable fonts-hack-ttf # For gui intalls only
   sudo apt install -y git zsh tmux curl neovim python-dev python-pip python3-dev python3-pip
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
-  sudo apt install -y esl-erlang inotify-tools # Elixir
+  sudo apt install -y inotify-tools # Elixir
   sudo apt install -y postgresql postgresql-contrib # Postgres
-  rm erlang-solutions_1.0_all.deb # Cleanup
 
   # Configure Neovim
   pip2 install --user neovim
@@ -32,6 +31,15 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
   sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
   sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+
+  # Install asdf
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
+
+  sudo apt install -y \
+    automake autoconf libreadline-dev \
+    libncurses-dev libssl-dev libyaml-dev \
+    libxslt-dev libffi-dev libtool unixodbc-dev \
+    unzip curl
 
   # Install dracula for Ubuntu
   cd ~/repos
@@ -59,6 +67,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   pip3 install --user neovim
   defaults write com.apple.screencapture location ~/Downloads
 
+  # Spectacle (window resizer)
   ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 
   # Install dracula iterm theme
@@ -109,49 +118,31 @@ git config --global pager.branch false
 # make `git push` always work
 git config --global push.default current
 
-## Set up Ruby ##
-# Install rbenv
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-cd ~/.rbenv && src/configure && make -C src && cd ~
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.5.1
-rbenv global 2.5.1
+# Languages
+asdf plugin-add ruby
+asdf plugin-add erlang
+asdf plugin-add elixir
+asdf plugin-add nodejs
+
+# Set up Ruby before tmuxinator
+asdf install ruby 2.6.3
+asdf global ruby 2.6.3
 gem install bundler rubocop
 
 # tmux
 gem install tmuxinator
 wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
 
-# Install Elixir from source
-cd ~/repos
-git clone https://github.com/elixir-lang/elixir.git
-cd elixir
-make clean test
-# Set up Elixir-LS
-cd ~/repos
-git clone git@github.com:JakeBecker/elixir-ls.git
-cd elixir-ls
-mix deps.get
-mix elixir_ls.release -o lsp
-echo "env ERL_LIBS=$ERL_LIBS:$HOME/repos/elixir-ls/lsp mix elixir_ls.language_server" | sudo tee /opt/ex-ls
+# Node
+asdf install nodejs 12.6.0
+asdf global nodejs 12.6.0
+npm install --global yarn typescript eslint prettier
 
-# Set up nvm
-mkdir ~/.nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-# Load nvm for the first time
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# Install latest node
-nvm install --lts
-nvm alias default node
-# Install avn for auto switching
-# npm install --global add avn avn-nvm
-# avn setup
-# Install useful node globals
-npm install --global yarn typescript tslint eslint prettier create-react-app
-
-## Haskell ##
-# stack install hlint ghc-mod hindent
+# Elixir
+asdf install erlang 22.07 # This will take a while
+asdf global erlang 22.07
+asdf install elixir 1.9.1
+asdf global elixir 1.9.1
 
 # Finally, source zshrc
 source ~/.zshrc
