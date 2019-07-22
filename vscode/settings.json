@@ -303,6 +303,7 @@
     "truthy",
     "unnest"
   ],
+  "wordcounter.languages": ["markdown", "mdx"],
   "[reason]": {
     "editor.codeLens": false
   },
