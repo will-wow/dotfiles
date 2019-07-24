@@ -42,7 +42,7 @@
   "vim.enableNeovim": false,
   "vim.easymotion": false,
   "vim.visualstar": true,
-  "vim.cmdLineInitialColon": true,
+  "vim.sneak": true,
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
     "<C-f>": false,
@@ -69,22 +69,19 @@
       ]
     },
     {
+      "before": ["<leader>", "k"],
+      "after": [],
+      "commands": ["clojureVSCode.formatFile"]
+    },
+    {
       "before": ["<leader>", "="],
       "after": [],
-      "commands": [
-        {
-          "command": "editor.action.formatDocument"
-        }
-      ]
+      "commands": ["editor.action.formatDocument"]
     },
     {
       "before": ["<leader>", "/"],
       "after": [],
-      "commands": [
-        {
-          "command": "workbench.view.search"
-        }
-      ]
+      "commands": ["workbench.view.search"]
     },
     {
       "before": ["<leader>", "*"],
@@ -304,9 +301,6 @@
     "unnest"
   ],
   "wordcounter.languages": ["markdown", "mdx"],
-  "[reason]": {
-    "editor.codeLens": false
-  },
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -325,6 +319,9 @@
     "typescript",
     "typescriptreact"
   ],
+  "[reason]": {
+    "editor.codeLens": false
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -346,6 +343,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[clojure]": {},
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "jest.enableSnapshotUpdateMessages": false,
