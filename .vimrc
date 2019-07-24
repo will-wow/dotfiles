@@ -7,12 +7,10 @@ call plug#begin('~/.vim/plugged')
 " VIM
 Plug 'tpope/vim-surround' " Surround thigns with braces and quotes
 Plug 'tpope/vim-commentary' " Comment out stuff
-Plug 'tpope/vim-eunuch' " UNIX shell commands
 Plug 'tpope/vim-projectionist' " Jumping around and running tests in projects
 Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented blocks
 Plug 'PeterRincker/vim-argumentative' " Add , as text object for arguments
-Plug 'bkad/CamelCaseMotion' " Add <space>w/b as text object for camel/snake words
-Plug 'tommcdo/vim-exchange' " cx{motion} to swap text
+Plug 'justinmk/vim-sneak' " s followed by two characters
 Plug 'dracula/vim', {'as': 'dracula'} " Theme
 Plug 'scrooloose/nerdtree' " File tree
 Plug 'itchyny/lightline.vim' " Status line
@@ -99,6 +97,7 @@ let g:lightline = {
       \ }
 set noshowmode " Don't show insert, since liteline already does
 
+" Search
 nnoremap <leader>/ :Ag<Space>
 nnoremap <leader>* :Ag <c-r><c-w><cr>
 vnoremap * y/<c-r>"<cr>
@@ -194,9 +193,10 @@ set shiftwidth  =2
 set expandtab
 
 " vimrc
+" Edit vimrc
 nnoremap <leader>fed :e $MYVIMRC<cr>
-nnoremap <leader>feR :so $MYVIMRC<cr>
-nnoremap <leader>fer :w<cr>:so %:p<cr>
+" Source vimrc
+nnoremap <leader>feR :source $MYVIMRC<cr>
 
 " Use system clipboard
 set clipboard=unnamedplus
@@ -283,9 +283,6 @@ nnoremap <leader>br :checktime
 " I think this is for vimux?
 :au FocusLost * silent! wa
 
-" Use <leader><TextObject> for CamelCaseMotion words
-call camelcasemotion#CreateMotionMappings('<leader>')
-
 " Language Server
 let g:LanguageClient_loggingLevel = "Info"
 let g:LanguageClient_loadSettings = 1
@@ -302,6 +299,15 @@ let g:LanguageClient_rootMarkers = {
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+" Markdown spellcheck
+autocmd FileType markdown setlocal spell spelllang=en_us
+
+" Wordcount
+nnoremap <leader>wc g<c-g>
+
+" Don't break in the middle of words
+set linebreak
 
 " OS-specific
 if has('unix')
