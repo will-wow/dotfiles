@@ -190,6 +190,18 @@
       ]
     },
     {
+      "before": ["z", "="],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["z", "g"],
+      "commands": ["cSpell.addWordToUserDictionary"]
+    },
+    {
+      "before": ["z", "w"],
+      "commands": ["cSpell.removeWordFromUserDictionary"]
+    },
+    {
       "before": ["j"],
       "after": ["g", "j"]
     },
