@@ -150,6 +150,9 @@ let g:ale_fixers = {
 set ignorecase
 set smartcase
 
+" Smartcase for sneak
+let g:sneak#use_ic_scs = 1
+
 " delimitMate
 " Make backspace work
 set backspace=indent,eol,start

@@ -3,6 +3,8 @@
   // General Settings
   "workbench.editor.showTabs": false,
   "workbench.editor.labelFormat": "medium",
+  // Go to the json editor by default.
+  "workbench.settings.editor": "json",
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "search.exclude": {
@@ -43,6 +45,7 @@
   "vim.easymotion": false,
   "vim.visualstar": true,
   "vim.sneak": true,
+  "vim.sneakUseIgnorecaseAndSmartcase": true,
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
     "<C-f>": false,
@@ -141,7 +144,7 @@
       ]
     },
     {
-      "before": ["<leader>", "f", "z", "d"],
+      "before": ["<leader>", "f", "e", "d"],
       "after": ["enter"],
       "commands": [
         {

@@ -19,6 +19,8 @@ source $ZSH/oh-my-zsh.sh
 # =====
 
 export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/yarn/global/node_modules/.bin:/home/wow/anaconda3/bin:/usr/local/cuda-9.1/bin:$PATH"
+# Add repos to path
+export PATH="$HOME/repos/bin:$PATH"
 # Add local bin to path
 export PATH="./bin:$PATH"
 
