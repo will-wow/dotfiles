@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2016 Will
+Copyright (c) 2019 Will Ockelmann-Wagner
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
