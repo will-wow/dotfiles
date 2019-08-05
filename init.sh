@@ -15,12 +15,12 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
   sudo add-apt-repository ppa:neovim-ppa/stable
-  wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 
   # Install deps
   sudo apt update
+  sudo apt install -y git zsh tmux curl neovim # Basics
   sudo apt install -y google-chrome-stable fonts-hack-ttf # For gui intalls only
-  sudo apt install -y git zsh tmux curl neovim python-dev python-pip python3-dev python3-pip
+  sudo apt install -y python-dev python-pip python3-dev python3-pip # Python
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y rlwrap leiningen # Clojure
   sudo apt install -y inotify-tools # Elixir
@@ -36,15 +36,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Install asdf
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
 
-  sudo apt install -y \
-    automake autoconf libreadline-dev \
-    libncurses-dev libssl-dev libyaml-dev \
-    libxslt-dev libffi-dev libtool unixodbc-dev \
-    unzip curl
+  sudo apt install -y automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip curl
 
   # Install dracula for Ubuntu
   cd ~/repos
-  git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula
+  git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula 
   cd gnome-terminal-colors-dracula
   ./install.sh 
 
@@ -105,12 +101,15 @@ mkdir -p ~/.config/nvim
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 
+# Set up tmuxinator completion (won't work without a gem install, which is later.)
+wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
+
 # Install Plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install dracula zsh theme
-wget https://raw.githubusercontent.com/dracula/zsh/master/dracula.zsh-theme -O ~/.oh-my-zsh/themes/dracula.zsh-theme
+git clone https://github.com/dracula/zsh.git ~/repos/tools/zsh-dracula
+ln -s ~/repos/tools/zsh-dracula/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 
 # Set up gitignore
 git config --global core.excludesfile ~/.gitignore_global
@@ -134,7 +133,6 @@ gem install bundler rubocop
 
 # tmux
 gem install tmuxinator
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
 
 # Node
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys

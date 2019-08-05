@@ -8,8 +8,11 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load.
 ZSH_THEME="dracula"
 
+# For fzf plugin
+export FZF_BASE=$HOME/.fzf
+
 # ZSH Plugins
-plugins=(git git-flow web-search vi-mode)
+plugins=(git git-flow web-search vi-mode fzf)
 
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
