@@ -11,6 +11,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Remap Caps to Escape
   dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
+  # Remove home folder from desktop
+  gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+
   # Add apt repos
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
