@@ -263,6 +263,7 @@
     "Redex",
     "Roadmap",
     "Ropsten",
+    "Scaredy",
     "Securitize",
     "Slackbot",
     "Slackbot's",
@@ -293,11 +294,15 @@
     "financings",
     "futura",
     "injectable",
+    "kablammo",
+    "leaderboard",
     "moduledoc",
     "onboarding",
     "params",
     "performant",
+    "preload",
     "promisify",
+    "refetch",
     "repo",
     "repos",
     "serializer",
@@ -311,6 +316,7 @@
     "termsheet",
     "themself",
     "timestamps",
+    "todos",
     "transcoding",
     "truthy",
     "unnest"
@@ -362,5 +368,11 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "jest.enableSnapshotUpdateMessages": false,
-  "jest.enableCodeLens": false
+  "jest.enableCodeLens": false,
+  "emojisense.languages": {
+    "markdown": true,
+    "git-commit": true,
+    "plaintext": true,
+    "mdx": true
+  }
 }

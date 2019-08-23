@@ -26,6 +26,8 @@ export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin
 export PATH="$HOME/repos/bin:$PATH"
 # Add local bin to path
 export PATH="./bin:$PATH"
+# Mongo 4
+export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 
 # ======
 # Tools
