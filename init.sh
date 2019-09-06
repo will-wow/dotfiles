@@ -27,7 +27,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y rlwrap leiningen # Clojure
   sudo apt install -y inotify-tools # Elixir
-  sudo apt install -y postgresql postgresql-contrib # Postgres
+  sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
 
   # Configure Neovim
   pip2 install --user neovim
