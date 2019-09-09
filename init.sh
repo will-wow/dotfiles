@@ -22,7 +22,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Install deps
   sudo apt update
   sudo apt install -y git zsh tmux curl neovim # Basics
-  sudo apt install -y google-chrome-stable fonts-hack-ttf # For gui intalls only
+  sudo apt install -y google-chrome-stable fonts-firacode # For gui intalls only
   sudo apt install -y python-dev python-pip python3-dev python3-pip # Python
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y rlwrap leiningen # Clojure
