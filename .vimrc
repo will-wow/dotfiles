@@ -18,32 +18,18 @@ Plug 'Raimondi/delimitMate' " Auto-close quotes
 Plug 'haya14busa/incsearch.vim' " Highlight search results
 Plug 'janko-m/vim-test' " Run tests with shortcuts
 Plug 'benmills/vimux' " Pass tests from vim-test into a tmux pane
-Plug 'ervandew/supertab' " Use tab for completion
 Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 Plug 'christoomey/vim-tmux-navigator' " Tmux pane integration
 Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
-if has('nvim')
-  " Language Server
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-  " Plug 'roxma/nvim-completion-manager' " Autocomplete
-endif
-" Runners
-Plug 'w0rp/ale' " Runs linters & fixers
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " VSCode Extensions & Autocomplete
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 " GIT
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-" JS/TS
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx' 
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails' " Projections and syntax highlighting for rails
@@ -131,20 +117,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
-" Run autoformatter
-nnoremap <leader>= :ALEFix<cr>
-
-let g:ale_linters = {
-\ 'html': [],
-\ 'jsx': ['eslint'],
-\ 'javascript': ['eslint']
-\}
-
-let g:ale_fixers = {
-\ 'jsx': ['prettier'],
-\ 'javascript': ['prettier']
-\}
 
 " Smartcase for search
 set ignorecase
@@ -344,3 +316,5 @@ elseif has('win32') || has('win64')
   " Download from https://github.com/chrissimpkins/Hack
   set guifont=Hack:h10 " Nice font
 endif
+
+:source $HOME/repos/dotfiles/.vimrc_coc
