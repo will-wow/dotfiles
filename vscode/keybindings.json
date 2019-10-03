@@ -62,5 +62,42 @@
   {
     "key": "ctrl+e",
     "command": ""
+  },
+
+  {
+    "key": "shift+ctrl+a /",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+ctrl+a l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+ctrl+a h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+ctrl+a c",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "shift+ctrl+a 1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
+    "key": "shift+ctrl+a 2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "shift+ctrl+a 3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
+    "key": "shift+ctrl+a 4",
+    "command": "workbench.action.terminal.focusAtIndex3"
   }
 ]
