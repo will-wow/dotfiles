@@ -17,6 +17,8 @@ plugins=(git git-flow web-search vi-mode fzf)
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+export TERM=xterm-256color
+
 # =====
 # Path
 # =====
