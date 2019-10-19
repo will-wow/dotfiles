@@ -54,7 +54,18 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Install homebrew
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-  # Install brew deps
+  # VS Code
+  rm $HOME/Library/Application\ Support/Code/User/settings.json
+  rm $HOME/Library/Application\ Support/Code/User/keybindings.json
+  ln -s ~/repos/dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+  ln -s ~/repos/dotfiles/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+  # Repeat vim commands
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false 
+
+  # Install key brew dependencies
+  brew install asdf zsh vim wget 
+
+  # Install all brew deps
   brew tap Homebrew/bundle
   brew bundle
 
@@ -68,10 +79,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   defaults write com.apple.screencapture location ~/Downloads
 
   # Spectacle (window resizer)
+  rm ~/Library/Application\ Support/Spectacle/Shortcuts.json 
   ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 
   # Install dracula iterm theme
-  wget https://raw.githubusercontent.com/dracula/iterm/master/Dracula.itermcolors -O ~/.dracula/iterm.git
+  mkdir ~/.dracula
+  # Clone the repo with colors
+  git clone https://github.com/dracula/iterm.git ~/.dracula/iterm
   # iTerm2 > Preferences > Profiles > Colors Tab
   # Click Load Presets...
   # Click Import...
@@ -90,6 +104,7 @@ rm ~/.bashrc
 ln -s ~/repos/dotfiles/ftplugin ~/.vim/
 ln -s ~/repos/dotfiles/.zshrc ~
 ln -s ~/repos/dotfiles/.bashrc ~
+ln -s ~/repos/dotfiles/.bash_profile ~
 ln -s ~/repos/dotfiles/.vimrc ~
 ln -s ~/repos/dotfiles/.spacemacs ~
 ln -s ~/repos/dotfiles/.ctags ~
@@ -129,13 +144,10 @@ asdf plugin-add nodejs
 asdf plugin-add java
 asdf plugin-add clojure
 
-# Set up Ruby before tmuxinator
+# Ruby
 asdf install ruby 2.6.3
 asdf global ruby 2.6.3
 gem install bundler rubocop
-
-# tmux
-gem install tmuxinator
 
 # Node
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
