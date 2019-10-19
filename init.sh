@@ -82,6 +82,10 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   rm ~/Library/Application\ Support/Spectacle/Shortcuts.json 
   ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
 
+  # Karabiner (keyboard)
+  rm ~/.config/karabiner/karabiner.json 
+  ln -s ~/repos/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json 
+
   # Install dracula iterm theme
   mkdir ~/.dracula
   # Clone the repo with colors
