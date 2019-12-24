@@ -74,7 +74,7 @@
     {
       "before": ["<leader>", "k"],
       "after": [],
-      "commands": ["clojureVSCode.formatFile"]
+      "commands": ["editor.action.formatDocument"]
     },
     {
       "before": ["<leader>", "="],
@@ -213,7 +213,7 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": -1,
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",
   // Lets remapped esc key work on ubuntu.
@@ -257,10 +257,12 @@
     "Cryptographically",
     "Ethereum",
     "Ethereumex",
+    "Juypter",
     "Ockelmann",
     "Orderbook",
     "Postgres",
     "Redex",
+    "Rerem",
     "Roadmap",
     "Ropsten",
     "Scaredy",
@@ -299,6 +301,7 @@
     "moduledoc",
     "onboarding",
     "params",
+    "parser's",
     "performant",
     "preload",
     "preprocessors",
@@ -306,6 +309,7 @@
     "refetch",
     "repo",
     "repos",
+    "rootname",
     "serializer",
     "sharespost",
     "signup",
@@ -318,8 +322,10 @@
     "themself",
     "timestamps",
     "todos",
+    "tokenizes",
     "transcoding",
     "truthy",
+    "typep",
     "unnest"
   ],
   "wordcounter.languages": ["markdown", "mdx"],
@@ -375,5 +381,7 @@
     "git-commit": true,
     "plaintext": true,
     "mdx": true
-  }
+  },
+  "python.jediEnabled": false,
+  "python.dataScience.askForKernelRestart": false
 }

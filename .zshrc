@@ -96,6 +96,10 @@ bindkey -M vicmd "_" vi-beginning-of-line
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
+# Set JAVA_HOME
+. ~/.asdf/plugins/java/asdf-java-wrapper.zsh
+export JAVA_HOME=$(asdf where java $(asdf current java))
+
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
 export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
