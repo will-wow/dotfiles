@@ -52,6 +52,7 @@
     "<C-b>": false,
     "<C-d>": true
   },
+  "vim.vimrc.enable": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "p", "f"],
