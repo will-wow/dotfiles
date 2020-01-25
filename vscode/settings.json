@@ -255,6 +255,7 @@
     "Alderaan",
     "Behaviour",
     "Cachex",
+    "Confero",
     "Cryptographically",
     "Ethereum",
     "Ethereumex",
@@ -384,5 +385,6 @@
     "mdx": true
   },
   "python.jediEnabled": false,
-  "python.dataScience.askForKernelRestart": false
+  "python.dataScience.askForKernelRestart": false,
+  "diffEditor.renderSideBySide": true
 }
