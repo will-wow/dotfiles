@@ -45,7 +45,8 @@ unsetopt nomatch
 source ~/.bin/tmuxinator.zsh
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -96,9 +97,12 @@ bindkey -M vicmd "_" vi-beginning-of-line
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# Set JAVA_HOME
-. ~/.asdf/plugins/java/asdf-java-wrapper.zsh
-export JAVA_HOME=$(asdf where java $(asdf current java))
+
+if [ -d "~/.asdf/plugins/java" ]; then
+  # Set JAVA_HOME
+  . ~/.asdf/plugins/java/asdf-java-wrapper.zsh
+  export JAVA_HOME=$(asdf where java $(asdf current java))
+fi
 
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -144,7 +148,7 @@ else
 fi
 
 # Alias private stuff
-if [ ! -e "~/.zshrc_private" ]
+if [ -e "~/.zshrc_private" ]
 then
   source ~/.zshrc_private
 fi
