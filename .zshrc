@@ -94,9 +94,13 @@ bindkey -M vicmd "_" vi-beginning-of-line
 # ==========
 
 # asdf version manager
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  . $(brew --prefix asdf)/asdf.sh
+else
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
+fi
 
 if [ -d "~/.asdf/plugins/java" ]; then
   # Set JAVA_HOME
