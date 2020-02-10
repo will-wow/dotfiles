@@ -33,7 +33,7 @@ Plug 'airblade/vim-gitgutter'
 " Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails' " Projections and syntax highlighting for rails
-Plug 'tpope/vim-endwise' " add `end` to ruby and other code
+" Plug 'tpope/vim-endwise' " add `end` to ruby and other code
 Plug 'danchoi/ri.vim' " Ruby docs
 " HTML
 Plug 'othree/html5.vim'
@@ -205,14 +205,6 @@ nnoremap <LEADER>gd :Gdiff<CR>
 nnoremap <LEADER>gs :GFiles?<CR>
 nnoremap <LEADER>gc :Commits?<CR>
 nnoremap <Leader>Td :GitGutterToggle<CR>
-
-" supertab
-set completeopt=menuone,longest,preview
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabCrMapping=1
-" let g:SuperTabMappingForward = "<c-j>"
-" let g:SuperTabMappingBackward = "<c-k>"
-let g:SuperTabLongestHighlight = 1
 
 " TS
 let g:tsuquyomi_completion_detail = 1
