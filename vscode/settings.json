@@ -249,7 +249,8 @@
     "text",
     "typescript",
     "typescriptreact",
-    "yml"
+    "yml",
+    "mdx"
   ],
   "cSpell.userWords": [
     "Alderaan",
