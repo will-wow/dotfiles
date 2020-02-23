@@ -30,6 +30,8 @@ export PATH="$HOME/repos/bin:$PATH"
 export PATH="./bin:$PATH"
 # Mongo 4
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
+# Python poetry
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # ======
 # Tools
@@ -102,11 +104,9 @@ else
   . $HOME/.asdf/completions/asdf.bash
 fi
 
-if [ -d "~/.asdf/plugins/java" ]; then
-  # Set JAVA_HOME
-  . ~/.asdf/plugins/java/asdf-java-wrapper.zsh
-  export JAVA_HOME=$(asdf where java $(asdf current java))
-fi
+# Java
+export JAVA_HOME="/Library/Java/Home"
+# Remember to symlink this to the right place
 
 export GOPATH="$HOME/repos/go"
 export PATH="$PATH:$GOPATH/bin"
@@ -155,4 +155,9 @@ fi
 if [ -e "~/.zshrc_private" ]
 then
   source ~/.zshrc_private
+fi
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
 fi
