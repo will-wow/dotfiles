@@ -161,3 +161,9 @@ fi
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/wow/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/wow/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/completion.zsh.inc'; fi

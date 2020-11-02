@@ -253,6 +253,7 @@
     "mdx"
   ],
   "cSpell.userWords": [
+    "AFRAME",
     "Alderaan",
     "Behaviour",
     "Cachex",
@@ -264,6 +265,7 @@
     "Ockelmann",
     "Orderbook",
     "Postgres",
+    "Raycaster",
     "Redex",
     "Rerem",
     "Roadmap",
@@ -294,10 +296,13 @@
     "defstruct",
     "dissoc",
     "downcase",
+    "dragula",
     "ecto",
     "erlang",
+    "filestack",
     "financings",
     "futura",
+    "immersivemess",
     "injectable",
     "kablammo",
     "leaderboard",
@@ -329,6 +334,7 @@
     "transcoding",
     "truthy",
     "typep",
+    "uneditable",
     "unnest"
   ],
   "wordcounter.languages": ["markdown", "mdx"],
@@ -378,7 +384,7 @@
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "jest.enableSnapshotUpdateMessages": false,
-  "jest.enableCodeLens": false,
+  "jest.enableCodeLens": true,
   "emojisense.languages": {
     "markdown": true,
     "git-commit": true,
@@ -387,5 +393,11 @@
   },
   "python.jediEnabled": false,
   "python.dataScience.askForKernelRestart": false,
-  "diffEditor.renderSideBySide": true
+  "diffEditor.renderSideBySide": true,
+  "workbench.activityBar.visible": true,
+  "python.dataScience.sendSelectionToInteractiveWindow": false,
+  "[mdx]": {
+  
+},
+"python.languageServer": "Pylance"
 }

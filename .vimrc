@@ -24,6 +24,9 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " VSCode Extensions & Autocomplete
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 " GIT
@@ -70,39 +73,48 @@ highlight Normal ctermbg=None
 
 " Liteline
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'filename', 'readonly', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+\ 'colorscheme': 'dracula',
+\   'active': {
+\     'left': [ 
+\       [ 'mode', 'paste' ],
+\       [ 'filename', 'readonly', 'modified' ]
+\     ],
+\     'right': [ 
+\       [ 'lineinfo' ],
+\       [ 'cocstatus' ],
+\     ]
+\   },
+\   'inactive': {
+\     'left': [
+\       [ 'relativepath', 'readonly', 'modified' ]
+\     ]
+\   },
+\   'component_function': {
+\     'cocstatus': 'coc#status'
+\   },
+\ }
 set noshowmode " Don't show insert, since liteline already does
 
 " Search
-nnoremap <leader>/ :Ag<Space>
-nnoremap <leader>* :Ag <c-r><c-w><cr>
-vnoremap * y/<c-r>"<cr>
-vnoremap <leader>* y:Ag <c-r>"<cr>
 
-" Save
-nnoremap <leader>fs :w<CR>
+" Project Serach (fzf)
+nnoremap <leader>/ :Rg 
+" Project Serach under cursor (fzf)
+nnoremap <leader>* :Rg <c-r><c-w><cr>
+" Search highlighted text.
+vnoremap * y/<c-r>"<cr>
+" Project search highlighted text.
+vnoremap <leader>* y:Rg <c-r>"<cr>
 
 " Open splits to the side as expected
 set splitbelow
 set splitright
-" Pipe for vertical split 
+" Horizontal split 
 nnoremap <leader>w/ <c-w>v
+" vertical split 
 nnoremap <leader>w- <c-w>s
+" Close split
 nnoremap <leader>wd <c-w>c
-nnoremap <leader>wj <c-w>j
-nnoremap <leader>wk <c-w>k
-nnoremap <leader>wh <c-w>h
-nnoremap <leader>wl <c-w>l
 
 " vim-test
 let g:test#strategy = "vimux"
@@ -179,35 +191,12 @@ set clipboard=unnamedplus
 " Let <esc> turn off search highlighting
 nnoremap <silent> <esc> :noh<return><esc>
 
-" Commentary
-nmap <Leader>;  <Plug>Commentary
-nmap <Leader>;; <Plug>CommentaryLine
-omap <Leader>;  <Plug>Commentary
-vmap <Leader>;  <Plug>Commentary
-
-" easymotion
-map <leader>j <Plug>(easymotion-prefix)
-" <Leader>f{char} to move to {char}
-map  <Leader>jj <Plug>(easymotion-bd-f)
-nmap <Leader>jj <Plug>(easymotion-overwin-f)
-" s{char}{char} to move to {char}{char}
-nmap <Leader>jJ <Plug>(easymotion-overwin-f2)
-" Move to line
-map <Leader>jl <Plug>(easymotion-bd-jk)
-nmap <Leader>jl <Plug>(easymotion-overwin-line)
-" Move to word
-map  <Leader>jw <Plug>(easymotion-bd-w)
-nmap <Leader>jw <Plug>(easymotion-overwin-w)
-
 " git
 nnoremap <LEADER>gb :Gblame<CR>
 nnoremap <LEADER>gd :Gdiff<CR>
 nnoremap <LEADER>gs :GFiles?<CR>
 nnoremap <LEADER>gc :Commits?<CR>
 nnoremap <Leader>Td :GitGutterToggle<CR>
-
-" TS
-let g:tsuquyomi_completion_detail = 1
 
 " Alt
 " Run a given vim command on the results of alt from a given path.
@@ -234,7 +223,8 @@ nnoremap <leader>mtT :w<cr>:AT<cr>
 
 " enunch
 nnoremap <leader>fR :Rename<space>
-nnoremap <leader>fD :Unlink<cr>
+" Like :Delete, but keeps the now empty buffer.
+nnoremap <leader>fD :Unlink<cr> 
 
 " Turn off beeping
 set noerrorbells visualbell t_vb=
@@ -249,23 +239,6 @@ nnoremap <leader>br :checktime
 
 " I think this is for vimux?
 :au FocusLost * silent! wa
-
-" Language Server
-let g:LanguageClient_loggingLevel = "Info"
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'elixir': ['ex-ls'],
-    \ }
-let g:LanguageClient_rootMarkers = {
-    \ 'elixir': ['mix.exs'],
-    \ }
-
-
-let g:LanguageClient_autoStart = 1
-nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 " Markdown spellcheck
 autocmd FileType markdown setlocal spell spelllang=en_us

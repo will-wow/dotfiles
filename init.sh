@@ -151,8 +151,8 @@ asdf plugin-add java
 asdf plugin-add clojure
 
 # Ruby
-asdf install ruby 2.6.3
-asdf global ruby 2.6.3
+asdf install ruby 2.7.0
+asdf global ruby 2.7.0
 gem install bundler rubocop
 
 # Node
@@ -162,10 +162,10 @@ asdf global nodejs 12.6.0
 npm install --global yarn typescript eslint prettier
 
 # Elixir
-asdf install erlang 22.07 # This will take a while
-asdf global erlang 22.07
-asdf install elixir 1.9.1
-asdf global elixir 1.9.1
+asdf install erlang 22.2 # This will take a while
+asdf global erlang 22.2
+asdf install elixir 1.10.2
+asdf global elixir 1.10.2
 
 # Finally, source zshrc
 source ~/.zshrc
