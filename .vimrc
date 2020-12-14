@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround' " Surround thigns with braces and quotes
 Plug 'tpope/vim-commentary' " Comment out stuff
 Plug 'tpope/vim-projectionist' " Jumping around and running tests in projects
+Plug 'tpope/vim-eunuch' " Rename and other shell commands
 Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented blocks
 Plug 'PeterRincker/vim-argumentative' " Add , as text object for arguments
 Plug 'justinmk/vim-sneak' " s followed by two characters
@@ -94,6 +95,9 @@ let g:lightline = {
 \   },
 \ }
 set noshowmode " Don't show insert, since liteline already does
+
+" Allow mouse selection and movement.
+set mouse=a
 
 " Search
 
