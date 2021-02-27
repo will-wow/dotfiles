@@ -8,22 +8,31 @@
 
 ## Install Deps ##
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
+
+  ## == GUI-only ==
   # Remap Caps to Escape
   dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
   # Remove home folder from desktop
   gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 
-  # Add apt repos
+  # Add chrome apt repo
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+  sudo apt update
+  sudo apt install -y google-chrome-stable # For gui intalls only
+  ## == /GUI-only ==
+
+  # Add neovim repo
   sudo add-apt-repository ppa:neovim-ppa/stable
 
   # Install deps
   sudo apt update
   sudo apt install -y git zsh tmux curl neovim # Basics
+  sudo apt install -y fonts-firacode 
   sudo apt install -y google-chrome-stable fonts-firacode # For gui intalls only
-  sudo apt install -y python-dev python-pip python3-dev python3-pip # Python
+  sudo apt install -y python3-dev python3-pip # Python
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y rlwrap leiningen # Clojure
   sudo apt install -y inotify-tools # Elixir
@@ -157,8 +166,8 @@ gem install bundler rubocop
 
 # Node
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
-asdf install nodejs 12.6.0
-asdf global nodejs 12.6.0
+asdf install nodejs 14.15.5
+asdf global nodejs 14.15.5
 npm install --global yarn typescript eslint prettier
 
 # Elixir
