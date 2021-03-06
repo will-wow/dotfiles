@@ -123,8 +123,6 @@ ln -s ~/repos/dotfiles/.spacemacs ~
 ln -s ~/repos/dotfiles/.ctags ~
 ln -s ~/repos/dotfiles/.tmuxinator ~
 ln -s ~/repos/dotfiles/.tmux.conf ~
-ln -s ~/repos/dotfiles/.tmux-osx.conf ~
-ln -s ~/repos/dotfiles/.tmux-linux.conf ~
 ln -s ~/repos/dotfiles/.pryrc ~/
 ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 mkdir -p ~/.config/alacritty
@@ -136,6 +134,9 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # Set up tmuxinator completion (won't work without a gem install, which is later.)
 wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
+
+# Install Tmux Plugin Manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install Plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
