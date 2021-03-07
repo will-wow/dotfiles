@@ -37,6 +37,16 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt install -y rlwrap leiningen # Clojure
   sudo apt install -y inotify-tools # Elixir
   sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
+  sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
+  sudo apt install -y autoconf automake pkg-config libevent-dev bison # To compile tmux
+
+  # Compile latest tmux
+  git clone https://github.com/tmux/tmux.git ~/tools/tmux
+  cd ~/tools/tmux
+  git checkout 3.1c # update this when tmux updates
+  ./configure && make
+  sudo make install
+  cd ~/repos/dotfiles
 
   # Configure Neovim
   pip2 install --user neovim
