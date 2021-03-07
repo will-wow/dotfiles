@@ -22,6 +22,7 @@ Plug 'benmills/vimux' " Pass tests from vim-test into a tmux pane
 Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 Plug 'christoomey/vim-tmux-navigator' " Tmux pane integration
 Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
+Plug 'tmux-plugins/vim-tmux' " Tmux conf highlighting
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " VSCode Extensions & Autocomplete
