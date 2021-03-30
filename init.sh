@@ -157,6 +157,11 @@ git config --global pager.branch false
 # make `git push` always work
 git config --global push.default current
 
+# Git commit defaults
+git config --global user.email "will@willwow.dev"
+git config --global user.name "Will Ockelmann-Wagner"
+git config --global core.editor nvim
+
 # Languages
 asdf plugin-add ruby
 asdf plugin-add erlang
