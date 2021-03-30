@@ -1,88 +1,43 @@
-tap "cloudfoundry/tap"
-tap "d12frosted/emacs-plus"
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "neovim/neovim"
-tap "osx-cross/avr"
-tap "px4/px4"
-tap "uptech/oss"
-tap "mongodb/brew"
-cask "xquartz"
-tap homebrew/cask-fonts
-
-brew "ack"
-brew "autoconf"
-brew "automake"
+# System utils
 brew "coreutils"
-brew "libtool"
-brew "libyaml"
 brew "openssl"
-brew "readline", link: true
-brew "unixodbc"
-brew "asdf"
-brew "python"
-brew "bash"
-brew "bat"
-brew "clang-format"
 brew "cmake"
+brew "wget"
 brew "curl"
-brew "dfu-programmer"
-brew "docker", link: false
-brew "docker-machine", restart_service: true, link: false
-brew "exercism"
-brew "fwup"
-brew "fzf"
-brew "gdb"
-brew "git"
-brew "git-flow"
-brew "glew"
-brew "glfw"
+brew "bash"
+brew "zsh"
 brew "gnupg"
-brew "graphviz"
-brew "highlight"
+
+# Edtiors
+brew "readline", link: true
+tap "neovim/neovim"
+brew "neovim"
+brew "vim"
+brew "tmux"
+brew "ripgrep"
+brew "fzf"
+
+# Tools
+brew "git"
 brew "htop"
-brew "hub"
 brew "imagemagick"
 brew "jq"
-brew "kakoune"
-brew "leiningen"
-brew "libxslt"
-brew "lua@5.1"
-brew "lynx"
-brew "macvim", link: false
-brew "mono", link: false
-brew "neovim"
-brew "nginx", restart_service: true
-brew "ninja"
-brew "tmux"
-brew "overmind"
-brew "p7zip"
-brew "picocom"
-brew "pipenv"
-brew "postgresql", restart_service: true
-brew "reattach-to-user-namespace"
-brew "redis", restart_service: true
-brew "ripgrep"
-brew "siege"
-brew "squashfs"
-brew "sshuttle"
-brew "the_silver_searcher"
-brew "unzip"
-brew "vim"
-brew "watch"
 brew "watchman"
-brew "wget"
-brew "wxmac"
-brew "zsh"
-brew "cloudfoundry/tap/cf-cli"
-brew "heroku/brew/heroku"
-brew "osx-cross/avr/avr-gcc"
-brew "px4/px4/gcc-arm-none-eabi"
-cask "java"
-cask "keycastr"
 cask "ngrok"
+
+# Gui
+cask "rectangle"
+
+# Languages
+brew "asdf"
+brew "python"
+
+# Fonts
+tap "homebrew/cask-fonts"
 cask "font-fira-code"
-cask "mongodb-community@4.2"
+
+# Servers
+cask "mongodb-community@4.4", restart_service: true
+brew "postgresql", restart_service: true
+brew "redis", restart_service: true
+brew "nginx", restart_service: true

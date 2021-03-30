@@ -134,11 +134,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # Mac OSX
   alias vi='nvim'
   alias vim='nvim'
-  ssh-add -A
-
-  # Alias git = hub
-  eval "$(hub alias -s)"
-  alias gpr='git pull-request'
 elif [[ "$OSTYPE" == "cygwin" ]]; then
   # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then

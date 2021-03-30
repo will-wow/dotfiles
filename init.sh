@@ -97,10 +97,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   pip3 install --user neovim
   defaults write com.apple.screencapture location ~/Downloads
 
-  # Spectacle (window resizer)
-  rm ~/Library/Application\ Support/Spectacle/Shortcuts.json 
-  ln -s ~/repos/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json 
-
   # Karabiner (keyboard)
   rm ~/.config/karabiner/karabiner.json 
   ln -s ~/repos/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json 
@@ -112,6 +108,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   # iTerm2 > Preferences > Profiles > Colors Tab
   # Click Load Presets...
   # Click Import...
+  # Go to ~/
+  # Enter cmd-shift-. to show hidden files
   # Select the Dracula.itermcolors file
   # Select the Dracula from Load Presets...
 fi
@@ -174,8 +172,8 @@ gem install bundler rubocop
 
 # Node
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
-asdf install nodejs 14.15.5
-asdf global nodejs 14.15.5
+asdf install nodejs 14.16.0
+asdf global nodejs 14.16.0
 npm install --global yarn typescript eslint prettier
 
 # Elixir

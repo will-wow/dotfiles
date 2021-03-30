@@ -214,7 +214,6 @@
       "after": ["g", "k"]
     }
   ],
-  "window.zoomLevel": -1,
   "ocaml.lintOnSave": true,
   "ocaml.merlinPath": "ocamlmerlin",
   // Lets remapped esc key work on ubuntu.
