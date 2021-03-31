@@ -395,8 +395,12 @@
   "diffEditor.renderSideBySide": true,
   "workbench.activityBar.visible": true,
   "python.dataScience.sendSelectionToInteractiveWindow": false,
-  "[mdx]": {
-  
-},
-"python.languageServer": "Pylance"
+  "[mdx]": {},
+  "python.languageServer": "Pylance",
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ]
 }

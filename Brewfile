@@ -7,6 +7,8 @@ brew "curl"
 brew "bash"
 brew "zsh"
 brew "gnupg"
+brew "llvm"
+brew "ncurses"
 
 # Edtiors
 brew "readline", link: true

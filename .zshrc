@@ -153,9 +153,9 @@ then
 fi
 
 # pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/wow/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/path.zsh.inc'; fi
