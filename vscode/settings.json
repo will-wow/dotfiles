@@ -15,8 +15,11 @@
     "doctype-first": false
   },
   "files.associations": {
-    "*.m": "matlab"
+    "*.m": "matlab",
+    "*.ejs": "html"
   },
+  "html.format.unformatted": "a-entity",
+  "html.format.templating": true,
   "editor.wordWrap": "on",
   "editor.wrappingIndent": "same",
   "files.autoSave": "onFocusChange",
@@ -260,7 +263,11 @@
     "Cryptographically",
     "Ethereum",
     "Ethereumex",
+    "Geofenced",
     "Juypter",
+    "Kalman",
+    "Occluder",
+    "Occluders",
     "Ockelmann",
     "Orderbook",
     "Postgres",
@@ -276,6 +283,7 @@
     "Transcoder",
     "Validators",
     "architecting",
+    "autosave",
     "behaviour",
     "bookmarkers",
     "camelize",
@@ -316,6 +324,7 @@
     "refetch",
     "repo",
     "repos",
+    "resizer",
     "rootname",
     "serializer",
     "sharespost",
@@ -334,6 +343,7 @@
     "truthy",
     "typep",
     "uneditable",
+    "unmount",
     "unnest"
   ],
   "wordcounter.languages": ["markdown", "mdx"],
@@ -391,16 +401,20 @@
     "mdx": true
   },
   "python.jediEnabled": false,
-  "python.dataScience.askForKernelRestart": false,
   "diffEditor.renderSideBySide": true,
   "workbench.activityBar.visible": true,
   "python.dataScience.sendSelectionToInteractiveWindow": false,
-  "[mdx]": {},
   "python.languageServer": "Pylance",
+  "jupyter.askForKernelRestart": false,
+  "jupyter.sendSelectionToInteractiveWindow": false,
+  "python.terminal.activateEnvironment": false,
   "workbench.editorAssociations": [
     {
       "viewType": "jupyter.notebook.ipynb",
       "filenamePattern": "*.ipynb"
     }
-  ]
+  ],
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

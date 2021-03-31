@@ -69,6 +69,11 @@ alias code.extensions.save='code --list-extensions | xargs -L 1 echo code --inst
 alias code.extensions.load='$HOME/repos/dotfiles/vscode/extensions.sh'
 alias docker-nuke='docker container rm --force --volumes $(docker container ls --quiet --all) && docker network rm $(docker network ls -q)'
 
+# Pomodoro timers
+alias pom='termdown 25m && say done'
+alias pom5='termdown 5m && say done'
+alias pom3='termdown 2m && say done'
+
 # ========
 # Vi-mode
 # ========
@@ -105,7 +110,8 @@ else
 fi
 
 # Java
-export JAVA_HOME="/Library/Java/Home"
+# export JAVA_HOME="/Library/Java/Home"
+# . ~/.asdf/plugins/java/set-java-home.zsh
 # Remember to symlink this to the right place
 
 export GOPATH="$HOME/repos/go"
