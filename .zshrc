@@ -32,6 +32,8 @@ export PATH="./bin:$PATH"
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 # Python poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+# Dotfiles scripts
+export PATH="$HOME/repos/dotfiles/bin:$PATH"
 
 # ======
 # Tools

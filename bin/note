@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nvim $(fd .md ~/repos/notebook/ | fzf -q $1)

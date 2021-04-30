@@ -164,10 +164,17 @@ nmap <leader>mgg gf
 nmap <leader>mgG <c-w>f
 
 " Buffer switching
+" Swap to last buffer in split
 nnoremap <leader><tab> <c-^>
+" Close buffer and split
 nnoremap <LEADER>bd :bdelete<CR>
+nnoremap <LEADER>bd :bdelete<CR>
+" next buffer.
 nnoremap <LEADER>bn :bn<CR>
-nnoremap <LEADER>bp :bp<CR>
+" Previous buffer
+nnoremap <LEADER>bp :bp<CR> 
+" Close a buffer without closing the split.
+command! Bd bp|bd #
 
 " Nerdtree
 nnoremap <leader>pt :NERDTreeToggle<CR>

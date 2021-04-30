@@ -134,7 +134,7 @@ ln -s ~/repos/dotfiles/.tmux.conf ~
 ln -s ~/repos/dotfiles/.pryrc ~/
 ln -s ~/repos/dotfiles/.gitignore ~/.gitignore_global
 mkdir -p ~/.config/alacritty
-ln -s ~/repos/dotfiles/alacritty.yml ~/.config/alacritty
+ln -s ~/repos/dotfiles/alacritty/alacritty.yml ~/.config/alacritty
 # Link neovim config
 mkdir -p ~/.config/nvim
 ln -s ~/.vim ~/.config/nvim
