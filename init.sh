@@ -7,6 +7,18 @@
 # http://www.psequel.com/
 
 ## Install Deps ##
+if Windows; then
+  PowerShell:
+  iwr -useb get.scoop.sh | iex
+  scoop install git
+  scoop bucket add extras
+  scoop install auto-hotkeys
+  scoop bucket add nerd-fonts
+  scoop install firacode
+
+  cp "caps-esc-ctrl.ahk" "C:\Users\Metabook\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+fi
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
   ## == GUI-only ==
@@ -30,20 +42,19 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Install deps
   sudo apt update
   sudo apt install -y git zsh tmux curl neovim # Basics
-  sudo apt install -y fonts-firacode 
   sudo apt install -y google-chrome-stable fonts-firacode # For gui intalls only
   sudo apt install -y python3-dev python3-pip # Python
   sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev # Ruby
   sudo apt install -y rlwrap leiningen # Clojure
   sudo apt install -y inotify-tools # Elixir
   sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
-  sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
-  sudo apt install -y autoconf automake pkg-config libevent-dev bison # To compile tmux
+  sudo apt install -y autoconf automake pkg-config libevent-dev bison libncurses5-dev libncursesw5-dev # To compile tmux
 
   # Compile latest tmux
   git clone https://github.com/tmux/tmux.git ~/tools/tmux
   cd ~/tools/tmux
-  git checkout 3.1c # update this when tmux updates
+  git checkout 3.2 # update this when tmux updates
+  sh autogen.sh
   ./configure && make
   sudo make install
   cd ~/repos/dotfiles
@@ -56,7 +67,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
 
   # Install asdf
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.3
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
 
   sudo apt install -y automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip curl
 
