@@ -7,7 +7,10 @@
 # http://www.psequel.com/
 
 ## Install Deps ##
+
 if Windows; then
+  # Windows (not WSL)
+  # Install scoop and deps
   PowerShell:
   iwr -useb get.scoop.sh | iex
   scoop install git
@@ -16,7 +19,11 @@ if Windows; then
   scoop bucket add nerd-fonts
   scoop install firacode
 
-  cp "caps-esc-ctrl.ahk" "C:\Users\Metabook\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+  # Copy to windows
+  cp "./caps-esc-ctrl.ahk" "/mnt/c/Users/Metabook/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
+
+  # This isn't working to re-start the script:
+  cmd.exe /C start "C:\Users\Metabook\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\caps-esc-ctrl.ahk"
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -49,6 +56,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt install -y inotify-tools # Elixir
   sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
   sudo apt install -y autoconf automake pkg-config libevent-dev bison libncurses5-dev libncursesw5-dev # To compile tmux
+  sudo apt install -y tree # cli tools
 
   # Compile latest tmux
   git clone https://github.com/tmux/tmux.git ~/tools/tmux
@@ -65,6 +73,13 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
   sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
   sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+
+  # Path Picker
+  git clone https://github.com/facebook/PathPicker.git ~/tools/fpp
+  cd ~/tools/fpp/debian
+  ./package.sh
+  sudo apt install ~/tools/fpp/pathpicker_0.9.2_all.deb
+  cd ~/repos/dotfiles
 
   # Install asdf
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1

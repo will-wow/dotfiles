@@ -135,7 +135,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Windows Bash
   else
     # Normal lunux desktop
-    setxkbmap -option caps:escape
+    if [ -x "$(command -v setxkbmap)" ]; then
+      setxkbmap -option caps:escape
+    fi
     eval `dircolors $HOME/.dir_colors/dircolors`
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -162,8 +164,10 @@ fi
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if [ -x "$(command -v pyenv)" ]; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/wow/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/path.zsh.inc'; fi
