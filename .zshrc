@@ -32,6 +32,8 @@ export PATH="./bin:$PATH"
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 # Python poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+# Flutter
+export PATH="$HOME/tools/flutter/bin:$PATH"
 # Dotfiles scripts
 export PATH="$HOME/repos/dotfiles/bin:$PATH"
 
@@ -47,6 +49,7 @@ unsetopt nomatch
 
 # tmux
 source ~/.bin/tmuxinator.zsh
+alias mux=tmuxinator
 
 # You may need to manually set your language environment
 export LC_ALL='en_US.UTF-8'
@@ -168,6 +171,8 @@ if [ -x "$(command -v pyenv)" ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+
+eval "$(pdm --pep582)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/wow/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/path.zsh.inc'; fi

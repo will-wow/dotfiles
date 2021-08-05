@@ -1,0 +1,22 @@
+name: illust
+root: ~/repos/illust-marketplace
+socket_path: /tmp/illust
+windows:
+  - servers:
+      layout: even-horizontal
+      panes:
+        - yarn start:api
+        - yarn start:marketplace
+        - yarn start:webar
+  - marketplace: cd packages/marketplace
+  - webar: cd packages/webar
+  - api-test:
+      layout: even-horizontal
+      panes:
+        - cd packages/api
+        - cd packages/api
+  - ngrok:
+      layout: even-horizontal
+      panes:
+        - yarn ngrok http --region=us --hostname=willwow.ngrok.io --host-header=rewrite 3001
+        -
