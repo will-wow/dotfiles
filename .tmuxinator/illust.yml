@@ -8,8 +8,8 @@ windows:
         - yarn start:api
         - yarn start:marketplace
         - yarn start:webar
-  - marketplace: cd packages/marketplace
-  - webar: cd packages/webar
+        - yarn start:scraper
+  - git: git status
   - api-test:
       layout: even-horizontal
       panes:
