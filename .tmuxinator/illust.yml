@@ -7,7 +7,7 @@ windows:
       panes:
         - yarn start:api
         - yarn start:marketplace
-        - yarn start:webar
+        - yarn start:webar --https
         - yarn start:scraper
   - git: git status
   - api-test:
@@ -18,5 +18,5 @@ windows:
   - ngrok:
       layout: even-horizontal
       panes:
-        - yarn ngrok http --region=us --hostname=willwow.ngrok.io --host-header=rewrite 3001
+        - yarn ngrok http https://illust.localhost:3001 --region=us --hostname=willwow.ngrok.io
         -
