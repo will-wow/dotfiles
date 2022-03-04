@@ -9,12 +9,16 @@ windows:
         - yarn start:marketplace
         - yarn start:webar --https
         - yarn start:scraper
-  - git: git status
-  - api-test:
+  - workspace:
       layout: even-horizontal
       panes:
-        - cd packages/api
-        - cd packages/api
+        - 
+        -
+  - pops:
+      layout: even-horizontal
+      panes:
+        - cd ../illust-contracts && yarn blockchain
+        - cd ../illust-contracts && yarn hardhat run scripts/deployPop.ts --network localhost
   - ngrok:
       layout: even-horizontal
       panes:

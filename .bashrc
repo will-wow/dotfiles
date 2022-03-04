@@ -1,6 +1,8 @@
 # Launch Zsh
 if [ -t 1 ]; then
-exec zsh
+exe zsh
 fi
+
+PATH="$HOME/.local/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
