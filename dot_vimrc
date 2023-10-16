@@ -26,6 +26,8 @@ Plug 'tmux-plugins/vim-tmux' " Tmux conf highlighting
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " VSCode Extensions & Autocomplete
+Plug 'folke/which-key.nvim', " show keybindings
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " Browser vim integration
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -254,6 +256,20 @@ nnoremap <leader>br :checktime
 
 " Markdown spellcheck
 autocmd FileType markdown setlocal spell spelllang=en_us
+
+" Firenvim
+" Require a C-e to start firenvim
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'takeover': 'never',
+        \ },
+    \ }
+\ }
 
 " Wordcount
 nnoremap <leader>wc g<c-g>

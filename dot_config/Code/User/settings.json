@@ -3,6 +3,7 @@
   // General Settings
   "workbench.editor.showTabs": false,
   "workbench.editor.labelFormat": "medium",
+  "breadcrumbs.enabled": true,
   // Go to the json editor by default.
   "workbench.settings.editor": "json",
   "editor.tabSize": 2,
@@ -15,6 +16,7 @@
     "doctype-first": false
   },
   "files.associations": {
+    "atlas.hcl": "atlas-config",
     "*.m": "matlab",
     "*.ejs": "html"
   },
@@ -215,6 +217,47 @@
     {
       "before": ["k"],
       "after": ["g", "k"]
+    },
+    {
+      "before": ["g", "s", "s"],
+      "commands": [
+        {
+          "command": "editor.action.transformToSnakecase"
+        }
+      ]
+    },
+    {
+      "before": ["g", "s", "p"],
+      "commands": [
+        {
+          "command": "editor.action.transformToTitlecase"
+        },
+        {
+          "command": "editor.action.transformToCamelcase"
+        }
+      ]
+    },
+    {
+      "before": ["g", "s", "c"],
+      "commands": [
+        {
+          "command": "editor.action.transformToCamelcase"
+        }
+      ]
+    },
+    // vim-vinegar
+    {
+      "before": ["-"],
+      "commands": [
+        {
+          "command": "breadcrumbs.toggleToOn",
+          "when": "!config.breadcrumbs.enabled"
+        },
+        {
+          "command": "breadcrumbs.focusAndSelect",
+          "when": "breadcrumbsPossible"
+        }
+      ]
     }
   ],
   "ocaml.lintOnSave": true,
@@ -252,10 +295,13 @@
     "typescript",
     "typescriptreact",
     "yml",
-    "mdx"
+    "mdx",
+    "golang",
+    "proto3"
   ],
   "cSpell.userWords": [
     "AFRAME",
+    "Airtable",
     "Alderaan",
     "Behaviour",
     "Cachex",
@@ -285,7 +331,9 @@
     "architecting",
     "autosave",
     "behaviour",
+    "Behaviour",
     "bookmarkers",
+    "Cachex",
     "camelize",
     "caml",
     "casp",
@@ -293,8 +341,10 @@
     "comparator",
     "concat",
     "cond",
+    "Confero",
     "consts",
     "coord",
+    "Cryptographically",
     "datetime",
     "defdelegate",
     "defimpl",
@@ -306,29 +356,55 @@
     "dragula",
     "ecto",
     "erlang",
+    "Ethereum",
+    "Ethereumex",
     "filestack",
     "financings",
     "futura",
+    "Geofenced",
+    "Healthcheck",
+    "idempotency",
     "immersivemess",
     "injectable",
+    "Juypter",
     "kablammo",
+    "Kalman",
     "leaderboard",
+    "mainphase",
     "moduledoc",
+    "Occluder",
+    "Occluders",
+    "Ockelmann",
     "onboarding",
+    "openapi",
+    "Orderbook",
     "params",
     "parser's",
     "performant",
+    "Postgres",
     "preload",
+    "Preprocess",
     "preprocessors",
     "promisify",
+    "Proveout",
+    "Raycaster",
+    "Redex",
     "refetch",
     "repo",
     "repos",
+    "Rerem",
     "resizer",
+    "Roadmap",
     "rootname",
+    "Ropsten",
+    "Scaredy",
+    "Securitize",
     "serializer",
     "sharespost",
     "signup",
+    "Slackbot",
+    "Slackbot's",
+    "slugified",
     "snapshotting",
     "stateful",
     "struct",
@@ -339,22 +415,23 @@
     "timestamps",
     "todos",
     "tokenizes",
+    "Transcoder",
     "transcoding",
     "truthy",
     "typep",
     "uneditable",
     "unmount",
-    "unnest"
+    "unnest",
+    "Validators",
+    "Zustand"
   ],
   "wordcounter.languages": ["markdown", "mdx"],
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "breadcrumbs.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.fontFamily": "'Fira Code', hack",
-  "terminal.integrated.fontFamily": "'Fira Code', hack",
-  "workbench.colorTheme": "Dracula",
+  "terminal.integrated.fontFamily": "'MesloLGS NF', 'Fira Code', hack",
   "editor.fontLigatures": true,
   "cmake.configureOnOpen": true,
   "editor.minimap.enabled": false,
@@ -406,7 +483,6 @@
   "python.dataScience.sendSelectionToInteractiveWindow": false,
   "python.languageServer": "Pylance",
   "jupyter.askForKernelRestart": false,
-  "jupyter.sendSelectionToInteractiveWindow": false,
   "python.terminal.activateEnvironment": false,
   "workbench.editorAssociations": [
     {
@@ -416,5 +492,34 @@
   ],
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorTheme": "Dracula",
+  "redhat.telemetry.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "cSpell.enableFiletypes": ["go"],
+  "editor.linkedEditing": true,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "[proto3]": {
+    "editor.defaultFormatter": "bufbuild.vscode-buf"
+  },
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "editor.find.seedSearchStringFromSelection": "selection",
+  "search.mode": "reuseEditor",
+  "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
+  "jest.autoRevealOutput": "on-exec-error",
+  "jest.autoRun": "off",
+  "editor.stickyScroll.enabled": true,
+  "pgFormatter.commaBreak": true,
+  "pgFormatter.spaces": 4,
+  "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on"
 }

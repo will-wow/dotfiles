@@ -99,5 +99,17 @@
   {
     "key": "shift+ctrl+a 4",
     "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  // Make breadcrumbs work more like vim-vinegar
+  {
+    "key": "-",
+    "command": "breadcrumbs.focusPrevious",
+    "when": "breadcrumbsActive && breadcrumbsVisible"
+  },
+  // Appy changes in the search editor
+  {
+    "key": "cmd+s",
+    "command": "searchEditorApplyChanges.apply",
+    "when": "inSearchEditor"
   }
 ]

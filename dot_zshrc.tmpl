@@ -13,7 +13,6 @@ fi
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
-# ZSH_THEME="dracula"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # For fzf plugin
@@ -22,7 +21,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # ZSH Plugins
-plugins=(git vi-mode fzf)
+plugins=(git vi-mode fzf asdf)
 
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -54,6 +53,9 @@ unsetopt nomatch
 # tmux
 source ~/.bin/tmuxinator.zsh
 alias mux=tmuxinator
+
+# lazygit
+alias lg='lazygit'
 
 # You may need to manually set your language environment
 export LC_ALL='en_US.UTF-8'
@@ -100,10 +102,6 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 # Beginning of line with _
 bindkey -M vicmd "_" vi-beginning-of-line
 
-# ==========
-# Languages
-# ==========
-
 # ============
 # OS-specific
 # ============
@@ -128,10 +126,14 @@ fi
 {{- end }}
 
 # Alias private stuff
-if [ -e "~/.zshrc_private" ]
+if [ -e "$HOME/.zshrc_private" ]
 then
-  source ~/.zshrc_private
+  source $HOME/.zshrc_private
 fi
+
+# ==========
+# Languages
+# ==========
 
 
 {{- if .asdf.use }}
@@ -151,6 +153,8 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 # Go
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+export GOPATH="$HOME/repos/go"
 {{- end }}
 
 {{- if .python }}
@@ -160,15 +164,14 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 # pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-if [ -x "$(command -v pyenv)" ]; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# if [ -x "$(command -v pyenv)" ]; then
+#   eval "$(pyenv init -)"
+#   eval "$(pyenv virtualenv-init -)"
+# fi
 
-eval "$(pdm --pep582)"
+# eval "$(pdm --pep582)"
 {{- end }}
-
 
 {{- if .asdf.java }}
 # Java
@@ -178,10 +181,19 @@ Remember to symlink this to the right place
 export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
 {{- end }}
 
+# pnpm
+export PNPM_HOME="/Users/wow/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+
 {{- if .gcp }}
 # GCP
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/wow/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/wow/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/completion.zsh.inc'; fi

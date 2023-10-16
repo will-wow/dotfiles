@@ -1,0 +1,25 @@
+name: qto
+root: ~/repos/flow
+socket_path: /tmp/qto
+windows:
+  - frontend:
+      root: ~/repos/flow/flow/frontend
+      layout: even-horizontal
+      panes:
+        - "pnpm dev --filter flow-frontend"
+        -
+  - quoting:
+      root: ~/repos/flow/flow/quote-to-order
+      layout: even-horizontal
+      panes:
+        # Once the dbs are running, setup the DB and start the go server
+        - npx wait-on tcp:5432 && make setup && godotenv -f .env go run main.go
+        - make start-cluster-without-backend
+        -
+  - floptimizer:
+      root: ~/repos/flow/services/mulus
+      layout: even-horizontal
+      panes:
+        # Once the dbs are running, setup the DB and start the go server
+        - ./run_in_docker.sh
+        -
