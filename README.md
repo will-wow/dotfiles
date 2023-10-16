@@ -2,6 +2,10 @@
 
 Just my dotfiles. They're not that fancy.
 
-## Setup
+## Config
 
-When setting up a new system, start with [init.sh](./init.sh)
+To edit config to add languages, edit:
+
+```bash
+$HOME/.config/chezmoi/chezmoi.toml
+```

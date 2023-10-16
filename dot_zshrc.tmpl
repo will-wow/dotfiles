@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # ==========
 # Oh-My-Zsh
 # ==========
@@ -6,34 +13,31 @@
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="dracula"
+# ZSH_THEME="dracula"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # For fzf plugin
 export FZF_BASE=$HOME/.fzf
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # ZSH Plugins
-plugins=(git git-flow web-search vi-mode fzf)
+plugins=(git vi-mode fzf)
 
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 export TERM=xterm-256color
+export COLORTERM=truecolor
 
 # =====
 # Path
 # =====
 
-export PATH="$HOME/.local/bin:/.local/bin/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/yarn/global/node_modules/.bin:/home/wow/anaconda3/bin:/usr/local/cuda-9.1/bin:$PATH"
 # Add repos to path
 export PATH="$HOME/repos/bin:$PATH"
 # Add local bin to path
 export PATH="./bin:$PATH"
-# Mongo 4
-export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
-# Python poetry
-export PATH="$HOME/.poetry/bin:$PATH"
-# Flutter
-export PATH="$HOME/tools/flutter/bin:$PATH"
 # Dotfiles scripts
 export PATH="$HOME/repos/dotfiles/bin:$PATH"
 
@@ -66,13 +70,8 @@ fi
 # Aliases
 # ========
 
-alias be='bundle exec'
-alias gitdog='git log --decorate --oneline --graph'
 alias gpf='git push --force-with-lease'
 alias gcb='git checkout -b'
-alias code.extensions.save='code --list-extensions | xargs -L 1 echo code --install-extension > $HOME/repos/dotfiles/vscode/extensions.sh && chmod 755 $HOME/repos/dotfiles/vscode/extensions.sh'
-alias code.extensions.load='$HOME/repos/dotfiles/vscode/extensions.sh'
-alias docker-nuke='docker container rm --force --volumes $(docker container ls --quiet --all) && docker network rm $(docker network ls -q)'
 
 # Pomodoro timers
 alias pom='termdown 25m && say done'
@@ -105,65 +104,60 @@ bindkey -M vicmd "_" vi-beginning-of-line
 # Languages
 # ==========
 
-# asdf version manager
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  . $(brew --prefix asdf)/asdf.sh
-else
-  . $HOME/.asdf/asdf.sh
-  . $HOME/.asdf/completions/asdf.bash
-fi
-
-# Java
-# export JAVA_HOME="/Library/Java/Home"
-# . ~/.asdf/plugins/java/set-java-home.zsh
-# Remember to symlink this to the right place
-
-export GOPATH="$HOME/repos/go"
-export PATH="$PATH:$GOPATH/bin"
-export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
-
-# OPAM (ocaml package managner) configuration
-. ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 # ============
 # OS-specific
 # ============
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  # Linux
-  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    # SSH to linux
-  elif grep -Fq "Microsoft" /proc/version; then
-    # Windows Bash
-  else
-    # Normal lunux desktop
-    if [ -x "$(command -v setxkbmap)" ]; then
-      setxkbmap -option caps:escape
-    fi
-    eval `dircolors $HOME/.dir_colors/dircolors`
-  fi
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-  # Mac OSX
-  alias vi='nvim'
-  alias vim='nvim'
-elif [[ "$OSTYPE" == "cygwin" ]]; then
-  # POSIX compatibility layer and Linux environment emulation for Windows
-elif [[ "$OSTYPE" == "msys" ]]; then
-  # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-elif [[ "$OSTYPE" == "win32" ]]; then
-  # I'm not sure this can happen.
-elif [[ "$OSTYPE" == "freebsd"* ]]; then
-  # ...
+{{- if eq .chezmoi.os "darwin" }}
+# Mac OSX
+alias vi='nvim'
+alias vim='nvim'
+{{- else if eq .chezmoi.os "linux" }}
+# Linux
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  # SSH to linux
+elif grep -Fq "Microsoft" /proc/version; then
+  # Windows Bash
 else
-  # Unknown.
+  # Normal lunux desktop
+  if [ -x "$(command -v setxkbmap)" ]; then
+    setxkbmap -option caps:escape
+  fi
+  eval `dircolors $HOME/.dir_colors/dircolors`
 fi
+{{- end }}
 
 # Alias private stuff
 if [ -e "~/.zshrc_private" ]
 then
   source ~/.zshrc_private
 fi
+
+
+{{- if .asdf.use }}
+# asdf
+{{-   if ne .chezmoi.os "darwin" }}
+. $(brew --prefix asdf)/asdf.sh
+{{-   else }}
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+{{-   end }}
+
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+{{- end }}
+
+
+{{- if .go }}
+# Go
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+{{- end }}
+
+{{- if .python }}
+# Python
+
+# Python poetry
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -173,9 +167,38 @@ if [ -x "$(command -v pyenv)" ]; then
 fi
 
 eval "$(pdm --pep582)"
+{{- end }}
 
+
+{{- if .asdf.java }}
+# Java
+export JAVA_HOME="/Library/Java/Home"
+. ~/.asdf/plugins/java/set-java-home.zsh
+Remember to symlink this to the right place
+export TOMCAT_HOME=/usr/local/Cellar/tomcat/8.5.15/libexec/
+{{- end }}
+
+{{- if .gcp }}
+# GCP
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/wow/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/wow/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wow/google-cloud-sdk/completion.zsh.inc'; fi
+{{- end }}
+
+{{- if .bun }}
+# Bun
+# bun completions
+[ -s "/home/wow/.bun/_bun" ] && source "/home/wow/.bun/_bun"
+
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+{{- end }}
+
+{{ if .fuck }}
+eval $(thefuck --alias)
+{{ end }}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

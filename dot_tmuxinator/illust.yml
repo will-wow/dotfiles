@@ -1,0 +1,20 @@
+name: illust
+root: ~/repos/illust-marketplace
+socket_path: /tmp/illust
+windows:
+  - servers:
+      layout: even-horizontal
+      panes:
+        - yarn ws api start:emulate:development
+        - yarn ws webar start
+        - yarn ws scraper start
+  - workspace:
+      layout: even-horizontal
+      panes:
+        - yarn ws contracts blockchain
+        - yarn ws api start:compile
+  - ngrok:
+      layout: even-horizontal
+      panes:
+        # - yarn ngrok http https://illust.localhost:3001 --region=us --hostname=willwow.ngrok.io
+        -

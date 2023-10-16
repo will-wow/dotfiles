@@ -1,0 +1,15 @@
+name: gsr
+root: ~/repos/gsr
+socket_path: /tmp/gsr
+windows:
+  - servers:
+      layout: even-horizontal
+      panes:
+        - yarn ws indexer e2e
+        - yarn ws e2e e2e:test
+  - builds:
+      layout: even-horizontal
+      panes:
+        - yarn ws sdk start
+        - yarn workspace webhook-consumer start
+        - yarn ws contracts start

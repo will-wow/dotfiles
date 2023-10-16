@@ -1,0 +1,190 @@
+#!/usr/bin/env bash
+
+## Install libs ##
+
+# download urls for macOs:
+# https://www.iterm2.com/
+# http://magicprefs.com
+# http://www.psequel.com/
+
+
+
+# Windows (not WSL)
+# # Install scoop and deps
+# PowerShell:
+# iwr -useb get.scoop.sh | iex
+# scoop install git
+# scoop bucket add extras
+# scoop install auto-hotkeys
+# scoop bucket add nerd-fonts
+# scoop install firacode
+
+# # Copy to windows
+# cp "./caps-esc-ctrl.ahk" "/mnt/c/Users/Metabook/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
+
+# # This isn't working to re-start the script:
+# cmd.exe /C start "C:\Users\Metabook\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\caps-esc-ctrl.ahk"
+
+## Install Deps ##
+{{ if eq .chezmoi.os "darwin" }}
+# MacOS
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# VS Code
+# Repeat vim commands
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false 
+
+# Install key brew dependencies
+brew install zsh bash neovim wget curl tmux git
+# Toolchain
+brew install coreutils openssl cmake gnupg llvm ncurses 
+# Cli tools
+brew install ripgrep fzf tmux readline htop imagemagick jq watchman python
+
+{{-   if .asdf.use }}
+brew install asdf
+{{-   end }}
+
+{{-   if .gui }}
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code
+{{-   end }}
+
+# Install all brew deps
+brew tap Homebrew/bundle
+brew bundle
+
+# Use brew shells
+sudo -s 
+echo /usr/local/bin/bash >> /etc/shells
+echo /usr/local/bin/zsh >> /etc/shells
+
+# Mac OSX
+defaults write com.apple.screencapture location ~/Downloads
+
+# Install dracula iterm theme
+mkdir ~/.dracula
+# Clone the repo with colors
+git clone https://github.com/dracula/iterm.git ~/.dracula/iterm
+# iTerm2 > Preferences > Profiles > Colors Tab
+# Click Load Presets...
+# Click Import...
+# Go to ~/
+# Enter cmd-shift-. to show hidden files
+# Select the Dracula.itermcolors file
+# Select the Dracula from Load Presets...
+
+## END MacOS
+{{ else }}
+# Linux
+{{   if .gui }}
+## == GUI-only ==
+# Remap Caps to Escape
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+
+# Remove home folder from desktop
+gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+
+# Add chrome apt repo
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+sudo apt update
+sudo apt install -y google-chrome-stable fonts-firacode
+
+# Install dracula for Ubuntu
+cd ~/repos
+git clone https://github.com/GalaticStryder/gnome-terminal-colors-dracula 
+cd gnome-terminal-colors-dracula
+./install.sh 
+cd ..
+## == /GUI-only ==
+{{    end }}
+
+# Install deps
+sudo apt update
+sudo apt install -y git zsh tmux curl neovim unzip ripgrep # Basics
+# Toolchain
+sudo apt install -y automake autoconf build-essential libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
+{{   if (or .python .fuck) }}
+sudo apt install -y python3-dev python3-pip python3-setuptools
+{{   end }}
+{{   if .asdf.elixir}}
+sudo apt install -y inotify-tools # Elixir
+{{   end }}
+{{   if .postgres }}
+sudo apt install -y postgresql postgresql-contrib libpq-dev # Postgres
+{{   end }}
+sudo apt install -y autoconf automake pkg-config libevent-dev bison libncurses5-dev libncursesw5-dev # To compile tmux
+sudo apt install -y tree # cli tools
+{{   if .fuck }}
+pip3 install thefuck --user
+{{   end }}
+
+# Configure Neovim
+{{   if .python }}
+pip2 install --user neovim
+pip3 install --user neovim
+{{   end }}
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+
+# END Linux
+{{ end }}
+
+# Create SSH Key
+if ! [ -f $HOME/.ssh/id_ed25519 ]; then
+  ssh-keygen -t ed25519 -C "will@willwow.dev"  -N '' -f ~/.ssh/id_ed25519
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_ed25519
+fi
+
+# Set up oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+
+# Set up tmuxinator completion (won't work without a gem install, which is later.)
+wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
+
+# Install Plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install pl10k zsh theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+{{ if .asdf.use }}
+# ASDF
+# Install asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+{{ end }}
+{{   if .asdf.elixir }}
+asdf plugin-add erlang
+asdf plugin-add elixir
+{{ end }}
+{{ if .asdf.nodejs }}
+asdf plugin-add nodejs
+{{ end }}
+{{ if .asdf.java}}
+asdf plugin-add java
+{{ end }}
+{{ if .asdf.clojure }}
+asdf plugin-add clojure
+{{ end }}
+
+
+{{ if .asdf.nodejs }}
+# Node
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
+asdf install nodejs 14.16.0
+asdf global nodejs 14.16.0
+npm install --global yarn typescript eslint prettier
+{{ end }}
+
+{{ if .asdf.elixir }}
+# Elixir
+asdf install erlang 22.2 # This will take a while
+asdf global erlang 22.2
+asdf install elixir 1.10.2
+asdf global elixir 1.10.2
+{{ end }}

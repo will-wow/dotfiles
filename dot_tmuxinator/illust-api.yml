@@ -1,0 +1,14 @@
+name: illust
+root: ~/repos/illust-marketplace
+socket_path: /tmp/illust
+windows:
+  - servers:
+      layout: even-horizontal
+      panes:
+        - yarn ws api test:emulator
+        - wait-on http-get://localhost:8082 && yarn ws api test:run
+  - workspace:
+      layout: even-horizontal
+      panes:
+        - 
+        -
