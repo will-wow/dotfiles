@@ -1,15 +1,29 @@
+{{- $init := promptBoolOnce . "init" "run init script" }}
+{{- $gui := promptBoolOnce . "gui" "Install GUI tools" }}
+{{- $asdf := promptBoolOnce . "asdf" "use asdf" }}
+{{- $nodejs := promptBoolOnce . "nodejs" "configure asdf nodejs" }}
+{{- $bun := promptBoolOnce . "bun" "configure bun" }}
+{{- $go := promptBoolOnce . "go" "configure go" }}
+{{- $postgres := promptBoolOnce . "postgres" "configure postgres" }}
+{{- $python := promptBoolOnce . "python" "configure python" }}
+{{- $fuck := promptBoolOnce . "fuck" "configure fuck" }}
+{{- $gcp := promptBoolOnce . "gcp" "configure google cloud" }}
+{{- $clojure := promptBoolOnce . "clojure" "configure asdf clojure" }}
+{{- $elixir := promptBoolOnce . "elixir" "configure asdf elixir" }}
+{{- $java := promptBoolOnce . "java" "configure asdf java" -}}
 [data]
-	bun = false
-	gcp = false
-	go = false
-	gui = false
-	postgres = false
-  python = false
-	fuck = false
+	init = {{ $init }}
+	bun = {{ $bun }}
+	fuck = {{ $fuck }}
+	gcp = {{ $gcp }}
+	go = {{ $go }}
+	gui = {{ $gui }}
+	postgres = {{ $postgres }}
+  python = {{ $python }}
 
 [data.asdf]
-  use = false
-	clojure = false
-	elixir = false
-	nodejs = false
-  java = false
+  use = {{ $asdf }}
+	clojure = {{ $clojure }}
+	elixir = {{ $elixir }}
+	nodejs = {{ $nodejs }}
+  java = {{ $java }}

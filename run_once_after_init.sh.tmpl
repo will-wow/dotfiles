@@ -1,3 +1,4 @@
+{{- if .init }}
 #!/usr/bin/env bash
 
 ## Install libs ##
@@ -187,4 +188,5 @@ asdf install erlang 22.2 # This will take a while
 asdf global erlang 22.2
 asdf install elixir 1.10.2
 asdf global elixir 1.10.2
+{{ end }}
 {{ end }}
