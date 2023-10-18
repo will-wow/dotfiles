@@ -137,14 +137,6 @@ fi
 
 
 {{- if .asdf.use }}
-# asdf
-{{-   if ne .chezmoi.os "darwin" }}
-. $(brew --prefix asdf)/asdf.sh
-{{-   else }}
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-{{-   end }}
-
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 {{- end }}
 

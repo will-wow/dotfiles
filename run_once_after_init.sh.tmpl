@@ -1,14 +1,12 @@
-{{- if .init }}
 #!/usr/bin/env bash
 
+{{- if .init }}
 ## Install libs ##
 
 # download urls for macOs:
 # https://www.iterm2.com/
 # http://magicprefs.com
 # http://www.psequel.com/
-
-
 
 # Windows (not WSL)
 # # Install scoop and deps
@@ -52,29 +50,26 @@ brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 {{-   end }}
 
-# Install all brew deps
-brew tap Homebrew/bundle
-brew bundle
-
 # Use brew shells
-sudo -s 
-echo /usr/local/bin/bash >> /etc/shells
-echo /usr/local/bin/zsh >> /etc/shells
+# echo /usr/local/bin/bash >> /etc/shells
+# echo /usr/local/bin/zsh >> /etc/shells
 
 # Mac OSX
 defaults write com.apple.screencapture location ~/Downloads
 
 # Install dracula iterm theme
-mkdir ~/.dracula
-# Clone the repo with colors
-git clone https://github.com/dracula/iterm.git ~/.dracula/iterm
-# iTerm2 > Preferences > Profiles > Colors Tab
-# Click Load Presets...
-# Click Import...
-# Go to ~/
-# Enter cmd-shift-. to show hidden files
-# Select the Dracula.itermcolors file
-# Select the Dracula from Load Presets...
+if [ ! -d "~/.dracula" ]; then
+  mkdir ~/.dracula
+  # Clone the repo with colors
+  git clone https://github.com/dracula/iterm.git ~/.dracula/iterm
+  # iTerm2 > Preferences > Profiles > Colors Tab
+  # Click Load Presets...
+  # Click Import...
+  # Go to ~/
+  # Enter cmd-shift-. to show hidden files
+  # Select the Dracula.itermcolors file
+  # Select the Dracula from Load Presets...
+fi
 
 ## END MacOS
 {{ else }}
@@ -152,12 +147,19 @@ wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/t
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install pl10k zsh theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then 
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
 
 {{ if .asdf.use }}
 # ASDF
 # Install asdf
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+
+# Install direnv
+asdf plugin-add direnv
+asdf direnv setup --shell zsh --version latest
+
 {{ end }}
 {{   if .asdf.elixir }}
 asdf plugin-add erlang
