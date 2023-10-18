@@ -60,15 +60,6 @@
   "vim.vimrc.enable": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "p", "f"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.quickOpen"
-        }
-      ]
-    },
-    {
       "before": ["<leader>", "n", "f"],
       "after": [],
       "commands": [
@@ -101,45 +92,49 @@
         }
       ]
     },
-    {
-      "before": ["<leader>", "b", "d"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.closeEditorsInGroup"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "w", "/"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.splitEditorRight"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "w", "-"],
-      "after": [],
-      "commands": [
-        {
-          "command": "workbench.action.splitEditorDown"
-        }
-      ]
-    },
-    {
-      "before": ["<leader>", "tab"],
-      "after": ["enter"],
-      "commands": [
-        {
-          "command": "workbench.action.openPreviousEditorFromHistory"
-        },
-        {
-          "command": "workbench.action.acceptSelectedQuickOpenItem"
-        }
-      ]
-    },
+    // use w-c
+    // {
+    //   "before": ["<leader>", "b", "d"],
+    //   "after": [],
+    //   "commands": [
+    //     {
+    //       "command": "workbench.action.closeEditorsInGroup"
+    //     }
+    //   ]
+    // },
+    // use w-s
+    // {
+    //   "before": ["<leader>", "w", "/"],
+    //   "after": [],
+    //   "commands": [
+    //     {
+    //       "command": "workbench.action.splitEditorRight"
+    //     }
+    //   ]
+    // },
+    // use w-v
+    // {
+    //   "before": ["<leader>", "w", "-"],
+    //   "after": [],
+    //   "commands": [
+    //     {
+    //       "command": "workbench.action.splitEditorDown"
+    //     }
+    //   ]
+    // },
+    // Use w-o and splits
+    // {
+    //   "before": ["<leader>", "tab"],
+    //   "after": ["enter"],
+    //   "commands": [
+    //     {
+    //       "command": "workbench.action.openPreviousEditorFromHistory"
+    //     },
+    //     {
+    //       "command": "workbench.action.acceptSelectedQuickOpenItem"
+    //     }
+    //   ]
+    // },
     {
       "before": ["<leader>", ":"],
       "after": [],

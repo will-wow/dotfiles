@@ -138,6 +138,7 @@ fi
 
 {{- if .asdf.use }}
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+export DIRENV_LOG_FORMAT=""
 {{- end }}
 
 
@@ -147,6 +148,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 export GOPATH="$HOME/repos/go"
+export PATH="$GOPATH/bin:$PATH"
 {{- end }}
 
 {{- if .python }}

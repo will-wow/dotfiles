@@ -9,9 +9,9 @@ Plug 'tpope/vim-surround' " Surround thigns with braces and quotes
 Plug 'tpope/vim-commentary' " Comment out stuff
 Plug 'tpope/vim-projectionist' " Jumping around and running tests in projects
 Plug 'tpope/vim-eunuch' " Rename and other shell commands
+Plug 'tpope/vim-vinegar' " - to open a file browser
 Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented blocks
 Plug 'PeterRincker/vim-argumentative' " Add , as text object for arguments
-Plug 'justinmk/vim-sneak' " s followed by two characters
 Plug 'dracula/vim', {'as': 'dracula'} " Theme
 Plug 'scrooloose/nerdtree' " File tree
 Plug 'itchyny/lightline.vim' " Status line
@@ -117,11 +117,11 @@ vnoremap <leader>* y:Rg <c-r>"<cr>
 set splitbelow
 set splitright
 " Horizontal split 
-nnoremap <leader>w/ <c-w>v
+" nnoremap <leader>w/ <c-w>v
 " vertical split 
-nnoremap <leader>w- <c-w>s
+" nnoremap <leader>w- <c-w>s
 " Close split
-nnoremap <leader>wd <c-w>c
+" nnoremap <leader>wd <c-w>c
 
 " vim-test
 let g:test#strategy = "vimux"
@@ -140,9 +140,6 @@ nnoremap gk k
 " Smartcase for search
 set ignorecase
 set smartcase
-
-" Smartcase for sneak
-let g:sneak#use_ic_scs = 1
 
 " delimitMate
 " Make backspace work
@@ -310,4 +307,4 @@ elseif has('win32') || has('win64')
   set guifont=Hack:h10 " Nice font
 endif
 
-:source $HOME/repos/dotfiles/.vimrc_coc
+:source $HOME/.vimrc_coc
