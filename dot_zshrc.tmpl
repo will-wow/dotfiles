@@ -21,7 +21,7 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # ZSH Plugins
-plugins=(git vi-mode fzf asdf)
+plugins=(git vi-mode fzf asdf zsh-syntax-highlighting)
 
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -37,8 +37,8 @@ export COLORTERM=truecolor
 export PATH="$HOME/repos/bin:$PATH"
 # Add local bin to path
 export PATH="./bin:$PATH"
-# Dotfiles scripts
-export PATH="$HOME/repos/dotfiles/bin:$PATH"
+# Add home bin to path
+export PATH="$HOME/bin:$PATH"
 
 # ======
 # Tools
