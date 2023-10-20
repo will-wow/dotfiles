@@ -92,16 +92,16 @@
         }
       ]
     },
-    // use w-c
-    // {
-    //   "before": ["<leader>", "b", "d"],
-    //   "after": [],
-    //   "commands": [
-    //     {
-    //       "command": "workbench.action.closeEditorsInGroup"
-    //     }
-    //   ]
-    // },
+    // Close split
+    {
+      "before": ["<C-w>", "c"],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.closeEditorsInGroup"
+        }
+      ]
+    },
     // use w-s
     // {
     //   "before": ["<leader>", "w", "/"],
@@ -213,30 +213,54 @@
       "before": ["k"],
       "after": ["g", "k"]
     },
+    // snake_case
     {
-      "before": ["g", "s", "s"],
+      "before": ["c", "r", "s"],
       "commands": [
         {
           "command": "editor.action.transformToSnakecase"
         }
       ]
     },
+    // camelCase
     {
-      "before": ["g", "s", "p"],
+      "before": ["c", "r", "c"],
+      "commands": [
+        {
+          "command": "editor.action.transformToCamelcase"
+        }
+      ]
+    },
+    // kebab-case
+    {
+      "before": ["c", "r", "-"],
+      "commands": [
+        {
+          "command": "editor.action.transformToKebabcase"
+        }
+      ]
+    },
+    // PascalCase ("MixedCase") 
+    {
+      "before": ["c", "r", "m"],
       "commands": [
         {
           "command": "editor.action.transformToTitlecase"
         },
         {
           "command": "editor.action.transformToCamelcase"
-        }
+        },
       ]
     },
+    // UPPER_CASE
     {
-      "before": ["g", "s", "c"],
+      "before": ["c", "r", "u"],
       "commands": [
         {
-          "command": "editor.action.transformToCamelcase"
+          "command": "editor.action.transformToSnakecase"
+        },
+        {
+          "command": "editor.action.transformToUppercase"
         }
       ]
     },
@@ -511,7 +535,6 @@
   "editor.find.seedSearchStringFromSelection": "selection",
   "search.mode": "reuseEditor",
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
-  "jest.autoRevealOutput": "on-exec-error",
   "jest.autoRun": "off",
   "editor.stickyScroll.enabled": true,
   "pgFormatter.commaBreak": true,

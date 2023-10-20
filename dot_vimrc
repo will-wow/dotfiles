@@ -5,29 +5,29 @@ call plug#begin('~/.vim/plugged')
 
 " Add plugins here
 " VIM
-Plug 'tpope/vim-surround' " Surround thigns with braces and quotes
-Plug 'tpope/vim-commentary' " Comment out stuff
-Plug 'tpope/vim-projectionist' " Jumping around and running tests in projects
-Plug 'tpope/vim-eunuch' " Rename and other shell commands
-Plug 'tpope/vim-vinegar' " - to open a file browser
-Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented blocks
 Plug 'PeterRincker/vim-argumentative' " Add , as text object for arguments
-Plug 'dracula/vim', {'as': 'dracula'} " Theme
-Plug 'scrooloose/nerdtree' " File tree
-Plug 'itchyny/lightline.vim' " Status line
 Plug 'Raimondi/delimitMate' " Auto-close quotes
-Plug 'haya14busa/incsearch.vim' " Highlight search results
-Plug 'janko-m/vim-test' " Run tests with shortcuts
 Plug 'benmills/vimux' " Pass tests from vim-test into a tmux pane
-Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
 Plug 'christoomey/vim-tmux-navigator' " Tmux pane integration
-Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
-Plug 'tmux-plugins/vim-tmux' " Tmux conf highlighting
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
-Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " VSCode Extensions & Autocomplete
+Plug 'dracula/vim', {'as': 'dracula'} " Theme
 Plug 'folke/which-key.nvim', " show keybindings
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " Browser vim integration
+Plug 'haya14busa/incsearch.vim' " Highlight search results
+Plug 'itchyny/lightline.vim' " Status line
+Plug 'janko-m/vim-test' " Run tests with shortcuts
+Plug 'jszakmeister/vim-togglecursor' " Make insert cursor a bar.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+Plug 'junegunn/fzf.vim' " Fuzzy finderer bindings
+Plug 'michaeljsmith/vim-indent-object' " Add i as text object for indented blocks
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " VSCode Extensions & Autocomplete
+Plug 'tmux-plugins/vim-tmux' " Tmux conf highlighting
+Plug 'tmux-plugins/vim-tmux-focus-events' " Fix focusevent in tmux
+Plug 'tpope/vim-commentary' " Comment out stuff
+Plug 'tpope/vim-eunuch' " Rename and other shell commands
+Plug 'tpope/vim-projectionist' " Jumping around and running tests in projects
+Plug 'tpope/vim-surround' " Surround thigns with braces and quotes
+Plug 'tpope/vim-vinegar' " - to open a file browser
+Plug 'tpope/vim-abolish' " camel/kebab/snake and more
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
@@ -35,7 +35,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'elixir-editors/vim-elixir'
 " GIT
 Plug 'tpope/vim-fugitive'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 " Ruby
 Plug 'vim-ruby/vim-ruby'
@@ -164,9 +163,9 @@ nmap <leader>mgG <c-w>f
 
 " Buffer switching
 " Swap to last buffer in split
-nnoremap <leader><tab> <c-^>
+" nnoremap <leader><tab> <c-^>
 " Close buffer and split
-nnoremap <LEADER>bd :bdelete<CR>
+" nnoremap <LEADER>bd :bdelete<CR>
 nnoremap <LEADER>bd :bdelete<CR>
 " next buffer.
 nnoremap <LEADER>bn :bn<CR>
@@ -174,12 +173,6 @@ nnoremap <LEADER>bn :bn<CR>
 nnoremap <LEADER>bp :bp<CR> 
 " Close a buffer without closing the split.
 command! Bd bp|bd #
-
-" Nerdtree
-nnoremap <leader>pt :NERDTreeToggle<CR>
-nnoremap <leader>nf :NERDTreeFind<CR>
-let NERDTreeIgnore = ['\.pyc$', '\.swp$', 'npm-debug.log.*$'] " Hide files.
-let NERDTreeShowHidden=1 " Show hidden files.
 
 " Line numbers: absolute # on active line, relative everywhere else
 set number
