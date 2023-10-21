@@ -49,13 +49,15 @@
   "vim.enableNeovim": false,
   "vim.easymotion": false,
   "vim.visualstar": true,
-  "vim.sneak": true,
+  "vim.sneak": false,
   "vim.sneakUseIgnorecaseAndSmartcase": true,
   "vim.useCtrlKeys": true,
   "vim.handleKeys": {
     "<C-f>": false,
     "<C-b>": false,
-    "<C-d>": true
+    "<C-d>": true,
+    "<C-p>": false,
+    "<C-j>": false
   },
   "vim.vimrc.enable": false,
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -193,8 +195,22 @@
         }
       ]
     },
+    // vim-vinegar
     {
-      "before": ["z", "="],
+      "before": ["-"],
+      "commands": [
+        {
+          "command": "breadcrumbs.toggleToOn",
+          "when": "!config.breadcrumbs.enabled"
+        },
+        {
+          "command": "breadcrumbs.focusAndSelect",
+          "when": "breadcrumbsPossible"
+        }
+      ]
+    },
+    {
+      "before": ["c", "a"],
       "commands": ["editor.action.quickFix"]
     },
     {
@@ -240,7 +256,7 @@
         }
       ]
     },
-    // PascalCase ("MixedCase") 
+    // PascalCase ("MixedCase")
     {
       "before": ["c", "r", "m"],
       "commands": [
@@ -249,7 +265,7 @@
         },
         {
           "command": "editor.action.transformToCamelcase"
-        },
+        }
       ]
     },
     // UPPER_CASE
@@ -277,6 +293,29 @@
           "when": "breadcrumbsPossible"
         }
       ]
+    },
+    // TS Go to source definition (vs. gd for goToDefintion)
+    {
+      "before": ["t", "d"],
+      "commands": ["typescript.goToSourceDefinition"]
+    },
+    // Next/prev git change
+    {
+      "before": ["[", "c"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    // Next/prev error
+    {
+      "before": ["[", "s"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "s"],
+      "commands": ["editor.action.marker.next"]
     }
   ],
   "ocaml.lintOnSave": true,
@@ -315,48 +354,31 @@
     "typescriptreact",
     "yml",
     "mdx",
+    "solidity",
+    "go",
     "golang",
     "proto3"
   ],
   "cSpell.userWords": [
+    "abicoder",
     "AFRAME",
+    "ainsoph",
     "Airtable",
     "Alderaan",
-    "Behaviour",
-    "Cachex",
-    "Confero",
-    "Cryptographically",
-    "Ethereum",
-    "Ethereumex",
-    "Geofenced",
-    "Juypter",
-    "Kalman",
-    "Occluder",
-    "Occluders",
-    "Ockelmann",
-    "Orderbook",
-    "Postgres",
-    "Raycaster",
-    "Redex",
-    "Rerem",
-    "Roadmap",
-    "Ropsten",
-    "Scaredy",
-    "Securitize",
-    "Slackbot",
-    "Slackbot's",
-    "Transcoder",
-    "Validators",
     "architecting",
     "autosave",
     "behaviour",
     "Behaviour",
+    "behaviour",
+    "bignumber",
     "bookmarkers",
-    "Cachex",
+    "cachex",
     "camelize",
     "caml",
     "casp",
+    "chakra",
     "changeset",
+    "clsx",
     "comparator",
     "concat",
     "cond",
@@ -364,85 +386,135 @@
     "consts",
     "coord",
     "Cryptographically",
+    "cubemap",
     "datetime",
     "defdelegate",
     "defimpl",
     "defmodule",
     "defp",
     "defstruct",
+    "deno",
     "dissoc",
     "downcase",
     "dragula",
+    "drei",
+    "droplist",
     "ecto",
+    "entrypoint",
+    "equirectangular",
     "erlang",
     "Ethereum",
     "Ethereumex",
+    "ethersproject",
     "filestack",
     "financings",
+    "firestore",
+    "frontmatter",
     "futura",
+    "geofence",
     "Geofenced",
-    "Healthcheck",
+    "geohash",
+    "geolocate",
+    "geolocated",
+    "gltf",
+    "healthcheck",
+    "hotjar",
     "idempotency",
+    "IERC",
     "immersivemess",
     "injectable",
+    "ppfs",
+    "juypter",
     "Juypter",
     "kablammo",
     "Kalman",
+    "kalman",
+    "keccak",
+    "larkdown",
     "leaderboard",
+    "litepaper",
     "mainphase",
+    "mapbox",
     "moduledoc",
-    "Occluder",
-    "Occluders",
+    "nomiclabs",
+    "occluder",
+    "occluders",
     "Ockelmann",
     "onboarding",
     "openapi",
+    "openapi",
+    "orderbook",
     "Orderbook",
+    "overlayed",
     "params",
     "parser's",
+    "pausable",
     "performant",
+    "permissioned",
+    "pioeces",
+    "poap",
+    "poppable",
     "Postgres",
     "preload",
-    "Preprocess",
+    "preprocess",
     "preprocessors",
     "promisify",
-    "Proveout",
+    "proveout",
+    "proxied",
     "Raycaster",
     "Redex",
+    "reentrancy",
     "refetch",
     "repo",
     "repos",
     "Rerem",
     "resizer",
     "Roadmap",
+    "Roadmap",
     "rootname",
-    "Ropsten",
+    "ropsten",
     "Scaredy",
     "Securitize",
     "serializer",
     "sharespost",
     "signup",
-    "Slackbot",
-    "Slackbot's",
+    "slackbot",
     "slugified",
     "snapshotting",
+    "SPDX",
     "stateful",
     "struct",
     "structs",
     "tablature",
     "termsheet",
+    "tezos",
     "themself",
     "timestamps",
+    "tock",
     "todos",
     "tokenizes",
-    "Transcoder",
+    "transcoder",
     "transcoding",
     "truthy",
     "typep",
     "uneditable",
+    "unmarshaled",
+    "unmarshaler",
+    "unmarshalers",
+    "unmarshaling",
+    "unmarshals",
     "unmount",
     "unnest",
-    "Validators",
-    "Zustand"
+    "unpause",
+    "unpauses",
+    "upsert",
+    "validators",
+    "voxel",
+    "walkthrough",
+    "webar",
+    "webauthn",
+    "zappar",
+    "zustand"
   ],
   "wordcounter.languages": ["markdown", "mdx"],
   "explorer.confirmDelete": false,
@@ -502,6 +574,7 @@
   "python.dataScience.sendSelectionToInteractiveWindow": false,
   "python.languageServer": "Pylance",
   "jupyter.askForKernelRestart": false,
+  "jupyter.sendSelectionToInteractiveWindow": false,
   "python.terminal.activateEnvironment": false,
   "workbench.editorAssociations": [
     {
@@ -513,19 +586,74 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.colorTheme": "Dracula",
-  "redhat.telemetry.enabled": true,
+  "dart.openDevTools": "flutter",
+  "[solidity]": {
+    "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
+  },
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "git.autofetch": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "redhat.telemetry.enabled": false,
   "editor.inlineSuggest.enabled": true,
   "editor.unicodeHighlight.ambiguousCharacters": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false,
+    "yaml": false
+  },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "omnisharp.useModernNet": false,
   "go.toolsManagement.autoUpdate": true,
   "cSpell.enableFiletypes": ["go"],
   "editor.linkedEditing": true,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+
+
+  "liveServer.settings.donotVerifyTags": true,
+  "githubPullRequests.pullBranch": "never",
+  "hardhat.telemetry": true,
+  "githubPullRequests.pushBranch": "always",
+  "githubPullRequests.terminalLinksHandler": "github",
+  "vscode-pets.petColor": "gray",
+  "vscode-pets.position": "explorer",
+  "css.lint.unknownAtRules": "ignore",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   },
+  "vscode-neovim.neovimExecutablePaths.linux": "nvim",
   "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "vscode-neovim.useWSL": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "solidity.telemetry": true,
+  "editor.accessibilitySupport": "off",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "[proto3]": {
     "editor.defaultFormatter": "bufbuild.vscode-buf"
   },
@@ -536,7 +664,12 @@
   "search.mode": "reuseEditor",
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
   "jest.autoRun": "off",
+  "window.zoomLevel": -1,
   "editor.stickyScroll.enabled": true,
+  "remote.SSH.remotePlatform": {
+    "doof.local": "linux"
+  },
+  "terminal.integrated.copyOnSelection": true,
   "pgFormatter.commaBreak": true,
   "pgFormatter.spaces": 4,
   "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on"
