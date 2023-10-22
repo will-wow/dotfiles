@@ -37,47 +37,10 @@
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  // Disable this
+  // Disable this, I don't remember why.
   {
     "key": "ctrl+e",
     "command": ""
-  },
-
-  {
-    "key": "shift+ctrl+a /",
-    "command": "workbench.action.terminal.split",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "shift+ctrl+a l",
-    "command": "workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "shift+ctrl+a h",
-    "command": "workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "shift+ctrl+a c",
-    "command": "workbench.action.terminal.new",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "shift+ctrl+a 1",
-    "command": "workbench.action.terminal.focusAtIndex1"
-  },
-  {
-    "key": "shift+ctrl+a 2",
-    "command": "workbench.action.terminal.focusAtIndex2"
-  },
-  {
-    "key": "shift+ctrl+a 3",
-    "command": "workbench.action.terminal.focusAtIndex3"
-  },
-  {
-    "key": "shift+ctrl+a 4",
-    "command": "workbench.action.terminal.focusAtIndex3"
   },
   // Make breadcrumbs work more like vim-vinegar
   {
@@ -85,10 +48,44 @@
     "command": "breadcrumbs.focusPrevious",
     "when": "breadcrumbsActive && breadcrumbsVisible"
   },
-  // Appy changes in the search editor
+  // Close the terminal when focused with ctrl-p, so that it selecting a file
+  // doesn't un-maximize the terminal.
+  // Useful when the terminal should always be maximized.
   {
-    "key": "cmd+s",
-    "command": "searchEditorApplyChanges.apply",
-    "when": "inSearchEditor"
+    "key": "cmd+p",
+    "when": "terminalFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
+    }
+  },
+  {
+    "key": "ctrl+p",
+    "when": "terminalFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
+    }
+  },
+  // Maximize the terminal
+  {
+    "key": "cmd+shift+j",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  // Close the sidebar after selecting a file in keyboard mode
+  {
+    "key": "enter",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus",
+    "args": {
+      "commands": [
+        "explorer.openAndPassFocus",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
   }
 ]
