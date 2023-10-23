@@ -4,6 +4,9 @@
   "workbench.editor.showTabs": false,
   "workbench.editor.labelFormat": "medium",
   "breadcrumbs.enabled": true,
+  // Only show files in breadcrumbs, not local symbols.
+  "breadcrumbs.filePath": "on",
+  "breadcrumbs.symbolPath": "off",
   // Go to the json editor by default.
   "workbench.settings.editor": "json",
   "editor.tabSize": 2,
@@ -634,8 +637,6 @@
   "go.toolsManagement.autoUpdate": true,
   "cSpell.enableFiletypes": ["go"],
   "editor.linkedEditing": true,
-
-
   "liveServer.settings.donotVerifyTags": true,
   "githubPullRequests.pullBranch": "never",
   "hardhat.telemetry": true,
@@ -664,7 +665,7 @@
   "search.mode": "reuseEditor",
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
   "jest.autoRun": "off",
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "editor.stickyScroll.enabled": true,
   "remote.SSH.remotePlatform": {
     "doof.local": "linux"
