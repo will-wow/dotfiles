@@ -302,6 +302,15 @@
       "before": ["t", "d"],
       "commands": ["typescript.goToSourceDefinition"]
     },
+    // Test runner
+    {
+      "before": ["<leader>", "t", "r"],
+      "commands": ["testing.runAtCursor"]
+    },
+    {
+      "before": ["<leader>", "t", "t"],
+      "commands": ["testing.runCurrentFile"]
+    },
     // Next/prev git change
     {
       "before": ["[", "c"],
@@ -563,8 +572,6 @@
   "[clojure]": {},
   "editor.suggestSelection": "first",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "jest.enableSnapshotUpdateMessages": false,
-  "jest.enableCodeLens": true,
   "emojisense.languages": {
     "markdown": true,
     "git-commit": true,
@@ -577,14 +584,7 @@
   "python.dataScience.sendSelectionToInteractiveWindow": false,
   "python.languageServer": "Pylance",
   "jupyter.askForKernelRestart": false,
-  "jupyter.sendSelectionToInteractiveWindow": false,
   "python.terminal.activateEnvironment": false,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter.notebook.ipynb",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -665,7 +665,8 @@
   "search.mode": "reuseEditor",
   "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
   "jest.autoRun": "off",
-  "window.zoomLevel": 0,
+  "jest.autoRevealOutput": "off",
+  "testing.openTesting": "neverOpen",
   "editor.stickyScroll.enabled": true,
   "remote.SSH.remotePlatform": {
     "doof.local": "linux"
