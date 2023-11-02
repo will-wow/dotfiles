@@ -48,6 +48,28 @@
     "command": "breadcrumbs.focusPrevious",
     "when": "breadcrumbsActive && breadcrumbsVisible"
   },
+
+  // Toggle both the activity bar (icons) and sidebar together.
+  {
+    "key": "ctrl+b",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleActivityBarVisibility",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
+  {
+    "key": "cmd+b",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.toggleActivityBarVisibility",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
   // Close the terminal when focused with ctrl-p, so that it selecting a file
   // doesn't un-maximize the terminal.
   // Useful when the terminal should always be maximized.

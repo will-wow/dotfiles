@@ -36,11 +36,11 @@
   "files.eol": "\n",
   // Configure glob patterns for excluding files and folders.
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
     "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
     "**/webpack-bundle.js": true
   },
   // Windows
@@ -107,39 +107,6 @@
         }
       ]
     },
-    // use w-s
-    // {
-    //   "before": ["<leader>", "w", "/"],
-    //   "after": [],
-    //   "commands": [
-    //     {
-    //       "command": "workbench.action.splitEditorRight"
-    //     }
-    //   ]
-    // },
-    // use w-v
-    // {
-    //   "before": ["<leader>", "w", "-"],
-    //   "after": [],
-    //   "commands": [
-    //     {
-    //       "command": "workbench.action.splitEditorDown"
-    //     }
-    //   ]
-    // },
-    // Use w-o and splits
-    // {
-    //   "before": ["<leader>", "tab"],
-    //   "after": ["enter"],
-    //   "commands": [
-    //     {
-    //       "command": "workbench.action.openPreviousEditorFromHistory"
-    //     },
-    //     {
-    //       "command": "workbench.action.acceptSelectedQuickOpenItem"
-    //     }
-    //   ]
-    // },
     {
       "before": ["<leader>", ":"],
       "after": [],
@@ -213,7 +180,7 @@
       ]
     },
     {
-      "before": ["c", "a"],
+      "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
     },
     {
@@ -580,7 +547,6 @@
   },
   "python.jediEnabled": false,
   "diffEditor.renderSideBySide": true,
-  "workbench.activityBar.visible": true,
   "python.dataScience.sendSelectionToInteractiveWindow": false,
   "python.languageServer": "Pylance",
   "jupyter.askForKernelRestart": false,
@@ -672,6 +638,7 @@
     "doof.local": "linux"
   },
   "terminal.integrated.copyOnSelection": true,
+  "workbench.activityBar.visible": false,
   "pgFormatter.commaBreak": true,
   "pgFormatter.spaces": 4,
   "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on"
