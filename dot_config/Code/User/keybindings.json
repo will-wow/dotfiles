@@ -127,6 +127,25 @@
     "key": "ctrl+e",
     "command": ""
   },
+  // Close the terminal when focused with ctrl-shft-f, so that searching
+  // doesn't un-maximize the terminal.
+  // Useful when the terminal should always be maximized.
+  {
+    "key": "ctrl-shift+f",
+    "when": "terminalFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.togglePanel", "workbench.action.findInFiles"]
+    }
+  },
+  {
+    "key": "cmd-shift+f",
+    "when": "terminalFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
+    }
+  },
   // Close the terminal when focused with ctrl-p, so that it selecting a file
   // doesn't un-maximize the terminal.
   // Useful when the terminal should always be maximized.
