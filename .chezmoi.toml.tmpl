@@ -30,6 +30,8 @@
   nodejs = {{ $nodejs }}
   java = {{ $java }}
 
+[edit]
+    command = "nvim"
 [diff]
     command = "code"
     args = ["--wait", "--diff", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]

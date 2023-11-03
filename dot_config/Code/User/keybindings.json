@@ -1,4 +1,94 @@
 [
+  // File operations
+  {
+    "key": "/",
+    "command": "list.find",
+    "when": "listFocus && listSupportsFind"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "s",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "list.expand",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+c",
+    "command": "list.collapse",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  // Make file explorer work more like vim-vinegar
+  {
+    "key": "-",
+    "command": "list.collapse",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "z",
+    "command": "list.collapseAll",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "q",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // Just open a folder on enter
+  {
+    "key": "enter",
+    "command": "list.expand",
+    "when": "filesExplorerFocus && foldersViewVisible && explorerResourceIsFolder && !inputFocus"
+  },
+  // Close the sidebar after selecting a file in keyboard mode
+  {
+    "key": "enter",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus",
+    "args": {
+      "commands": [
+        "explorer.openAndPassFocus",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
   // ctrl-hjkl to move through menus
   {
     "key": "ctrl+j",
@@ -32,43 +122,10 @@
   },
   // Other commands
 
-  {
-    "key": "shift+enter",
-    "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
   // Disable this, I don't remember why.
   {
     "key": "ctrl+e",
     "command": ""
-  },
-  // Make breadcrumbs work more like vim-vinegar
-  {
-    "key": "-",
-    "command": "breadcrumbs.focusPrevious",
-    "when": "breadcrumbsActive && breadcrumbsVisible"
-  },
-
-  // Toggle both the activity bar (icons) and sidebar together.
-  {
-    "key": "ctrl+b",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.toggleActivityBarVisibility",
-        "workbench.action.toggleSidebarVisibility"
-      ]
-    }
-  },
-  {
-    "key": "cmd+b",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.toggleActivityBarVisibility",
-        "workbench.action.toggleSidebarVisibility"
-      ]
-    }
   },
   // Close the terminal when focused with ctrl-p, so that it selecting a file
   // doesn't un-maximize the terminal.
@@ -97,17 +154,5 @@
   {
     "key": "ctrl+shift+j",
     "command": "workbench.action.toggleMaximizedPanel"
-  },
-  // Close the sidebar after selecting a file in keyboard mode
-  {
-    "key": "enter",
-    "command": "runCommands",
-    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus",
-    "args": {
-      "commands": [
-        "explorer.openAndPassFocus",
-        "workbench.action.toggleSidebarVisibility"
-      ]
-    }
   }
 ]

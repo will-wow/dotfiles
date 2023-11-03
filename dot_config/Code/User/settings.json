@@ -1,7 +1,7 @@
 {
   // Place your settings in this file to overwrite the default settings
   // General Settings
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.editor.labelFormat": "medium",
   "breadcrumbs.enabled": true,
   // Only show files in breadcrumbs, not local symbols.
@@ -19,9 +19,7 @@
     "doctype-first": false
   },
   "files.associations": {
-    "atlas.hcl": "atlas-config",
-    "*.m": "matlab",
-    "*.ejs": "html"
+    "atlas.hcl": "atlas-config"
   },
   "html.format.unformatted": "a-entity",
   "html.format.templating": true,
@@ -65,8 +63,7 @@
   "vim.vimrc.enable": false,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "n", "f"],
-      "after": [],
+      "before": ["-"],
       "commands": [
         {
           "command": "workbench.files.action.showActiveFileInExplorer"
@@ -165,20 +162,6 @@
         }
       ]
     },
-    // vim-vinegar
-    {
-      "before": ["-"],
-      "commands": [
-        {
-          "command": "breadcrumbs.toggleToOn",
-          "when": "!config.breadcrumbs.enabled"
-        },
-        {
-          "command": "breadcrumbs.focusAndSelect",
-          "when": "breadcrumbsPossible"
-        }
-      ]
-    },
     {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
@@ -250,20 +233,20 @@
         }
       ]
     },
-    // vim-vinegar
-    {
-      "before": ["-"],
-      "commands": [
-        {
-          "command": "breadcrumbs.toggleToOn",
-          "when": "!config.breadcrumbs.enabled"
-        },
-        {
-          "command": "breadcrumbs.focusAndSelect",
-          "when": "breadcrumbsPossible"
-        }
-      ]
-    },
+    // // vim-vinegar
+    // {
+    //   "before": ["-"],
+    //   "commands": [
+    //     {
+    //       "command": "breadcrumbs.toggleToOn",
+    //       "when": "!config.breadcrumbs.enabled"
+    //     },
+    //     {
+    //       "command": "breadcrumbs.focusAndSelect",
+    //       "when": "breadcrumbsPossible"
+    //     }
+    //   ]
+    // },
     // TS Go to source definition (vs. gd for goToDefintion)
     {
       "before": ["t", "d"],
@@ -638,8 +621,8 @@
     "doof.local": "linux"
   },
   "terminal.integrated.copyOnSelection": true,
-  "workbench.activityBar.visible": false,
   "pgFormatter.commaBreak": true,
   "pgFormatter.spaces": 4,
-  "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on"
+  "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on",
+  "workbench.activityBar.location": "top"
 }
