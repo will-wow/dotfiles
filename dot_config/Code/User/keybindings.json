@@ -1,5 +1,5 @@
 [
-  // File operations
+  // # File Exploer works like neotree
   {
     "key": "/",
     "command": "list.find",
@@ -35,8 +35,8 @@
     "command": "list.collapse",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
-  // Make file explorer work more like vim-vinegar
   {
+    // Make file explorer work more like vim-vinegar
     "key": "-",
     "command": "list.collapse",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
@@ -71,14 +71,14 @@
     "command": "renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
-  // Just open a folder on enter
   {
+    // Just open a folder on enter
     "key": "enter",
     "command": "list.expand",
     "when": "filesExplorerFocus && foldersViewVisible && explorerResourceIsFolder && !inputFocus"
   },
-  // Close the sidebar after selecting a file in keyboard mode
   {
+    // Close the sidebar after selecting a file in keyboard mode
     "key": "enter",
     "command": "runCommands",
     "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus",
@@ -120,58 +120,83 @@
     "command": "selectPrevSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
-  // Other commands
+
+  // # Alawys-maximized terminal
+
+  // Close the terminal when focused with ctrl+p/other commands that will open a file, so that it selecting a file doesn't un-maximize the terminal.
+  {
+    "key": "ctrl+p",
+    "mac": "cmd+p",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
+    }
+  },
+  {
+    "key": "ctrl+shift+p",
+    "mac": "cmd+shift+p",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.togglePanel",
+        "workbench.action.showCommands"
+      ]
+    }
+  },
+  {
+    "key": "ctrl-t",
+    "mac": "cmd-t",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.togglePanel",
+        "workbench.action.showAllSymbols"
+      ]
+    }
+  },
+  {
+    "key": "ctrl-shift+f",
+    "mac": "cmd-shift+f",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.togglePanel",
+        "workbench.action.findInFiles"
+      ]
+    }
+  },
+  // Max terminal toggle
+  {
+    // Maximize the terminal when it is not visible
+    // Also, close the file explorer for further focus.
+    "key": "ctrl+j",
+    "mac": "cmd+j",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.closeAuxiliaryBar",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    },
+    "when": "!panelFocus && !terminalFocus"
+  },
+  {
+    // Close the panel when it is visible and/or focused
+    "key": "ctrl+j",
+    "mac": "cmd+j",
+    "command": "workbench.action.togglePanel",
+    "when": "panelFocus || terminalFocus || activePanel == 'terminal' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.repl' || activePanel == 'workbench.panel.comments'"
+  },
+
+  // # Other commands
 
   // Disable this, I don't remember why.
   {
     "key": "ctrl+e",
     "command": ""
-  },
-  // Close the terminal when focused with ctrl-shft-f, so that searching
-  // doesn't un-maximize the terminal.
-  // Useful when the terminal should always be maximized.
-  {
-    "key": "ctrl-shift+f",
-    "when": "terminalFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.action.togglePanel", "workbench.action.findInFiles"]
-    }
-  },
-  {
-    "key": "cmd-shift+f",
-    "when": "terminalFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
-    }
-  },
-  // Close the terminal when focused with ctrl-p, so that it selecting a file
-  // doesn't un-maximize the terminal.
-  // Useful when the terminal should always be maximized.
-  {
-    "key": "cmd+p",
-    "when": "terminalFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
-    }
-  },
-  {
-    "key": "ctrl+p",
-    "when": "terminalFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
-    }
-  },
-  // Maximize the terminal
-  {
-    "key": "cmd+shift+j",
-    "command": "workbench.action.toggleMaximizedPanel"
-  },
-  {
-    "key": "ctrl+shift+j",
-    "command": "workbench.action.toggleMaximizedPanel"
   }
 ]

@@ -1,37 +1,36 @@
 {
-  // Place your settings in this file to overwrite the default settings
-  // General Settings
-  "workbench.editor.showTabs": "single",
-  "workbench.editor.labelFormat": "medium",
+  // # General settings
+
+  // Only breadcrumbs, but only files, not local symbols.
   "breadcrumbs.enabled": true,
-  // Only show files in breadcrumbs, not local symbols.
   "breadcrumbs.filePath": "on",
   "breadcrumbs.symbolPath": "off",
-  // Go to the json editor by default.
-  "workbench.settings.editor": "json",
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/bower_components": true
-  },
-  "htmlhint.options": {
-    "doctype-first": false
-  },
-  "files.associations": {
-    "atlas.hcl": "atlas-config"
-  },
-  "html.format.unformatted": "a-entity",
-  "html.format.templating": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorStyle": "line",
+  "editor.find.seedSearchStringFromSelection": "selection",
+  "editor.formatOnSave": false,
+  // Because of the above, don't do anything on save.
+  "editor.formatOnType": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "on",
   "editor.wrappingIndent": "same",
+  // Number of editors shown in the Open Editors pane. Set it to a small number becuase I don't use it.
+  "explorer.openEditors.visible": 1,
+  "explorer.autoReveal": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  // Save on focus change to prevent forgetting to save.
   "files.autoSave": "onFocusChange",
-  // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
-  "explorer.openEditors.visible": 0,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.formatOnType": false,
-  "editor.formatOnSave": false,
-  "files.eol": "\n",
   // Configure glob patterns for excluding files and folders.
   "files.exclude": {
     "**/.DS_Store": true,
@@ -41,10 +40,56 @@
     "**/CVS": true,
     "**/webpack-bundle.js": true
   },
+  "git.autofetch": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false,
+    "yaml": false
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
+  "search.mode": "reuseEditor",
   // Windows
-  // "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "workbench.editor.labelFormat": "medium",
+  // Go to the json editor by default.
+  "workbench.settings.editor": "json",
+  "workbench.colorTheme": "Dracula",
+
+  // ## OS-Specific
+
+  // Lets remapped esc key work on ubuntu.
+  "keyboard.dispatch": "keyCode",
   "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
-  // Vim
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+
+  // ## Default file formatting
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "files.eol": "\n",
+
+  // ## Fonts
+  "editor.fontFamily": "'Fira Code', hack",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "'MesloLGS NF', 'Fira Code', hack",
+
+  // ## No tabs
+  "workbench.editor.showTabs": "single",
+  // Turn this off since I don't use tabs.
+  "workbench.editor.enablePreview": false,
+
+  // # Max terminal
+  // put everything but the exploer to the left
+  "workbench.sideBar.location": "right",
+  // Hide the sidebar icons when closed
+  "workbench.activityBar.location": "top",
+
+  // # Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
   "vim.enableNeovim": false,
@@ -58,10 +103,12 @@
     "<C-b>": false,
     "<C-d>": true,
     "<C-p>": false,
-    "<C-j>": false
+    "<C-j>": false,
+    "<C-t>": false
   },
   "vim.vimrc.enable": false,
   "vim.normalModeKeyBindingsNonRecursive": [
+    // vim-vinegar
     {
       "before": ["-"],
       "commands": [
@@ -233,20 +280,6 @@
         }
       ]
     },
-    // // vim-vinegar
-    // {
-    //   "before": ["-"],
-    //   "commands": [
-    //     {
-    //       "command": "breadcrumbs.toggleToOn",
-    //       "when": "!config.breadcrumbs.enabled"
-    //     },
-    //     {
-    //       "command": "breadcrumbs.focusAndSelect",
-    //       "when": "breadcrumbsPossible"
-    //     }
-    //   ]
-    // },
     // TS Go to source definition (vs. gd for goToDefintion)
     {
       "before": ["t", "d"],
@@ -280,10 +313,49 @@
       "commands": ["editor.action.marker.next"]
     }
   ],
-  "ocaml.lintOnSave": true,
-  "ocaml.merlinPath": "ocamlmerlin",
-  // Lets remapped esc key work on ubuntu.
-  "keyboard.dispatch": "keyCode",
+
+  // # Language-specific settings
+
+  "files.associations": {
+    "atlas.hcl": "atlas-config"
+  },
+
+  // ## JS
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+
+  // ## Go
+
+  "go.toolsManagement.autoUpdate": true,
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+
+  // ## CSS
+
+  "css.lint.unknownAtRules": "ignore",
+
+  // ## HTML
+  "htmlhint.options": {
+    "doctype-first": false
+  },
+  "html.format.unformatted": "a-entity",
+  "html.format.templating": true,
+
+  // ## Markdown
   "markdownlint.config": {
     "default": true,
     "MD003": {
@@ -296,12 +368,109 @@
     },
     "no-hard-tabs": true
   },
-  "explorer.autoReveal": false,
+
+  // ## PostgreSQL
+  "pgFormatter.commaBreak": true,
+  "pgFormatter.spaces": 4,
+  "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on",
+
+  // ## Python
+  "jupyter.askForKernelRestart": false,
+  "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "python.dataScience.sendSelectionToInteractiveWindow": false,
+  "python.jediEnabled": false,
+  "python.languageServer": "Pylance",
+  "python.terminal.activateEnvironment": false,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+
+  // ## OCaml
+  "ocaml.lintOnSave": true,
+  "ocaml.merlinPath": "ocamlmerlin",
+
+  // ## Ruby
   "ruby.lint": {
     "rubocop": false
   },
   "ruby.format": false,
   "ruby.specCommand": "spring rspec",
+
+  // ## Blockchain
+
+  "solidity.telemetry": false,
+
+  // ## C
+  "cmake.configureOnOpen": true,
+  "omnisharp.useModernNet": false,
+
+  // ## Formatters
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[solidity]": {
+    "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "csharpier.csharpier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[proto3]": {
+    "editor.defaultFormatter": "bufbuild.vscode-buf"
+  },
+
+  // # Tests
+
+  "jest.autoRun": "off",
+  "jest.autoRevealOutput": "off",
+  "testing.openTesting": "neverOpen",
+
+  // # Other extensions
+
+  "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pushBranch": "always",
+  "githubPullRequests.terminalLinksHandler": "github",
+  "hardhat.telemetry": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "redhat.telemetry.enabled": false,
+  "remote.SSH.remotePlatform": { "doof.local": "linux" },
+  "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "wordcounter.languages": ["markdown", "mdx"],
+
+  // # Spelling
+  "cSpell.enableFiletypes": ["go"],
   "cSpell.enabledLanguageIds": [
     "elixir",
     "erb",
@@ -477,152 +646,5 @@
     "webauthn",
     "zappar",
     "zustand"
-  ],
-  "wordcounter.languages": ["markdown", "mdx"],
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontFamily": "'Fira Code', hack",
-  "terminal.integrated.fontFamily": "'MesloLGS NF', 'Fira Code', hack",
-  "editor.fontLigatures": true,
-  "cmake.configureOnOpen": true,
-  "editor.minimap.enabled": false,
-  "vim.neovimPath": "",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "[reason]": {
-    "editor.codeLens": false
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[clojure]": {},
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "emojisense.languages": {
-    "markdown": true,
-    "git-commit": true,
-    "plaintext": true,
-    "mdx": true
-  },
-  "python.jediEnabled": false,
-  "diffEditor.renderSideBySide": true,
-  "python.dataScience.sendSelectionToInteractiveWindow": false,
-  "python.languageServer": "Pylance",
-  "jupyter.askForKernelRestart": false,
-  "python.terminal.activateEnvironment": false,
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.colorTheme": "Dracula",
-  "dart.openDevTools": "flutter",
-  "[solidity]": {
-    "editor.defaultFormatter": "NomicFoundation.hardhat-solidity"
-  },
-  "editor.cursorStyle": "line",
-  "editor.insertSpaces": false,
-  "editor.lineNumbers": "on",
-  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  },
-  "git.autofetch": true,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "redhat.telemetry.enabled": false,
-  "editor.inlineSuggest.enabled": true,
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": true,
-    "markdown": false,
-    "scminput": false,
-    "yaml": false
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[csharp]": {
-    "editor.defaultFormatter": "csharpier.csharpier-vscode"
-  },
-  "[python]": {
-    "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "liveServer.settings.donotShowInfoMsg": true,
-  "omnisharp.useModernNet": false,
-  "go.toolsManagement.autoUpdate": true,
-  "cSpell.enableFiletypes": ["go"],
-  "editor.linkedEditing": true,
-  "liveServer.settings.donotVerifyTags": true,
-  "githubPullRequests.pullBranch": "never",
-  "hardhat.telemetry": true,
-  "githubPullRequests.pushBranch": "always",
-  "githubPullRequests.terminalLinksHandler": "github",
-  "vscode-pets.petColor": "gray",
-  "vscode-pets.position": "explorer",
-  "css.lint.unknownAtRules": "ignore",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "vscode-neovim.neovimExecutablePaths.linux": "nvim",
-  "jupyter.interactiveWindow.textEditor.executeSelection": false,
-  "vscode-neovim.useWSL": true,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "solidity.telemetry": true,
-  "editor.accessibilitySupport": "off",
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "[proto3]": {
-    "editor.defaultFormatter": "bufbuild.vscode-buf"
-  },
-  "gopls": {
-    "ui.semanticTokens": true
-  },
-  "editor.find.seedSearchStringFromSelection": "selection",
-  "search.mode": "reuseEditor",
-  "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
-  "jest.autoRun": "off",
-  "jest.autoRevealOutput": "off",
-  "testing.openTesting": "neverOpen",
-  "editor.stickyScroll.enabled": true,
-  "remote.SSH.remotePlatform": {
-    "doof.local": "linux"
-  },
-  "terminal.integrated.copyOnSelection": true,
-  "pgFormatter.commaBreak": true,
-  "pgFormatter.spaces": 4,
-  "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on",
-  "workbench.activityBar.location": "top"
+  ]
 }
