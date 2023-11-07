@@ -1,4 +1,69 @@
 [
+  // # Alawys-maximized terminal
+
+  // Close the terminal when focused with ctrl+p/other commands that will open a file, so that it selecting a file doesn't un-maximize the terminal.
+  {
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+p",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
+    }
+  },
+  {
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+shift+p",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.togglePanel",
+        "workbench.action.showCommands"
+      ]
+    }
+  },
+  {
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+t",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.togglePanel",
+        "workbench.action.showAllSymbols"
+      ]
+    }
+  },
+  {
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+shift+f",
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.togglePanel",
+        "workbench.action.findInFiles"
+      ]
+    }
+  },
+  // Max terminal toggle
+  {
+    // Maximize the terminal when it is not visible
+    // Also, close the file explorer for further focus.
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.closeAuxiliaryBar",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    },
+    "when": "!panelFocus && !terminalFocus"
+  },
+  {
+    // Close the panel when it is visible and/or focused
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
+    "command": "workbench.action.togglePanel",
+    "when": "panelFocus || terminalFocus || activePanel == 'terminal' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.repl' || activePanel == 'workbench.panel.comments'"
+  },
+
   // # File Exploer works like neotree
   {
     "key": "/",
@@ -119,77 +184,6 @@
     "key": "ctrl+k",
     "command": "selectPrevSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
-  },
-
-  // # Alawys-maximized terminal
-
-  // Close the terminal when focused with ctrl+p/other commands that will open a file, so that it selecting a file doesn't un-maximize the terminal.
-  {
-    "key": "ctrl+p",
-    "mac": "cmd+p",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
-    }
-  },
-  {
-    "key": "ctrl+shift+p",
-    "mac": "cmd+shift+p",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.togglePanel",
-        "workbench.action.showCommands"
-      ]
-    }
-  },
-  {
-    "key": "ctrl-t",
-    "mac": "cmd-t",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.togglePanel",
-        "workbench.action.showAllSymbols"
-      ]
-    }
-  },
-  {
-    "key": "ctrl-shift+f",
-    "mac": "cmd-shift+f",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.togglePanel",
-        "workbench.action.findInFiles"
-      ]
-    }
-  },
-  // Max terminal toggle
-  {
-    // Maximize the terminal when it is not visible
-    // Also, close the file explorer for further focus.
-    "key": "ctrl+j",
-    "mac": "cmd+j",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.closeAuxiliaryBar",
-        "workbench.action.toggleMaximizedPanel"
-      ]
-    },
-    "when": "!panelFocus && !terminalFocus"
-  },
-  {
-    // Close the panel when it is visible and/or focused
-    "key": "ctrl+j",
-    "mac": "cmd+j",
-    "command": "workbench.action.togglePanel",
-    "when": "panelFocus || terminalFocus || activePanel == 'terminal' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.repl' || activePanel == 'workbench.panel.comments'"
   },
 
   // # Other commands
