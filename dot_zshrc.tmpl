@@ -74,11 +74,17 @@ fi
 
 alias gpf='git push --force-with-lease'
 alias gcb='git checkout -b'
+alias gprom='git pull --rebase origin main'
 
 # Pomodoro timers
 alias pom='termdown 25m && say done'
 alias pom5='termdown 5m && say done'
 alias pom3='termdown 2m && say done'
+
+# Custom git commands
+
+# git c for `rebase --continue` with no editor
+git -c core.editor=true rebase --continue
 
 # ========
 # Vi-mode
