@@ -29,3 +29,12 @@ Or re-run init to repopulate
 ```bash
 chezmoi init
 ```
+
+## WSL VS Code
+
+For a chezmoi repo stored in WSL, to update the windows VS Code settings:
+
+```bash
+cat dot_config/Code/User/keybindings.json.tmpl | chezmoi execute-template > /mnt/c/Users/<userDir>/AppData/Roaming/Code/User/keybindings.json
+cat dot_config/Code/User/settings.json > /mnt/c/Users/<userDir>/AppData/Roaming/Code/User/settings.json
+```
