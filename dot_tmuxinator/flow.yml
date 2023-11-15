@@ -1,0 +1,28 @@
+name: flow
+root: ~/repos/flow
+socket_path: /tmp/flow
+windows:
+  - frontend:
+      root: ~/repos/flow/flow/frontend
+      layout: even-horizontal
+      panes:
+        - "pnpm dev --filter ./code"
+        -
+  - qto:
+      root: ~/repos/flow/flow/quote-to-order
+      layout: even-horizontal
+      panes:
+        - npx wait-on tcp:5432 && make setup && air --build.cmd "godotenv -f .env go run main.go"
+        -
+  - fes:
+      root: ~/repos/flow/flow/factory-execution
+      layout: even-horizontal
+      panes:
+        - npx wait-on tcp:5432 && make setup && air --build.cmd "godotenv -f .env go run main.go"
+        -
+  - infra:
+      root: ~/repos/flow/flow/frontend
+      layout: even-horizontal
+      panes:
+        - "docker compose -f ./docker-compose.be.yml up --build database file-service"
+        -

@@ -79,13 +79,11 @@
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'Fira Code', hack",
 
   // ## No tabs
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": false,
   // Turn this off since I don't use tabs.
   "workbench.editor.enablePreview": false,
 
   // # Max terminal
-  // put everything but the exploer to the left
-  "workbench.sideBar.location": "right",
   // Hide the sidebar icons when closed
   "workbench.activityBar.location": "top",
 
@@ -112,9 +110,8 @@
     {
       "before": ["-"],
       "commands": [
-        {
-          "command": "workbench.files.action.showActiveFileInExplorer"
-        }
+        "workbench.action.focusSideBar",
+        "workbench.files.action.showActiveFileInExplorer"
       ]
     },
     {

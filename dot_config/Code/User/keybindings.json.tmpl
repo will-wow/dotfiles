@@ -58,6 +58,11 @@
     "when": "!panelFocus && !terminalFocus"
   },
   {
+    // Just toggle maximization.
+    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+shift+j",
+    "command": "workbench.action.toggleMaximizedPanel",
+  },
+  {
     // Close the panel when it is visible and/or focused
     "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
     "command": "workbench.action.togglePanel",
@@ -128,7 +133,7 @@
   },
   {
     "key": "q",
-    "command": "workbench.action.toggleSidebarVisibility",
+    "command": "workbench.action.closeSidebar",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
