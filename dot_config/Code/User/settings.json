@@ -277,6 +277,10 @@
         }
       ]
     },
+    {
+      "before": ["<space>", "g", "g"],
+      "commands": ["workbench.view.scm"]
+    },
     // TS Go to source definition (vs. gd for goToDefintion)
     {
       "before": ["t", "d"],

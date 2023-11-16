@@ -3,5 +3,5 @@
 -- Add any additional keymaps here
 
 -- Remove Alt-hj, they conflict with tmux
-vim.keymap.del("n", "<A-k>")
-vim.keymap.del("n", "<A-j>")
+vim.keymap.del({ "n", "i" }, "<A-k>")
+vim.keymap.del({ "n", "i" }, "<A-j>")
