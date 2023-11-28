@@ -91,7 +91,7 @@
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
   "vim.enableNeovim": false,
-  "vim.easymotion": false,
+  "vim.easymotion": true,
   "vim.visualstar": true,
   "vim.sneak": false,
   "vim.sneakUseIgnorecaseAndSmartcase": true,
@@ -123,6 +123,12 @@
       "before": ["<leader>", "="],
       "after": [],
       "commands": ["editor.action.formatDocument"]
+    },
+    {
+			// Close to <leader><space> for formatting CSV
+      "before": ["<leader>", "+"],
+      "after": [],
+      "commands": ["rainbow-csv.Align"]
     },
     {
       "before": ["<leader>", "/"],
@@ -448,6 +454,11 @@
   },
   "[proto3]": {
     "editor.defaultFormatter": "bufbuild.vscode-buf"
+  },
+
+  "[csv]": {
+		// CSV goes all the way across for single lines.
+    "editor.wordWrap": "off"
   },
 
   // # Tests
