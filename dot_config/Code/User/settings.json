@@ -79,7 +79,7 @@
   "terminal.integrated.fontFamily": "'MesloLGS NF', 'Fira Code', hack",
 
   // ## No tabs
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   // Turn this off since I don't use tabs.
   "workbench.editor.enablePreview": false,
 
