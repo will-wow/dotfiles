@@ -12,13 +12,19 @@ windows:
       root: ~/repos/flow/flow/quote-to-order
       layout: even-horizontal
       panes:
-        - npx wait-on tcp:5432 && make setup && air --build.cmd "godotenv -f .env go run main.go"
+        - npx wait-on tcp:5432 && make setup && godotenv -f .env go run main.go
         -
   - fes:
       root: ~/repos/flow/flow/factory-execution
       layout: even-horizontal
       panes:
-        - npx wait-on tcp:5432 && make setup && air --build.cmd "godotenv -f .env go run main.go"
+        - npx wait-on tcp:5432 && make setup && godotenv -f .env go run main.go
+        -
+  - inventory:
+      root: ~/repos/flow/flow/inventory
+      layout: even-horizontal
+      panes:
+        - docker compose up --build web
         -
   - infra:
       root: ~/repos/flow/flow/frontend

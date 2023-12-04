@@ -52,14 +52,14 @@
     "**/node_modules": true,
     "**/bower_components": true
   },
-  "search.mode": "reuseEditor",
+  "search.mode": "view",
   // Windows
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "workbench.editor.labelFormat": "medium",
   // Go to the json editor by default.
   "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Tokyo Night Storm",
 
   // ## OS-Specific
 
@@ -86,6 +86,14 @@
   // # Max terminal
   // Hide the sidebar icons when closed
   "workbench.activityBar.location": "top",
+
+  // # Neovim
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/vscode-neovim/init.lua",
+  "vscode-neovim.neovimInitVimPaths.linux": "~/.config/vscode-neovim/init.lua",
+  "vscode-neovim.useWSL": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 
   // # Vim
   "vim.useSystemClipboard": true,
@@ -125,7 +133,7 @@
       "commands": ["editor.action.formatDocument"]
     },
     {
-			// Close to <leader><space> for formatting CSV
+      // Close to <leader><space> for formatting CSV
       "before": ["<leader>", "+"],
       "after": [],
       "commands": ["rainbow-csv.Align"]
@@ -456,8 +464,12 @@
     "editor.defaultFormatter": "bufbuild.vscode-buf"
   },
 
+  "[markdown]": {
+    // CSV goes all the way across for single lines.
+    "editor.wordWrap": "off"
+  },
   "[csv]": {
-		// CSV goes all the way across for single lines.
+    // CSV goes all the way across for single lines.
     "editor.wordWrap": "off"
   },
 
@@ -484,23 +496,24 @@
   // # Spelling
   "cSpell.enableFiletypes": ["go"],
   "cSpell.enabledLanguageIds": [
+    "lua",
     "elixir",
     "erb",
+    "go",
+    "golang",
     "javascript",
     "javascriptreact",
     "json",
     "markdown",
+    "mdx",
     "plaintext",
+    "proto3",
     "ruby",
+    "solidity",
     "text",
     "typescript",
     "typescriptreact",
-    "yml",
-    "mdx",
-    "solidity",
-    "go",
-    "golang",
-    "proto3"
+    "yml"
   ],
   "cSpell.userWords": [
     "abicoder",
@@ -639,7 +652,6 @@
     "transcoder",
     "transcoding",
     "truthy",
-    "typep",
     "uneditable",
     "unmarshaled",
     "unmarshaler",
