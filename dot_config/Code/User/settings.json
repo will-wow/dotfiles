@@ -16,7 +16,8 @@
   "editor.inlineSuggest.enabled": true,
   "editor.insertSpaces": false,
   "editor.lineNumbers": "on",
-  "editor.linkedEditing": true,
+  // Auto-updating tags doesn't play well with vim.
+  "editor.linkedEditing": false,
   "editor.minimap.enabled": false,
   "editor.stickyScroll.enabled": true,
   "editor.suggestSelection": "first",
@@ -59,7 +60,7 @@
   "workbench.editor.labelFormat": "medium",
   // Go to the json editor by default.
   "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.colorTheme": "Dracula",
 
   // ## OS-Specific
 
@@ -94,7 +95,32 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-
+  "settings.cycle": [
+    {
+      "id": "inlayHints",
+      "overrideWorkspaceSettings": false,
+      "values": [
+        {
+          "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+          "typescript.inlayHints.parameterNames.enabled": "none",
+          "typescript.inlayHints.parameterTypes.enabled": false,
+          "javascript.inlayHints.parameterNames.enabled": "none",
+          "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+          "javascript.inlayHints.enumMemberValues.enabled": false,
+          "javascript.inlayHints.parameterTypes.enabled": false
+        },
+        {
+          "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+          "typescript.inlayHints.parameterNames.enabled": "all",
+          "typescript.inlayHints.parameterTypes.enabled": true,
+          "javascript.inlayHints.parameterNames.enabled": "all",
+          "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+          "javascript.inlayHints.enumMemberValues.enabled": true,
+          "javascript.inlayHints.parameterTypes.enabled": true
+        }
+      ]
+    }
+  ],
   // # Vim
   "vim.useSystemClipboard": true,
   "vim.leader": "<space>",
@@ -331,10 +357,6 @@
 
   // # Language-specific settings
 
-  "files.associations": {
-    "atlas.hcl": "atlas-config"
-  },
-
   // ## JS
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -344,13 +366,13 @@
     "typescript",
     "typescriptreact"
   ],
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "javascript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "typescript.inlayHints.parameterTypes.enabled": false,
+  "javascript.inlayHints.parameterNames.enabled": "none",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+  "javascript.inlayHints.enumMemberValues.enabled": false,
+  "javascript.inlayHints.parameterTypes.enabled": false,
 
   // ## Go
 
@@ -525,7 +547,6 @@
     "autosave",
     "behaviour",
     "Behaviour",
-    "behaviour",
     "bignumber",
     "bookmarkers",
     "cachex",
@@ -567,6 +588,8 @@
     "firestore",
     "frontmatter",
     "futura",
+    "Gcode",
+    "gcodesandbox",
     "geofence",
     "Geofenced",
     "geohash",
@@ -579,12 +602,11 @@
     "IERC",
     "immersivemess",
     "injectable",
-    "ppfs",
     "juypter",
     "Juypter",
     "kablammo",
-    "Kalman",
     "kalman",
+    "Kalman",
     "keccak",
     "larkdown",
     "leaderboard",
@@ -598,7 +620,6 @@
     "Ockelmann",
     "onboarding",
     "openapi",
-    "openapi",
     "orderbook",
     "Orderbook",
     "overlayed",
@@ -611,6 +632,7 @@
     "poap",
     "poppable",
     "Postgres",
+    "ppfs",
     "preload",
     "preprocess",
     "preprocessors",
@@ -625,7 +647,6 @@
     "repos",
     "Rerem",
     "resizer",
-    "Roadmap",
     "Roadmap",
     "rootname",
     "ropsten",
@@ -642,6 +663,7 @@
     "struct",
     "structs",
     "tablature",
+    "tanstack",
     "termsheet",
     "tezos",
     "themself",
@@ -670,5 +692,6 @@
     "webauthn",
     "zappar",
     "zustand"
-  ]
+  ],
+  "window.zoomLevel": 1
 }

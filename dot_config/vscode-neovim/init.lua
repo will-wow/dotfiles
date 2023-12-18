@@ -24,7 +24,7 @@ require("lazy").setup({
 	{ "tpope/vim-speeddating" },
 	{ "tpope/vim-surround" },
 	-- gS to toggle splitting args to multiple lines
-	{ 'echasnovski/mini.splitjoin',     version = '*' },
+	{ "echasnovski/mini.splitjoin", version = "*" },
 
 	{
 		"echasnovski/mini.ai",
@@ -47,89 +47,104 @@ require("lazy").setup({
 					t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
 				},
 			}
-		end
-	}
+		end,
+	},
 })
 
-require('mini.splitjoin').setup()
-require('mini.ai').setup()
+require("mini.splitjoin").setup()
+require("mini.ai").setup()
 
 -- Yank to clipboard
 vim.opt.clipboard = "unnamedplus"
 
+-- Clear search highlight
+vim.keymap.set("n", "<esc>", ":noh<return><esc>")
+
 if vim.g.vscode then
 	-- Only run within VSCode extension
 
-	local vscode = require('vscode-neovim')
+	local vscode = require("vscode-neovim")
 
 	-- vim-vinegar
-	vim.keymap.set('n', '-', function()
+	vim.keymap.set("n", "-", function()
 		vscode.action("workbench.action.focusSideBar")
-		vscode.action('workbench.files.action.showActiveFileInExplorer')
+		vscode.action("workbench.files.action.showActiveFileInExplorer")
 	end)
 
 	-- format
-	vim.keymap.set('n', '<Leader>=', function()
+	vim.keymap.set("n", "<Leader>=", function()
 		vscode.action("editor.action.formatDocument")
 	end)
 
-	vim.keymap.set('n', '<Leader>+', function()
+	vim.keymap.set("n", "<Leader>+", function()
 		vscode.action("rainbow-csv.Align")
 	end)
 
 	-- Close whole split with Ctrl-w c, not just the file.
-	vim.keymap.set('n', '<C-w>c', function()
+	vim.keymap.set("n", "<C-w>c", function()
 		vscode.action("workbench.action.closeEditorsInGroup")
 	end)
 
 	-- command pallet
-	vim.keymap.set('n', '<Leader>:', function()
+	vim.keymap.set("n", "<Leader>:", function()
 		vscode.action("workbench.action.showCommands")
 	end)
 
 	-- global search
-	vim.keymap.set('n', '<Leader>/', function()
+	vim.keymap.set("n", "<Leader>/", function()
 		vscode.action("workbench.view.search")
 	end)
 
-	vim.keymap.set('n', '<Leader>*', function()
+	vim.keymap.set("n", "<Leader>*", function()
 		vscode.action("workbench.view.search")
 	end)
 
 	-- git
-	vim.keymap.set('n', '<Leader>gg', function()
+	vim.keymap.set("n", "<Leader>gg", function()
 		vscode.action("workbench.view.scm")
 	end)
 
 	-- tests
-	vim.keymap.set('n', '<Leader>tt', function()
+	vim.keymap.set("n", "<Leader>tt", function()
 		vscode.action("testing.runCurrentFile")
 	end)
 
-	vim.keymap.set('n', '<Leader>tr', function()
+	vim.keymap.set("n", "<Leader>tr", function()
 		vscode.action("testing.runAtCursor")
 	end)
 
+	vim.keymap.set("n", "<Leader>tdr", function()
+		vscode.action("testing.debugAtCursor")
+	end)
+
+	vim.keymap.set("n", "<Leader>tl", function()
+		vscode.action("testing.reRunLastRun")
+	end)
+
+	vim.keymap.set("n", "<Leader>tdl", function()
+		vscode.action("testing.debugLastRun")
+	end)
+
 	-- lsp code action
-	vim.keymap.set('n', '<Leader>ca', function()
+	vim.keymap.set("n", "<Leader>ca", function()
 		vscode.action("editor.action.quickFix")
 	end)
 
 	-- Next/prev git change
-	vim.keymap.set('n', '[c', function()
+	vim.keymap.set("n", "[c", function()
 		vscode.action("workbench.action.editor.previousChange")
 	end)
 
-	vim.keymap.set('n', ']c', function()
+	vim.keymap.set("n", "]c", function()
 		vscode.action("workbench.action.editor.nextChange")
 	end)
 
 	-- Next/prev error
-	vim.keymap.set('n', '[s', function()
+	vim.keymap.set("n", "[s", function()
 		vscode.action("editor.action.marker.prev")
 	end)
 
-	vim.keymap.set('n', ']s', function()
+	vim.keymap.set("n", "]s", function()
 		vscode.action("editor.action.marker.next")
 	end)
 else
