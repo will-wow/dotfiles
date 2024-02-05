@@ -1,74 +1,4 @@
 [
-  // # Alawys-maximized terminal
-
-  // Close the terminal when focused with ctrl+p/other commands that will open a file, so that it selecting a file doesn't un-maximize the terminal.
-  {
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+p",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.action.togglePanel", "workbench.action.quickOpen"]
-    }
-  },
-  {
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+shift+p",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.togglePanel",
-        "workbench.action.showCommands"
-      ]
-    }
-  },
-  {
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+t",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.togglePanel",
-        "workbench.action.showAllSymbols"
-      ]
-    }
-  },
-  {
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+shift+f",
-    "when": "panelFocus",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.togglePanel",
-        "workbench.action.findInFiles"
-      ]
-    }
-  },
-  // Max terminal toggle
-  {
-    // Maximize the terminal when it is not visible
-    // Also, close the file explorer for further focus.
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.closeSidebar",
-        "workbench.action.toggleMaximizedPanel"
-      ]
-    },
-    "when": "!panelFocus && !terminalFocus"
-  },
-  {
-    // Just toggle maximization.
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+shift+j",
-    "command": "workbench.action.toggleMaximizedPanel"
-  },
-  {
-    // Close the panel when it is visible and/or focused
-    "key": "{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
-    "command": "workbench.action.togglePanel",
-    "when": "panelFocus || terminalFocus || activePanel == 'terminal' || activePanel == 'workbench.panel.output' || activePanel == 'workbench.panel.markers' || activePanel == 'workbench.panel.repl' || activePanel == 'workbench.panel.comments'"
-  },
-
   // # File Exploer works like neotree
   {
     "key": "/",
@@ -190,6 +120,31 @@
     "command": "selectPrevSuggestion",
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
+
+	{{- if ne .chezmoi.os "darwin" }}
+  // Remove ctrl+j for neovim, since I use it for opening the panel
+  {
+    "key": "ctrl+j",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal.j && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.ctrlKeysInsert.j && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+	// Allow ctrl+p ctrl+p to go to the next file as normal, instead of swapped.
+  {
+    "key": "ctrl+p",
+    "command": "-workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen && neovim.wildMenuVisible || inQuickOpen && neovim.mode != 'cmdline'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen && neovim.wildMenuVisible || inQuickOpen && neovim.mode != 'cmdline'"
+  },
+	{{- end }}
 
   // # Other commands
 

@@ -55,6 +55,10 @@
   },
   "search.mode": "view",
   // Windows
+	// Allows ctrl+b to work in the terminal.
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleSidebarVisibility"
+  ],
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "workbench.editor.labelFormat": "medium",
@@ -87,6 +91,8 @@
   // # Max terminal
   // Hide the sidebar icons when closed
   "workbench.activityBar.location": "top",
+	// Terminal should always open maximized
+  "workbench.panel.opensMaximized": "always",
 
   // # Neovim
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/vscode-neovim/init.lua",

@@ -67,8 +67,8 @@ if vim.g.vscode then
 
 	-- vim-vinegar
 	vim.keymap.set("n", "-", function()
-		vscode.action("workbench.action.focusSideBar")
 		vscode.action("workbench.files.action.showActiveFileInExplorer")
+		vscode.action("workbench.action.focusSideBar")
 	end)
 
 	-- format
