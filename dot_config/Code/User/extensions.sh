@@ -9,7 +9,6 @@ code --install-extension mechatroner.rainbow-csv
 code --install-extension mikestead.dotenv
 code --install-extension naumovs.color-highlight
 code --install-extension Orta.vscode-jest
-code --install-extension Orta.vscode-jest
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension waderyan.gitblame
 code --install-extension will-wow.vscode-alternate-file

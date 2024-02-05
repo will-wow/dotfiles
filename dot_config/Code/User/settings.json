@@ -55,7 +55,7 @@
   },
   "search.mode": "view",
   // Windows
-	// Allows ctrl+b to work in the terminal.
+  // Allows ctrl+b to work in the terminal.
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.toggleSidebarVisibility"
   ],
@@ -91,7 +91,7 @@
   // # Max terminal
   // Hide the sidebar icons when closed
   "workbench.activityBar.location": "top",
-	// Terminal should always open maximized
+  // Terminal should always open maximized
   "workbench.panel.opensMaximized": "always",
 
   // # Neovim
@@ -113,7 +113,10 @@
           "javascript.inlayHints.parameterNames.enabled": "none",
           "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
           "javascript.inlayHints.enumMemberValues.enabled": false,
-          "javascript.inlayHints.parameterTypes.enabled": false
+          "javascript.inlayHints.parameterTypes.enabled": false,
+          "go.inlayHints.compositeLiteralFields": false,
+          "go.inlayHints.constantValues": false,
+          "go.inlayHints.parameterNames": false
         },
         {
           "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
@@ -122,7 +125,10 @@
           "javascript.inlayHints.parameterNames.enabled": "all",
           "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
           "javascript.inlayHints.enumMemberValues.enabled": true,
-          "javascript.inlayHints.parameterTypes.enabled": true
+          "javascript.inlayHints.parameterTypes.enabled": true,
+          "go.inlayHints.compositeLiteralFields": true,
+          "go.inlayHints.constantValues": true,
+          "go.inlayHints.parameterNames": true
         }
       ]
     }
@@ -363,9 +369,15 @@
 
   // # Language-specific settings
 
+  "files.associations": {
+    "atlas.hcl": "atlas-config"
+  },
+
   // ## JS
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  // Don't use aliases in renames of punned fields.
+  "typescript.preferences.useAliasesForRenames": false,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -386,6 +398,9 @@
   "gopls": {
     "ui.semanticTokens": true
   },
+  "go.inlayHints.compositeLiteralFields": false,
+  "go.inlayHints.constantValues": false,
+  "go.inlayHints.parameterNames": false,
 
   // ## CSS
 
