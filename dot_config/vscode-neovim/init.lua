@@ -99,6 +99,11 @@ if vim.g.vscode then
 		vscode.action("workbench.view.search")
 	end)
 
+	-- Open local symbol search
+	vim.keymap.set("n", "@", function()
+		vscode.action("workbench.action.gotoSymbol")
+	end)
+
 	-- git
 	vim.keymap.set("n", "<Leader>gg", function()
 		vscode.action("workbench.view.scm")

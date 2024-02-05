@@ -89,6 +89,18 @@
       ]
     }
   },
+  {
+    // Close the sidebar after selecting a file in a split in keyboard mode
+    "key": "v",
+    "command": "runCommands",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsFolder && !inputFocus",
+    "args": {
+      "commands": [
+        "explorer.openToSide",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
   // ctrl-hjkl to move through menus
   {
     "key": "ctrl+j",
