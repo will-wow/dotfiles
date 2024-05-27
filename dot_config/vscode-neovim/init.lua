@@ -100,7 +100,7 @@ if vim.g.vscode then
 	end)
 
 	-- Open local symbol search
-	vim.keymap.set("n", "@", function()
+	vim.keymap.set("n", "<Leader>@", function()
 		vscode.action("workbench.action.gotoSymbol")
 	end)
 
