@@ -57,9 +57,6 @@ require("mini.ai").setup()
 -- Yank to clipboard
 vim.opt.clipboard = "unnamedplus"
 
--- Clear search highlight
-vim.keymap.set("n", "<esc>", ":noh<return><esc>")
-
 if vim.g.vscode then
 	-- Only run within VSCode extension
 
