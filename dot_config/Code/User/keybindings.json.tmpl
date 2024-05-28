@@ -158,6 +158,21 @@
   },
 	{{- end }}
 
+	{
+		"key": "cmd+l",
+		"command": "workbench.action.nextPanelView",
+		"when": "panelMaximized"
+	},
+	{
+		"key": "cmd+h",
+		"command": "workbench.action.previousPanelView",
+		"when": "panelMaximized"
+	},
+	{
+		"key": "shift+{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
+		"command": "workbench.action.toggleMaximizedPanel"
+	},
+
   // # Other commands
 
   // Disable this, I don't remember why.

@@ -49,6 +49,7 @@
     "scminput": false,
     "yaml": false
   },
+  "cursor.cpp.disabledLanguages": ["markdown", "scminput"],
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true
@@ -384,13 +385,13 @@
     "typescript",
     "typescriptreact"
   ],
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
-  "typescript.inlayHints.parameterNames.enabled": "none",
-  "typescript.inlayHints.parameterTypes.enabled": false,
-  "javascript.inlayHints.parameterNames.enabled": "none",
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
-  "javascript.inlayHints.enumMemberValues.enabled": false,
-  "javascript.inlayHints.parameterTypes.enabled": false,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
 
   // ## Go
 
@@ -398,12 +399,11 @@
   "gopls": {
     "ui.semanticTokens": true
   },
-  "go.inlayHints.compositeLiteralFields": false,
-  "go.inlayHints.constantValues": false,
-  "go.inlayHints.parameterNames": false,
+  "go.inlayHints.compositeLiteralFields": true,
+  "go.inlayHints.constantValues": true,
+  "go.inlayHints.parameterNames": true,
 
   // ## CSS
-
   "css.lint.unknownAtRules": "ignore",
 
   // ## HTML
@@ -430,6 +430,10 @@
   // ## PostgreSQL
   "pgFormatter.commaBreak": true,
   "pgFormatter.spaces": 4,
+  "pgFormatter.multiline": true,
+  "pgFormatter.keepNewline": true,
+  "pgFormatter.noSpaceFunction": true,
+  "pgFormatter.configFile": "$HOME/.pg_format.conf",
   "pgFormatter.placeholder": "-- pgfmt: off(?:.*)?-- pgfmt: on",
 
   // ## Python
@@ -560,6 +564,7 @@
   ],
   "cSpell.userWords": [
     "abicoder",
+    "actuals",
     "AFRAME",
     "ainsoph",
     "Airtable",
@@ -599,6 +604,7 @@
     "drei",
     "droplist",
     "ecto",
+    "embeddable",
     "entrypoint",
     "equirectangular",
     "erlang",
