@@ -11,6 +11,7 @@
   "editor.cursorStyle": "line",
   "editor.find.seedSearchStringFromSelection": "selection",
   "editor.formatOnSave": false,
+  "window.zoomLevel": {{ if eq .chezmoi.os "darwin" }}1{{ else }}2{{ end }},
   // Because of the above, don't do anything on save.
   "editor.formatOnType": false,
   "editor.inlineSuggest.enabled": true,
@@ -43,13 +44,15 @@
   },
   "git.autofetch": true,
   "github.copilot.enable": {
-    "*": true,
+    "*": {{ if .cursor}}false{{ else}}true{{ end}},
     "plaintext": true,
     "markdown": false,
     "scminput": false,
     "yaml": false
   },
+	{{- if .cursor}}
   "cursor.cpp.disabledLanguages": ["markdown", "scminput"],
+	{{- end}}
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true
@@ -721,6 +724,5 @@
     "webauthn",
     "zappar",
     "zustand"
-  ],
-  "window.zoomLevel": 1
+  ]
 }
