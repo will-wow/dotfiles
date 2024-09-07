@@ -36,17 +36,17 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 # Install key brew dependencies
 brew install zsh bash neovim wget curl tmux git
+brew install --cask wezterm
 # Toolchain
 brew install coreutils openssl cmake gnupg llvm ncurses 
 # Cli tools
-brew install ripgrep fzf tmux readline htop imagemagick jq watchman python
+brew install ripgrep fzf tmux readline htop imagemagick jq python
 
 {{-   if .asdf.use }}
 brew install asdf
 {{-   end }}
 
 {{-   if .gui }}
-brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 {{-   end }}
 
