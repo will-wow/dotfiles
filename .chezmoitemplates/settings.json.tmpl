@@ -68,7 +68,7 @@
   "workbench.editor.labelFormat": "medium",
   // Go to the json editor by default.
   "workbench.settings.editor": "json",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Dracula Theme",
 
   // ## OS-Specific
 
@@ -377,6 +377,9 @@
     "atlas.hcl": "atlas-config"
   },
 
+  // Don't try to install C stuff
+	"makefile.configureOnOpen": false,
+
   // ## JS
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -388,13 +391,13 @@
     "typescript",
     "typescriptreact"
   ],
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "all",
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "javascript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": false,
+  "typescript.inlayHints.parameterNames.enabled": "none",
+  "typescript.inlayHints.parameterTypes.enabled": false,
+  "javascript.inlayHints.parameterNames.enabled": "none",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+  "javascript.inlayHints.enumMemberValues.enabled": false,
+  "javascript.inlayHints.parameterTypes.enabled": false,
 
   // ## Go
 
@@ -402,9 +405,9 @@
   "gopls": {
     "ui.semanticTokens": true
   },
-  "go.inlayHints.compositeLiteralFields": true,
-  "go.inlayHints.constantValues": true,
-  "go.inlayHints.parameterNames": true,
+  "go.inlayHints.compositeLiteralFields": false,
+  "go.inlayHints.constantValues": false,
+  "go.inlayHints.parameterNames": false,
 
   // ## CSS
   "css.lint.unknownAtRules": "ignore",

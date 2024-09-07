@@ -1,3 +1,3 @@
 return {
-  { "mechatroner/rainbow_csv" },
+  { "chrisbra/csv.vim" },
 }
