@@ -20,8 +20,6 @@ export FZF_BASE=$HOME/.fzf
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export ASDF_NODEJS_AUTO_ENABLE_COREPACK=true
-
 # ZSH Plugins
 plugins=(git vi-mode fzf asdf zsh-syntax-highlighting)
 
@@ -144,6 +142,11 @@ fi
 {{- if .asdf.use }}
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 export DIRENV_LOG_FORMAT=""
+
+export ASDF_NODEJS_AUTO_ENABLE_COREPACK=true
+
+# add asdf to path
+export PATH="$HOME/.asdf/shims:$PATH"
 {{- end }}
 
 
