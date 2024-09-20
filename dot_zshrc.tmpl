@@ -9,6 +9,16 @@ fi
 # Oh-My-Zsh
 # ==========
 
+{{- if eq .chezmoi.os "darwin" }}
+# Set up justfile completions for ZSH
+
+# Init Homebrew, which adds environment variables
+eval "$(brew shellenv)"
+
+# Let ZSH find completions from the homebrew directory. This should happen before sourcing OMZ
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+{{- end }}
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
