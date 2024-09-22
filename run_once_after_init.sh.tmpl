@@ -100,7 +100,13 @@ cd ..
 
 # Install deps
 sudo apt update
-sudo apt install -y git zsh tmux curl neovim unzip ripgrep # Basics
+sudo apt install -y git zsh tmux curl unzip ripgrep # Basics
+
+# Install neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+
 # Toolchain
 sudo apt install -y automake autoconf build-essential libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
 {{   if (or .python .fuck) }}
@@ -123,9 +129,9 @@ pip3 install thefuck --user
 pip2 install --user neovim
 pip3 install --user neovim
 {{   end }}
-sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+sudo update-alternatives --install /usr/bin/vi vi /opt/nvim-linux64/bin/nvim 60
+sudo update-alternatives --install /usr/bin/vim vim /opt/nvim-linux64/bin/nvim 60
+sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux64/bin/nvim 60
 
 # END Linux
 {{ end }}

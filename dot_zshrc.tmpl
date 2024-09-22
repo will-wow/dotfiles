@@ -49,6 +49,10 @@ export PATH="$HOME/repos/bin:$PATH"
 export PATH="./bin:$PATH"
 # Add home bin to path
 export PATH="$HOME/bin:$PATH"
+{{- if eq .chezmoi.os "linux" }}
+# Add nvim to path
+export PATH="/opt/nvim-linux64/bin:$PATH"
+{{- end }}
 # Add local bin   
 export PATH="$PATH:$HOME/.local/bin"
 
