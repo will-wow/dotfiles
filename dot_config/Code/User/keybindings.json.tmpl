@@ -133,7 +133,7 @@
     "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
   },
 
-	{{- if ne .chezmoi.os "darwin" }}
+  {{- if ne .chezmoi.os "darwin" }}
   // Remove ctrl+j for neovim, since I use it for opening the panel
   {
     "key": "ctrl+j",
@@ -145,7 +145,7 @@
     "command": "-vscode-neovim.send",
     "when": "editorTextFocus && neovim.ctrlKeysInsert.j && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
-	// Allow ctrl+p ctrl+p to go to the next file as normal, instead of swapped.
+  // Allow ctrl+p ctrl+p to go to the next file as normal, instead of swapped.
   {
     "key": "ctrl+p",
     "command": "-workbench.action.quickOpenSelectPrevious",
@@ -156,22 +156,49 @@
     "command": "-workbench.action.quickOpenSelectNext",
     "when": "inQuickOpen && neovim.wildMenuVisible || inQuickOpen && neovim.mode != 'cmdline'"
   },
-	{{- end }}
+  {{- end }}
 
-	{
-		"key": "cmd+l",
-		"command": "workbench.action.nextPanelView",
-		"when": "panelMaximized"
-	},
-	{
-		"key": "cmd+h",
-		"command": "workbench.action.previousPanelView",
-		"when": "panelMaximized"
-	},
-	{
-		"key": "shift+{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
-		"command": "workbench.action.toggleMaximizedPanel"
-	},
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelMaximized"
+  },
+  {
+    "key": "cmd+h",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelMaximized"
+  },
+  {
+    "key": "shift+{{- if eq .chezmoi.os "darwin" }}cmd{{- else}}ctrl{{- end }}+j",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  
+  // # Terminal pane navigation
+
+  {
+    "key": "ctrl+a v",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "ctrl+a c",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "ctrl+a x",
+    "command": "workbench.action.terminal.kill"
+  },
+  {
+    "key": "ctrl+a h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+a l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
 
   // # Other commands
 
