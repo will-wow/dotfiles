@@ -40,7 +40,7 @@ brew install --cask wezterm
 # Toolchain
 brew install coreutils openssl cmake gnupg llvm ncurses 
 # Cli tools
-brew install ripgrep fzf tmux readline htop imagemagick jq python
+brew install ripgrep fzf tmux readline htop imagemagick jq python pipx
 
 {{-   if .asdf.use }}
 brew install asdf
@@ -49,6 +49,14 @@ brew install asdf
 {{-   if .gui }}
 brew install --cask font-fira-code
 {{-   end }}
+
+{{   if .python }}
+# Install and configure poetry
+pipx install poetry
+echo "adding poetry completions"
+mkdir $ZSH_CUSTOM/plugins/poetry
+poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
+{{   end }}
 
 # Use brew shells
 # echo /usr/local/bin/bash >> /etc/shells
