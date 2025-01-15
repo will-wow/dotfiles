@@ -13,6 +13,7 @@ fi
 # Set up justfile completions for ZSH
 
 # Init Homebrew, which adds environment variables
+export PATH="/opt/homebrew/bin:$PATH"
 eval "$(brew shellenv)"
 
 # Let ZSH find completions from the homebrew directory. This should happen before sourcing OMZ
@@ -97,6 +98,10 @@ alias pom='termdown 25m && say done'
 alias pom5='termdown 5m && say done'
 alias pom3='termdown 2m && say done'
 
+# Work
+
+alias lc='cd $HOME/repos/local-cluster'
+
 # ========
 # Vi-mode
 # ========
@@ -127,6 +132,13 @@ bindkey -M vicmd "_" vi-beginning-of-line
 # Mac OSX
 alias vi='nvim'
 alias vim='nvim'
+
+# Postgres 16
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
+
 {{- else if eq .chezmoi.os "linux" }}
 # Linux
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
@@ -206,9 +218,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-
 {{- if .gcp }}
 # GCP
 
@@ -224,10 +233,6 @@ if [ -f '/Users/wow/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wow/g
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 {{- end }}
-
-{{ if .fuck }}
-eval $(thefuck --alias)
-{{ end }}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
