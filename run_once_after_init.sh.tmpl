@@ -28,7 +28,7 @@
 {{ if eq .chezmoi.os "darwin" }}
 # MacOS
 # Install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # VS Code
 # Repeat vim commands
@@ -141,6 +141,13 @@ sudo update-alternatives --install /usr/bin/vi vi /opt/nvim-linux64/bin/nvim 60
 sudo update-alternatives --install /usr/bin/vim vim /opt/nvim-linux64/bin/nvim 60
 sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux64/bin/nvim 60
 
+
+{{-   if .asdf.use }}
+# ASDF
+# Install asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+{{    end }}
+
 # END Linux
 {{ end }}
 
@@ -174,14 +181,9 @@ if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlightin
 fi
 
 {{ if .asdf.use }}
-# ASDF
-# Install asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-
 # Install direnv
 asdf plugin-add direnv
 asdf direnv setup --shell zsh --version latest
-
 {{ end }}
 {{   if .asdf.elixir }}
 asdf plugin-add erlang
@@ -203,7 +205,9 @@ asdf plugin-add clojure
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
 asdf install nodejs 22.8.0
 asdf global nodejs 22.8.0
+asdf reshim nodejs
 npm install --global typescript prettier
+asdf reshim nodejs
 {{ end }}
 
 {{ if .asdf.elixir }}

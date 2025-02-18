@@ -82,6 +82,11 @@ if vim.g.vscode then
 		vscode.action("workbench.action.closeEditorsInGroup")
 	end)
 
+	-- Maximize current editor
+	vim.keymap.set("n", "<C-w>z", function()
+		vscode.action("workbench.action.toggleMaximizeEditorGroup")
+	end)
+
 	-- command pallet
 	vim.keymap.set("n", "<Leader>:", function()
 		vscode.action("workbench.action.showCommands")
