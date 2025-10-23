@@ -52,7 +52,7 @@ export PATH="./bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 {{- if eq .chezmoi.os "linux" }}
 # Add nvim to path
-export PATH="/opt/nvim-linux64/bin:$PATH"
+export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 {{- end }}
 # Add local bin   
 export PATH="$PATH:$HOME/.local/bin"
@@ -150,7 +150,7 @@ else
   if [ -x "$(command -v setxkbmap)" ]; then
     setxkbmap -option caps:escape
   fi
-  eval `dircolors $HOME/.dir_colors/dircolors`
+  # eval `dircolors $HOME/.dir_colors/dircolors`
 fi
 {{- end }}
 
@@ -166,9 +166,6 @@ fi
 
 
 {{- if .asdf.use }}
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-export DIRENV_LOG_FORMAT=""
-
 export ASDF_NODEJS_AUTO_ENABLE_COREPACK=true
 
 # add asdf to path

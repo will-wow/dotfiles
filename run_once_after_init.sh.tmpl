@@ -111,9 +111,10 @@ sudo apt update
 sudo apt install -y git zsh tmux curl unzip ripgrep fzf # Basics
 
 # Install neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm nvim-linux-x86_64.tar.gz
 
 # Toolchain
 sudo apt install -y automake autoconf build-essential libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev
@@ -130,6 +131,11 @@ sudo apt install -y autoconf automake pkg-config libevent-dev bison libncurses5-
 sudo apt install -y tree # cli tools
 {{   if .fuck }}
 pip3 install thefuck --user
+# go
+https://go.dev/dl/go1.25.3.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz
+
 {{   end }}
 
 # Configure Neovim
@@ -145,6 +151,7 @@ sudo update-alternatives --install /usr/bin/editor editor /opt/nvim-linux64/bin/
 {{-   if .asdf.use }}
 # ASDF
 # Install asdf
+go install github.com/asdf-vm/asdf/cmd/asdf@latest
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 {{    end }}
 
@@ -162,7 +169,7 @@ fi
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
 # Set up tmuxinator completion (won't work without a gem install, which is later.)
-wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
+# wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -P ~/.bin/
 
 # Intall Justfiles
 curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ~/bin
@@ -180,33 +187,28 @@ if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlightin
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
-{{ if .asdf.use }}
-# Install direnv
-asdf plugin-add direnv
-asdf direnv setup --shell zsh --version latest
-{{ end }}
 {{   if .asdf.elixir }}
-asdf plugin-add erlang
-asdf plugin-add elixir
+asdf plugin add erlang
+asdf plugin add elixir
 {{ end }}
-{{ if .asdf.nodejs }}
-asdf plugin-add nodejs
-{{ end }}
+
 {{ if .asdf.java}}
-asdf plugin-add java
+asdf plugin add java
 {{ end }}
 {{ if .asdf.clojure }}
-asdf plugin-add clojure
+asdf plugin add clojure
 {{ end }}
 
 
 {{ if .asdf.nodejs }}
 # Node
-bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring # Add node public keys
-asdf install nodejs 22.8.0
-asdf global nodejs 22.8.0
+asdf plugin add nodejs
+asdf install nodejs lts
+asdf set -u nodejs lts
 asdf reshim nodejs
-npm install --global typescript prettier
+corepack enable pnpm
+corepack use pnpm@latest-10
+npm install --global prettier
 asdf reshim nodejs
 {{ end }}
 
