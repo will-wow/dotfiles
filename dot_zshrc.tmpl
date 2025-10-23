@@ -183,6 +183,10 @@ export PATH="$HOME/go/bin:$PATH"
 
 export GOPATH="$HOME/repos/go"
 export PATH="$GOPATH/bin:$PATH"
+
+export GOPRIVATE="hadrian.buf.dev/gen/go,github.com/Hadrian-MTV/*"
+export GONOPROXY="hadrian.buf.dev/gen/go,github.com/Hadrian-MTV/*"
+export GONOSUMDB="hadrian.buf.dev/gen/go,github.com/Hadrian-MTV/*"
 {{- end }}
 
 {{- if .python }}

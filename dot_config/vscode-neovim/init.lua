@@ -14,20 +14,20 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to set `mapleader` before lazy so your mappings are correct
 vim.g.mapleader = " "
 
-require("lazy").setup({
-	{ "michaeljsmith/vim-indent-object" },
+plugins = {
+	{ "michaeljsmith/vim-indent-object" }, -- indent blocks as word types
 	-- { "PeterRincker/vim-argumentative" },
-	{ "Raimondi/delimitMate" },
-	{ "tpope/vim-abolish" },
-	{ "tpope/vim-commentary" },
-	{ "tpope/vim-repeat" },
-	{ "tpope/vim-speeddating" },
-	{ "tpope/vim-surround" },
+	{ "Raimondi/delimitMate" }, -- autoclose braces
+	{ "tpope/vim-abolish" }, -- camel/snake-kebab
+	{ "tpope/vim-commentary" }, -- toggle comments
+	{ "tpope/vim-repeat" }, -- some plugins can be repeated with .
+	{ "tpope/vim-speeddating" }, -- c-a c-x works on date strings
+	{ "tpope/vim-surround" }, -- surround with braces quotes etc.
 	-- gS to toggle splitting args to multiple lines
 	{ "echasnovski/mini.splitjoin", version = "*" },
 
 	{
-		"echasnovski/mini.ai",
+		"echasnovski/mini.ai", -- a/i commands work on args, quotes, functions, etc.
 		-- keys = {
 		--   { "a", mode = { "x", "o" } },
 		--   { "i", mode = { "x", "o" } },
@@ -49,7 +49,14 @@ require("lazy").setup({
 			}
 		end,
 	},
-})
+}
+
+
+if not vim.g.vscode then
+	table.insert(plugins, { "tpope/vim-vinegar" })
+end
+
+require("lazy").setup(plugins)
 
 require("mini.splitjoin").setup()
 require("mini.ai").setup()
@@ -80,6 +87,12 @@ if vim.g.vscode then
 	-- Close whole split with Ctrl-w c, not just the file.
 	vim.keymap.set("n", "<C-w>c", function()
 		vscode.action("workbench.action.closeEditorsInGroup")
+	end)
+
+	-- split into new focused editor
+	vim.keymap.set("n", "<C-w>f", function()
+		vscode.action("workbench.action.splitEditor")
+		vscode.action("workbench.action.toggleMaximizeEditorGroup")
 	end)
 
 	-- Maximize current editor
